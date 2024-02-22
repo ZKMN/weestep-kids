@@ -12,14 +12,18 @@ import { TLanguages } from '@/shared/types';
 export async function generateMetadata({ params: { lng } }: { params: { lng: TLanguages; }; }): Promise<Metadata> {
   if (lng === 'es') {
     return {
-      title: 'Todos los productos  | Weestep - be bigger',
-      description: 'Todos los productos  | Weestep - be bigger',
+      title: 'Todos los productos | Weestep - be bigger',
+      description: `Descubre una amplia selección de zapatos elegantes y cómodos para niños en Weestep Kids. 
+      Nuestra colección incluye zapatillas de moda, sandalias duraderas y botas adorables, todas elaboradas con 
+      materiales de calidad. Desde tallas para niños pequeños hasta preadolescentes, encuentra el ajuste perfecto 
+      para tu pequeño. Compra calzado infantil asequible y de moda en Weestep Kids y asegúrate de que tu 
+      hijo dé cada paso con estilo y comodidad. ¡Explora nuestra gama hoy mismo!`,
       metadataBase: new URL(String(config?.urls.site)),
       icons: config?.icons,
       openGraph: {
         url: config?.urls.site,
         type: 'website',
-        title: 'Todos los productos  | Weestep - be bigger',
+        title: 'Todos los productos | Weestep - be bigger',
         locale: lng,
         images: {
           url: '/images/logo.svg',
@@ -29,8 +33,12 @@ export async function generateMetadata({ params: { lng } }: { params: { lng: TLa
       },
       twitter: {
         site: config?.urls.site,
-        title: 'Todos los productos  | Weestep - be bigger',
-        description: 'Todos los productos  | Weestep - be bigger',
+        title: 'Todos los productos | Weestep - be bigger',
+        description: `Descubre una amplia selección de zapatos elegantes y cómodos para niños en Weestep Kids. 
+        Nuestra colección incluye zapatillas de moda, sandalias duraderas y botas adorables, todas elaboradas con 
+        materiales de calidad. Desde tallas para niños pequeños hasta preadolescentes, encuentra el ajuste perfecto 
+        para tu pequeño. Compra calzado infantil asequible y de moda en Weestep Kids y asegúrate de que tu 
+        hijo dé cada paso con estilo y comodidad. ¡Explora nuestra gama hoy mismo!`,
         images: {
           url: '/images/logo.svg',
           width: '420px',
@@ -42,7 +50,11 @@ export async function generateMetadata({ params: { lng } }: { params: { lng: TLa
 
   return {
     title: 'All products | Weestep - be bigger',
-    description: 'All products | Weestep - be bigger',
+    description: `Discover a wide selection of stylish and comfortable kids' shoes at Weestep Kids. 
+    Our collection features trendy sneakers, durable sandals, and adorable boots, all crafted with quality materials. 
+    From toddler to pre-teen sizes, find the perfect fit for your little one. 
+    Shop affordable and on-trend children's footwear at Weestep Kids and ensure your child takes every step in style 
+    and comfort. Explore our range today!`,
     metadataBase: new URL(String(config?.urls.site)),
     icons: config?.icons,
     openGraph: {
@@ -59,7 +71,11 @@ export async function generateMetadata({ params: { lng } }: { params: { lng: TLa
     twitter: {
       site: config?.urls.site,
       title: 'All products | Weestep - be bigger',
-      description: 'All products | Weestep - be bigger',
+      description: `Discover a wide selection of stylish and comfortable kids' shoes at Weestep Kids. 
+      Our collection features trendy sneakers, durable sandals, and adorable boots, all crafted with quality materials. 
+      From toddler to pre-teen sizes, find the perfect fit for your little one. 
+      Shop affordable and on-trend children's footwear at Weestep Kids and ensure your child takes every step in style 
+      and comfort. Explore our range today!`,
       images: {
         url: '/images/logo.svg',
         width: '420px',
@@ -78,10 +94,14 @@ const RootLayout = ({
   params: { lng },
 }: React.PropsWithChildren<{ params: { lng: string; }; }>) => {
   const jsonLd = {
-    '@id': 'https://weestep-kids.vercel.app/es',
+    '@id': config?.urls.site,
     '@type': 'Zapatos',
     name: 'Weestep Kids!',
-    description: 'Weestep Kids',
+    description: `Descubre una amplia selección de zapatos elegantes y cómodos para niños en Weestep Kids. 
+    Nuestra colección incluye zapatillas de moda, sandalias duraderas y botas adorables, todas elaboradas con 
+    materiales de calidad. Desde tallas para niños pequeños hasta preadolescentes, encuentra el ajuste perfecto 
+    para tu pequeño. Compra calzado infantil asequible y de moda en Weestep Kids y asegúrate de que tu 
+    hijo dé cada paso con estilo y comodidad. ¡Explora nuestra gama hoy mismo!`,
   };
 
   return (
@@ -100,41 +120,41 @@ const RootLayout = ({
         {/* Clickjacking attack def */}
         <Script id="clickjack">
           {`
-          function isInFrame() {
-            try {
-              return window.self !== window.top;
-            } catch (e) {
-              return true;
+            function isInFrame() {
+              try {
+                return window.self !== window.top;
+              } catch (e) {
+                return true;
+              }
             }
-          }
-          
-          // Sanitize the href value to prevent open redirection attacks
-          function isCorrectURL(url) {
-            const regex = /^(https?):\\/\\/[^\\s$.?#].[^\\s]*$/i;
-            const correctURL = regex.test(url) ? url : null;
-    
-            // Encode any untrusted data in the URL
-            if (correctURL && correctURL.startsWith("https://weestep-kids.vercel.app")) {
-              return encodeURIComponent(correctURL);
-            }
-    
-            return "https://weestep-kids.vercel.app";
-          }
-          
-          // If the current window is in a frame, redirect to the sanitized URL
-          if (isInFrame()) {
-            const href = document.querySelector("a").getAttribute("href");
-            const correctURL = isCorrectURL(href);
-    
-            window.top.location.replace(correctURL);
-          }
-    
-          // Framebusting script to prevent clickjacking attacks
-          if (window.self !== window.top) {
-            const correctURL = isCorrectURL(window.location.href);
             
-            window.top.location.replace(correctURL);
-          }
+            // Sanitize the href value to prevent open redirection attacks
+            function isCorrectURL(url) {
+              const regex = /^(https?):\\/\\/[^\\s$.?#].[^\\s]*$/i;
+              const correctURL = regex.test(url) ? url : null;
+      
+              // Encode any untrusted data in the URL
+              if (correctURL && correctURL.startsWith("https://weestep-kids.es/")) {
+                return encodeURIComponent(correctURL);
+              }
+      
+              return "https://weestep-kids.es/";
+            }
+            
+            // If the current window is in a frame, redirect to the sanitized URL
+            if (isInFrame()) {
+              const href = document.querySelector("a").getAttribute("href");
+              const correctURL = isCorrectURL(href);
+      
+              window.top.location.replace(correctURL);
+            }
+      
+            // Framebusting script to prevent clickjacking attacks
+            if (window.self !== window.top) {
+              const correctURL = isCorrectURL(window.location.href);
+              
+              window.top.location.replace(correctURL);
+            }
           `}
         </Script>
       </body>
