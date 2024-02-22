@@ -6,11 +6,37 @@ import { App } from '@/appLayer/App';
 
 import { hendrixFont } from '@/shared/assets/font';
 import { LANGUAGES } from '@/shared/consts';
+import { config } from '@/shared/lib/config';
+import { TLanguages } from '@/shared/types';
 
-export const metadata: Metadata = {
-  title: 'Weestep Kids Zapatos',
-  description: 'Weestep Kids Zapatos',
-};
+export async function generateMetadata({ params: { lng } }: { params: { lng: TLanguages; }; }): Promise<Metadata> {
+  return {
+    title: 'Weestep Kids Zapatos',
+    description: 'Weestep Kids Zapatos',
+    // metadataBase: new URL(String(config?.urls.imgCDN)),
+    openGraph: {
+      url: config?.urls.site,
+      type: 'website',
+      title: 'Weestep Kids Zapatos',
+      locale: lng,
+      images: {
+        url: 'https://retailinsider.b-cdn.net/wp-content/uploads/2022/03/Screen-Shot-2022-03-16-at-6.09.19-PM.png',
+        width: '50px',
+        height: '50px',
+      },
+    },
+    twitter: {
+      site: config?.urls.site,
+      title: 'Weestep Kids Zapatos',
+      description: 'Weestep Kids Zapatos',
+      images: {
+        url: 'https://retailinsider.b-cdn.net/wp-content/uploads/2022/03/Screen-Shot-2022-03-16-at-6.09.19-PM.png',
+        width: '50px',
+        height: '50px',
+      },
+    },
+  };
+}
 
 export async function generateStaticParams() {
   return LANGUAGES.map((lng) => ({ lng }));
