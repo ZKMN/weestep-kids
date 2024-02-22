@@ -1,9 +1,11 @@
 import { MetadataRoute } from 'next';
 
+import { config } from '@/shared/lib/config';
+
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
-      url: 'https://weestep-kids.vercel.app/es',
+      url: String(config?.urls.site),
       lastModified: new Date(),
       changeFrequency: 'yearly',
       priority: 1,
