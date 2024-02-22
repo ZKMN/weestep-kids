@@ -1,5 +1,5 @@
 export interface IUserInfoStore {
-  unAuthProducts: Record<string, unknown>[] | null;
+  unAuthProducts?: Record<string, unknown>[] | null;
 }
 
 export interface IUserInfoStoreActions {
