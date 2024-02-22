@@ -1,0 +1,23 @@
+{
+  "addToCart": "Add to Cart",
+  "regular": "Regular",
+  "continueWithGoogle": "Continue with Google",
+  "pickup": "Ramassage",
+  "delivery": "Livraison",
+  "apply": "Apply",
+  "logout": "Logout",
+  "back": "Back",
+  "cancel": "Cancel",
+  "submit": "Submit",
+  "customize": "Customize",
+  "list": "List",
+  "map": "Map",
+  "orderHere": "Order Here",
+  "continue": "Continue",
+  "resendCode": "{{ time }} Resend Code",
+  "storeInfo": "Store Info",
+  "close": "Close",
+  "closed": "Closed",
+  "reset": "Reset",
+  "addSpecialInstructions": "Add special instructions"
+}
