@@ -1,5 +1,5 @@
-import { Home } from '@/pagesLayer/Home';
+import { Catalogue } from '@/pagesLayer/Catalogue';
 
-const HomePage = () => <Home />;
+const CataloguePage = () => <Catalogue />;
 
-export default HomePage;
+export default CataloguePage;

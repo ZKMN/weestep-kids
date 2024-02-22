@@ -4,7 +4,7 @@ export const getCurrency = (price?: number | string) => {
 
     const currency = new Intl.NumberFormat('en-US', {
       style: 'currency',
-      currency: 'USD',
+      currency: 'EUR',
       minimumFractionDigits: 2,
       maximumFractionDigits: 2,
     });

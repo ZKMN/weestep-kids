@@ -1,9 +1,9 @@
 export const COLORS = {
   primary: {
-    main: '#D92228',
+    main: '#FF7C2A',
   },
   secondary: {
-    main: '#F5F2F2',
+    main: '#115E67',
   },
   background: {
     page: '#F5F4F2',

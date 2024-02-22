@@ -4,35 +4,66 @@ import Script from 'next/script';
 
 import { App } from '@/appLayer/App';
 
-import { hendrixFont } from '@/shared/assets/font';
+import { weestepFont } from '@/shared/assets/font';
 import { LANGUAGES } from '@/shared/consts';
 import { config } from '@/shared/lib/config';
 import { TLanguages } from '@/shared/types';
 
 export async function generateMetadata({ params: { lng } }: { params: { lng: TLanguages; }; }): Promise<Metadata> {
+  if (lng === 'es') {
+    return {
+      title: 'Todos los productos  | Weestep - be bigger',
+      description: 'Todos los productos  | Weestep - be bigger',
+      metadataBase: new URL(String(config?.urls.site)),
+      icons: config?.icons,
+      openGraph: {
+        url: config?.urls.site,
+        type: 'website',
+        title: 'Todos los productos  | Weestep - be bigger',
+        locale: lng,
+        images: {
+          url: '/images/logo.svg',
+          width: '420px',
+          height: '40px',
+        },
+      },
+      twitter: {
+        site: config?.urls.site,
+        title: 'Todos los productos  | Weestep - be bigger',
+        description: 'Todos los productos  | Weestep - be bigger',
+        images: {
+          url: '/images/logo.svg',
+          width: '420px',
+          height: '40px',
+        },
+      },
+    };
+  }
+
   return {
-    title: 'Weestep Kids Zapatos',
-    description: 'Weestep Kids Zapatos',
-    // metadataBase: new URL(String(config?.urls.imgCDN)),
+    title: 'All products | Weestep - be bigger',
+    description: 'All products | Weestep - be bigger',
+    metadataBase: new URL(String(config?.urls.site)),
+    icons: config?.icons,
     openGraph: {
       url: config?.urls.site,
       type: 'website',
-      title: 'Weestep Kids Zapatos',
+      title: 'All products | Weestep - be bigger',
       locale: lng,
       images: {
-        url: 'https://retailinsider.b-cdn.net/wp-content/uploads/2022/03/Screen-Shot-2022-03-16-at-6.09.19-PM.png',
-        width: '50px',
-        height: '50px',
+        url: '/images/logo.svg',
+        width: '420px',
+        height: '40px',
       },
     },
     twitter: {
       site: config?.urls.site,
-      title: 'Weestep Kids Zapatos',
-      description: 'Weestep Kids Zapatos',
+      title: 'All products | Weestep - be bigger',
+      description: 'All products | Weestep - be bigger',
       images: {
-        url: 'https://retailinsider.b-cdn.net/wp-content/uploads/2022/03/Screen-Shot-2022-03-16-at-6.09.19-PM.png',
-        width: '50px',
-        height: '50px',
+        url: '/images/logo.svg',
+        width: '420px',
+        height: '40px',
       },
     },
   };
@@ -55,16 +86,10 @@ const RootLayout = ({
 
   return (
     <html lang={lng} dir={dir(lng)}>
-      <body className={hendrixFont.className}>
+      <body className={weestepFont.className}>
         <App>
           {children}
         </App>
-
-        <style
-          id="clickjack"
-          // eslint-disable-next-line react/no-danger
-          dangerouslySetInnerHTML={{ __html: 'html { display: none }' }}
-        />
 
         <Script
           id="jsonLd"
@@ -73,14 +98,43 @@ const RootLayout = ({
         />
 
         {/* Clickjacking attack def */}
-        <Script id="jack">
-          {`if (self == top) {
-            // Everything checks out, show the page.
-            document.documentElement.style.display = 'block';
-            } else {
-            // Break out of the frame.
-            top.location = self.location;
+        <Script id="clickjack">
+          {`
+          function isInFrame() {
+            try {
+              return window.self !== window.top;
+            } catch (e) {
+              return true;
             }
+          }
+          
+          // Sanitize the href value to prevent open redirection attacks
+          function isCorrectURL(url) {
+            const regex = /^(https?):\\/\\/[^\\s$.?#].[^\\s]*$/i;
+            const correctURL = regex.test(url) ? url : null;
+    
+            // Encode any untrusted data in the URL
+            if (correctURL && correctURL.startsWith("https://weestep-kids.vercel.app")) {
+              return encodeURIComponent(correctURL);
+            }
+    
+            return "https://weestep-kids.vercel.app";
+          }
+          
+          // If the current window is in a frame, redirect to the sanitized URL
+          if (isInFrame()) {
+            const href = document.querySelector("a").getAttribute("href");
+            const correctURL = isCorrectURL(href);
+    
+            window.top.location.replace(correctURL);
+          }
+    
+          // Framebusting script to prevent clickjacking attacks
+          if (window.self !== window.top) {
+            const correctURL = isCorrectURL(window.location.href);
+            
+            window.top.location.replace(correctURL);
+          }
           `}
         </Script>
       </body>

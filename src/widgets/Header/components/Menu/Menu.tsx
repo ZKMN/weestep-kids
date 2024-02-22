@@ -1,7 +1,11 @@
 import React from 'react';
-import clsx from 'clsx';
 
-import { useClickRedirect, useMediaSizes, usePathnameWithoutLng } from '@/shared/lib/hooks';
+import {
+  useClickRedirect,
+  useClientTranslation,
+  useMediaSizes,
+  usePathnameWithoutLng,
+} from '@/shared/lib/hooks';
 
 import { getMenuItems } from '../../lib/helpers';
 
@@ -13,27 +17,33 @@ export const Menu = () => {
 
   const { isLessLg } = useMediaSizes();
 
+  const { translate } = useClientTranslation('common');
+
   if (isLessLg) {
     return null;
   }
 
   return (
     <ul className={styles.menu}>
-      {getMenuItems.map(({ title, link }, index) => (
+      {getMenuItems.map(({ label, link, color }, index) => (
         <li
-          key={title}
+          key={label}
           className={styles.menuItem}
         >
           <button
             type="button"
             onClick={handleRedirect(link)}
-            className={clsx(
-              styles.menuItemButton,
-              pathname === link && styles.activeMenuItemButton,
-              !pathname && index === 0 && styles.activeMenuItemButton,
-            )}
+            className={styles.menuItemButton}
+            style={{ color }}
           >
-            {title}
+            {translate(label)}
+
+            {(pathname === link || (!pathname && index === 0)) && (
+              <span
+                className={styles.activeMenuItem}
+                style={{ background: color }}
+              />
+            )}
           </button>
         </li>
       ))}

@@ -12,7 +12,7 @@ import {
 
 import { useMediaSizes } from '@/shared/lib/hooks';
 
-import { IntlButton, LoadingButton } from '../..';
+import { IntlButton, LoadingIntlButton } from '../..';
 
 export interface IBaseModalProps extends Omit<ModalProps, 'open' | 'children' | 'onClose'> {
   isOpen: boolean;
@@ -98,7 +98,7 @@ export const BaseModal = ({
 
           {onSubmit && (
             <Grid item>
-              <LoadingButton
+              <LoadingIntlButton
                 intl={{ label: 'submit' }}
                 variant="contained"
                 loading={loading}

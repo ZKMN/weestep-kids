@@ -1,1 +1,1 @@
-export * from './hendrixFont';
+export * from './weestepFont';

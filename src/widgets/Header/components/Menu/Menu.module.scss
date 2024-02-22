@@ -2,10 +2,9 @@
 
 .menu {
   display: inline-flex;
-  flex: 1;
   flex-wrap: wrap;
-  gap: 24px;
-  margin-left: 40px;
+  gap: 40px;
+  margin-top: 25px;
 }
 
 .menuItem {
@@ -13,9 +12,9 @@
 }
 
 .menuItemButton {
-  color: $text-secondary;
-  font-size: 16px;
-  font-weight: 500;
+  position: relative;
+  font-size: 20px;
+  font-weight: 700;
   text-decoration: none;
   cursor: pointer;
   border: none;
@@ -28,7 +27,12 @@
   }
 }
 
-.activeMenuItemButton {
-  color: $primary-main;
-  font-weight: 700;
+.activeMenuItem {
+  position: absolute;
+  bottom: -13px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
 }

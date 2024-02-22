@@ -1,3 +1,7 @@
 export enum Links {
-  HOME = '/home',
+  CATALOGUE = '/catalogue',
+  ABOUT_US = '/about-us',
+  BRAND_OF_YEAR = '/brand-of-the-year',
+  CONTACTS = '/contacts',
+  FIND_FIT = '/find-your-fit',
 }

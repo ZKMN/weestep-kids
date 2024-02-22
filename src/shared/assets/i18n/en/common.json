@@ -1,3 +1,9 @@
 {
-  "title": "Hi there!"
+  "menu": {
+    "aboutUs": "about us",
+    "catalogue": "catalogue",
+    "brandOfTheYear": "brand of the year",
+    "contacts": "contacts",
+    "findYorFit": "find your fit"
+  }
 }

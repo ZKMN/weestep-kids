@@ -4,7 +4,7 @@ import { createTheme, Palette } from '@mui/material';
 
 import { COLORS } from '@/shared/consts';
 
-import { hendrixFont } from './font';
+import { weestepFont } from './font';
 
 export const { palette, breakpoints } = createTheme({ palette: COLORS as unknown as Palette });
 
@@ -59,7 +59,7 @@ const options = {
     },
   },
   typography: {
-    fontFamily: hendrixFont.style.fontFamily,
+    fontFamily: weestepFont.style.fontFamily,
     body1: {
       color: '#272424',
       fontSize: 16,

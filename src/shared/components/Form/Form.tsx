@@ -16,7 +16,7 @@ import { IFormProps } from '@/shared/types';
 
 import { FieldByType } from './components';
 
-import { LoadingButton } from '..';
+import { LoadingIntlButton } from '..';
 
 export const Form = <T extends FieldValues>({
   mode,
@@ -62,7 +62,7 @@ export const Form = <T extends FieldValues>({
       {children}
 
       <Grid container mt={3}>
-        <LoadingButton
+        <LoadingIntlButton
           size={buttonProps?.size || 'large'}
           loading={loading}
           onClick={form.handleSubmit(onSubmit)}
