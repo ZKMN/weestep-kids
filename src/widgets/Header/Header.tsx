@@ -18,6 +18,8 @@ export const Header = () => {
       width="100%"
       padding="30px 0"
       bgcolor="baseWhite.main"
+      borderBottom="1px solid"
+      borderColor="border.main"
       component="header"
     >
       <BaseContainer>

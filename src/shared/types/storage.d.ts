@@ -1,3 +1,3 @@
-import { IAuthStore, IUserInfoStore } from './store';
+import { IUserInfoStore } from './store';
 
-export type TStorage = { authData?: IAuthStore['authData']; } & IUserInfoStore;
+export type TStorage = IUserInfoStore;
