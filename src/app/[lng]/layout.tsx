@@ -82,11 +82,7 @@ const RootLayout = ({
     '@id': config?.urls.site,
     '@type': 'Zapatos',
     name: 'Weestep Kids!',
-    description: `Descubre una amplia selección de zapatos elegantes y cómodos para niños en Weestep Kids. 
-    Nuestra colección incluye zapatillas de moda, sandalias duraderas y botas adorables, todas elaboradas con 
-    materiales de calidad. Desde tallas para niños pequeños hasta preadolescentes, encuentra el ajuste perfecto 
-    para tu pequeño. Compra calzado infantil asequible y de moda en Weestep Kids y asegúrate de que tu 
-    hijo dé cada paso con estilo y comodidad. ¡Explora nuestra gama hoy mismo!`,
+    description: 'Descubre una amplia selección de zapatos elegantes y cómodos para niños en Weestep Kids. Nuestra colección incluye zapatillas de moda, sandalias duraderas y botas adorables, todas elaboradas con materiales de calidad. Desde tallas para niños pequeños hasta preadolescentes, encuentra el ajuste perfecto para tu pequeño. Compra calzado infantil asequible y de moda en Weestep Kids y asegúrate de que tu hijo dé cada paso con estilo y comodidad. ¡Explora nuestra gama hoy mismo!',
   };
 
   return (

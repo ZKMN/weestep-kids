@@ -40,7 +40,7 @@ export const BaseDrawer = ({
         alignItems="center"
       >
         <Grid item>
-          <IconButton>
+          <IconButton onClick={onClose}>
             <Close />
           </IconButton>
         </Grid>

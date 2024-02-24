@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import {
-  Box,
   FormControl,
+  Grid,
   MenuItem,
   Select,
   SelectChangeEvent,
@@ -25,7 +25,7 @@ export const LanguageSelector = () => {
   };
 
   return (
-    <Box>
+    <Grid item>
       <FormControl fullWidth>
         <Select
           size="small"
@@ -52,6 +52,6 @@ export const LanguageSelector = () => {
           ))}
         </Select>
       </FormControl>
-    </Box>
+    </Grid>
   );
 };

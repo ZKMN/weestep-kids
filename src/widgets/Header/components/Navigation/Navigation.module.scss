@@ -1,10 +1,22 @@
 @import 'src/appLayer/styles/colors';
+@import 'src/appLayer/styles/mixins';
 
 .menu {
+  margin-top: 25px;
+
+  @include lg {
+    margin-top: 15px;
+  }
+}
+
+.menuUl {
+  gap: 40px;
   display: inline-flex;
   flex-wrap: wrap;
-  gap: 40px;
-  margin-top: 25px;
+
+  @include lg {
+    gap: 20px;
+  }
 }
 
 .menuItem {
@@ -19,6 +31,10 @@
   cursor: pointer;
   border: none;
   background: transparent;
+
+  @include lg {
+    font-size: 16px;
+  }
 
   &:hover,
   &:focus-within {
