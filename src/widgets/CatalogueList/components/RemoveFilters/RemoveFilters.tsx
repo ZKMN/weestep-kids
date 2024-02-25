@@ -1,18 +1,19 @@
 'use client';
 
-import React from 'react';
+import React, { Suspense } from 'react';
 import { Close } from '@mui/icons-material';
 import { Button, Grid } from '@mui/material';
 import { keys, map } from 'lodash';
 import { useSearchParams } from 'next/navigation';
 import queryString from 'query-string';
 
+import { Loading } from '@/shared/components';
 import { useMediaSizes } from '@/shared/lib/hooks';
 
 import { useChangeFilter } from '../../lib/hooks';
 import { ClearAllFiltersButton } from '../ClearAllFiltersButton';
 
-export const RemoveFilters = () => {
+const RemoveFiltersComponent = () => {
   const searchParams = useSearchParams();
 
   const { isBiggerMd, isLessMd } = useMediaSizes();
@@ -64,3 +65,15 @@ export const RemoveFilters = () => {
     </Grid>
   );
 };
+
+export const RemoveFilters = () => (
+  <Suspense
+    fallback={(
+      <div style={{ height: 200, width: '100%' }}>
+        <Loading loading />
+      </div>
+  )}
+  >
+    <RemoveFiltersComponent />
+  </Suspense>
+);

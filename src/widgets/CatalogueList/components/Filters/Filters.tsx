@@ -1,11 +1,13 @@
 'use client';
 
-import React from 'react';
+import React, { Suspense } from 'react';
 import { Checkbox, FormControlLabel, Grid } from '@mui/material';
 import { useBoolean } from 'ahooks';
 import { useSearchParams } from 'next/navigation';
 
-import { BaseCollapse, BaseDrawer, IntlButton } from '@/shared/components';
+import {
+  BaseCollapse, BaseDrawer, IntlButton, Loading,
+} from '@/shared/components';
 import { useMediaSizes } from '@/shared/lib/hooks';
 
 import { useChangeFilter } from '../../lib/hooks';
@@ -53,7 +55,7 @@ const filters = [{
   }],
 }];
 
-export const Filters = () => {
+const FiltersComponent = () => {
   const searchParams = useSearchParams();
 
   const { isLessMd } = useMediaSizes();
@@ -109,3 +111,15 @@ export const Filters = () => {
 
   return allFilters;
 };
+
+export const Filters = () => (
+  <Suspense
+    fallback={(
+      <div style={{ height: 200, width: '100%' }}>
+        <Loading loading />
+      </div>
+  )}
+  >
+    <FiltersComponent />
+  </Suspense>
+);
