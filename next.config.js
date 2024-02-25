@@ -4,11 +4,12 @@ const mapsGStatic = 'https://maps.gstatic.com';
 const fontsGStatic = ' https://fonts.gstatic.com';
 const appFTP = 'https://oh-dev-cdn.s3.amazonaws.com';
 const appAPI = 'https://broccoli.dev.orderhouse.io';
+const vercelAPI = 'https://vercel.live';
 
 const cspHeader = `
   default-src 'self';
   script-src 'self' 'unsafe-eval' 'unsafe-inline' ${mapsGoogleapis};
-  script-src-elem 'self' 'unsafe-eval' 'unsafe-inline' ${mapsGoogleapis};
+  script-src-elem 'self' 'unsafe-eval' 'unsafe-inline' ${mapsGoogleapis} ${vercelAPI};
   style-src 'self' 'unsafe-inline' ${fontsGoogleapis};
   style-src-elem 'self' 'unsafe-inline' ${fontsGoogleapis};
   img-src 'self' ${appFTP} ${mapsGoogleapis} ${mapsGStatic} data:;
