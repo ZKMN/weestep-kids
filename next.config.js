@@ -21,6 +21,7 @@ const cspHeader = `
   block-all-mixed-content;
   upgrade-insecure-requests;
   connect-src 'self' ${appAPI} ${mapsGoogleapis} ${vercelAPI};
+  frame-src 'self' ${vercelAPI};
 `;
 
 /** @type {import('next').NextConfig} */
