@@ -1,14 +1,12 @@
 import { MetadataRoute } from 'next';
 
-import { config } from '@/shared/lib/config';
-
 export default function manifest(): MetadataRoute.Manifest {
   return {
     name: 'weestep kids',
     short_name: 'weestep',
     theme_color: '#ffffff',
     background_color: '#ffffff',
-    start_url: config?.urls.site,
+    start_url: '/',
     display: 'standalone',
     icons: [
       {

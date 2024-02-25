@@ -2,13 +2,13 @@ const mapsGoogleapis = 'https://maps.googleapis.com';
 const fontsGoogleapis = 'https://fonts.googleapis.com';
 const mapsGStatic = 'https://maps.gstatic.com';
 const fontsGStatic = ' https://fonts.gstatic.com';
-const appFTP = 'https://oh-dev-cdn.s3.amazonaws.com';
-const appAPI = 'https://broccoli.dev.orderhouse.io';
+const appFTP = '';
+const appAPI = '';
 const vercelAPI = 'https://vercel.live';
 
 const cspHeader = `
   default-src 'self';
-  script-src 'self' 'unsafe-eval' 'unsafe-inline' ${mapsGoogleapis};
+  script-src 'self' 'unsafe-eval' 'unsafe-inline' ${mapsGoogleapis} ${vercelAPI};
   script-src-elem 'self' 'unsafe-eval' 'unsafe-inline' ${mapsGoogleapis} ${vercelAPI};
   style-src 'self' 'unsafe-inline' ${fontsGoogleapis};
   style-src-elem 'self' 'unsafe-inline' ${fontsGoogleapis};
@@ -20,7 +20,7 @@ const cspHeader = `
   frame-ancestors 'none';
   block-all-mixed-content;
   upgrade-insecure-requests;
-  connect-src 'self' ${appAPI} ${mapsGoogleapis};
+  connect-src 'self' ${appAPI} ${mapsGoogleapis} ${vercelAPI};
 `;
 
 /** @type {import('next').NextConfig} */
