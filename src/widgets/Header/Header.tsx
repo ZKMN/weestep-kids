@@ -36,7 +36,7 @@ export const Header = () => {
       <Box
         ref={ref}
         width="100%"
-        padding={isLessMd ? '15px 0' : '30px 0'}
+        padding={isLessMd ? '10px 0' : '20px 0'}
         bgcolor="baseWhite.main"
         borderBottom="1px solid"
         borderColor="border.main"
@@ -63,10 +63,10 @@ export const Header = () => {
                 />
 
                 {isBiggerMd && (
-                <IntlTypography
-                  intl={{ label: 'texts.headerUnderLogo' }}
-                  fontSize="17px"
-                />
+                  <IntlTypography
+                    intl={{ label: 'texts.headerUnderLogo' }}
+                    fontSize="17px"
+                  />
                 )}
               </Grid>
 

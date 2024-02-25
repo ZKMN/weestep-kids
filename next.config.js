@@ -11,8 +11,8 @@ const cspHeader = `
   script-src 'self' 'unsafe-eval' 'unsafe-inline' ${mapsGoogleapis} ${vercelAPI};
   script-src-elem 'self' 'unsafe-eval' 'unsafe-inline' ${mapsGoogleapis} ${vercelAPI};
   style-src 'self' 'unsafe-inline' ${fontsGoogleapis};
-  style-src-elem 'self' 'unsafe-inline' ${fontsGoogleapis};
-  img-src 'self' ${appFTP} ${mapsGoogleapis} ${mapsGStatic} data:;
+  style-src-elem 'self' 'unsafe-inline' ${fontsGoogleapis} ${vercelAPI};
+  img-src 'self' ${appFTP} ${mapsGoogleapis} ${mapsGStatic} ${vercelAPI} data:;
   font-src 'self' ${fontsGStatic};
   object-src 'none';
   base-uri 'self';

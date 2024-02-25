@@ -2,10 +2,10 @@
 @import 'src/appLayer/styles/mixins';
 
 .menu {
-  margin-top: 25px;
+  margin-top: 20px;
 
   @include lg {
-    margin-top: 15px;
+    margin-top: 10px;
   }
 }
 
