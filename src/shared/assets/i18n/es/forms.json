@@ -1,0 +1,14 @@
+{
+  "labels": {
+    "subject": "Tema",
+    "email": "Correo Electrónico",
+    "message": "Mensaje",
+    "sortBy": "Ordenar Por"
+  },
+  "errors": {
+    "subjectRequired": "El tema es obligatorio",
+    "emailInvalid": "El correo electrónico no es válido",
+    "emailRequired": "Correo electrónico obligatorio",
+    "messageRequired": "El mensaje es obligatorio"
+  }
+}

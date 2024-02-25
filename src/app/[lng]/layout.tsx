@@ -77,69 +77,55 @@ export async function generateStaticParams() {
 const RootLayout = ({
   children,
   params: { lng },
-}: React.PropsWithChildren<{ params: { lng: string; }; }>) => {
-  const jsonLd = {
-    '@id': config?.urls.site,
-    '@type': 'Zapatos',
-    name: 'Weestep Kids!',
-    description: 'Descubre una amplia selección de zapatos elegantes y cómodos para niños en Weestep Kids. Nuestra colección incluye zapatillas de moda, sandalias duraderas y botas adorables, todas elaboradas con materiales de calidad. Desde tallas para niños pequeños hasta preadolescentes, encuentra el ajuste perfecto para tu pequeño. Compra calzado infantil asequible y de moda en Weestep Kids y asegúrate de que tu hijo dé cada paso con estilo y comodidad. ¡Explora nuestra gama hoy mismo!',
-  };
+}: React.PropsWithChildren<{ params: { lng: string; }; }>) => (
+  <html lang={lng} dir={dir(lng)}>
+    <body className={weestepFont.className}>
+      <App>
+        {children}
+      </App>
 
-  return (
-    <html lang={lng} dir={dir(lng)}>
-      <body className={weestepFont.className}>
-        <App>
-          {children}
-        </App>
-
-        <Script
-          id="jsonLd"
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
-
-        {/* Clickjacking attack def */}
-        <Script id="clickjack">
-          {`
-            function isInFrame() {
-              try {
-                return window.self !== window.top;
-              } catch (e) {
-                return true;
-              }
+      {/* Clickjacking attack def */}
+      <Script id="clickjack">
+        {`
+          function isInFrame() {
+            try {
+              return window.self !== window.top;
+            } catch (e) {
+              return true;
             }
+          }
+          
+          // Sanitize the href value to prevent open redirection attacks
+          function isCorrectURL(url) {
+            const regex = /^(https?):\\/\\/[^\\s$.?#].[^\\s]*$/i;
+            const correctURL = regex.test(url) ? url : null;
+    
+            // Encode any untrusted data in the URL
+            if (correctURL && correctURL.startsWith("https://weestep-kids.es/")) {
+              return encodeURIComponent(correctURL);
+            }
+    
+            return "https://weestep-kids.es/";
+          }
+          
+          // If the current window is in a frame, redirect to the sanitized URL
+          if (isInFrame()) {
+            const href = document.querySelector("a").getAttribute("href");
+            const correctURL = isCorrectURL(href);
+    
+            window.top.location.replace(correctURL);
+          }
+    
+          // Framebusting script to prevent clickjacking attacks
+          if (window.self !== window.top) {
+            const correctURL = isCorrectURL(window.location.href);
             
-            // Sanitize the href value to prevent open redirection attacks
-            function isCorrectURL(url) {
-              const regex = /^(https?):\\/\\/[^\\s$.?#].[^\\s]*$/i;
-              const correctURL = regex.test(url) ? url : null;
-      
-              // Encode any untrusted data in the URL
-              if (correctURL && correctURL.startsWith("https://weestep-kids.es/")) {
-                return encodeURIComponent(correctURL);
-              }
-      
-              return "https://weestep-kids.es/";
-            }
-            
-            // If the current window is in a frame, redirect to the sanitized URL
-            if (isInFrame()) {
-              const href = document.querySelector("a").getAttribute("href");
-              const correctURL = isCorrectURL(href);
-      
-              window.top.location.replace(correctURL);
-            }
-      
-            // Framebusting script to prevent clickjacking attacks
-            if (window.self !== window.top) {
-              const correctURL = isCorrectURL(window.location.href);
-              
-              window.top.location.replace(correctURL);
-            }
-          `}
-        </Script>
-      </body>
-    </html>
-  );
-};
+            window.top.location.replace(correctURL);
+          }
+        `}
+      </Script>
+    </body>
+  </html>
+);
+
 export default RootLayout;

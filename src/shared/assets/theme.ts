@@ -33,7 +33,7 @@ const options = {
             color: palette.baseWhite.main,
           },
           '&.MuiButton-containedSecondary': {
-            color: palette.baseBlack.main,
+            color: palette.baseWhite.main,
           },
         },
         sizeLarge: {
@@ -51,6 +51,7 @@ const options = {
       styleOverrides: {
         root: {
           borderRadius: '8px',
+          background: palette.background.default,
           '&.Mui-error': {
             background: palette.background.error,
           },

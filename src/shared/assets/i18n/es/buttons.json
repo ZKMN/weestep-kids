@@ -1,5 +1,6 @@
 {
-  "addToCart": "Add to Cart",
+  "filters": "Filtros",
+  "clearFilters": "Limpiar Filtros",
   "regular": "Regular",
   "continueWithGoogle": "Continue with Google",
   "pickup": "Pickup",

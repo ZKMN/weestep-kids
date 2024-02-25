@@ -5,17 +5,26 @@ import {
   DrawerProps,
   Grid,
   IconButton,
-  Typography,
 } from '@mui/material';
 
 import { useMediaSizes } from '@/shared/lib/hooks';
 
+import { IntlTypography } from '../..';
+
+interface BaseDrawerProps {
+   onClose: () => void;
+   titleIntl?: string;
+   titleExtraNode?: React.ReactNode;
+  }
+
 export const BaseDrawer = ({
   open,
-  title,
+  titleIntl,
+  anchor,
+  titleExtraNode,
   children,
   onClose,
-}: React.PropsWithChildren<Omit<DrawerProps, 'onClose'>> & { onClose: () => void; }) => {
+}: React.PropsWithChildren<Omit<DrawerProps, 'onClose'>> & BaseDrawerProps) => {
   const { isLessSm, isLessMd, isBiggerXl } = useMediaSizes();
 
   const smWidth = isLessSm && '90%';
@@ -25,7 +34,7 @@ export const BaseDrawer = ({
   return (
     <Drawer
       open={open}
-      anchor="right"
+      anchor={anchor || 'right'}
       onClose={onClose}
       PaperProps={{
         sx: {
@@ -38,22 +47,31 @@ export const BaseDrawer = ({
         container
         mb={2}
         alignItems="center"
+        justifyContent="space-between"
       >
         <Grid item>
-          <IconButton onClick={onClose}>
-            <Close />
-          </IconButton>
+          <Grid container alignItems="center">
+
+            <IconButton onClick={onClose}>
+              <Close />
+            </IconButton>
+
+            {titleIntl && (
+              <IntlTypography
+                ml={2}
+                variant="h6"
+                fontWeight={700}
+                fontSize={isLessSm ? 20 : 28}
+                intl={{ label: titleIntl }}
+              />
+            )}
+          </Grid>
         </Grid>
 
-        {title && (
-          <Typography
-            ml={2}
-            variant="h6"
-            fontWeight={700}
-            fontSize={isLessSm ? 20 : 28}
-          >
-            {title}
-          </Typography>
+        {titleExtraNode && (
+          <Grid item>
+            {titleExtraNode}
+          </Grid>
         )}
       </Grid>
 

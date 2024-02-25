@@ -1,35 +1,39 @@
 import { Controller, useFormContext } from 'react-hook-form';
 import { Warning } from '@mui/icons-material';
-import { styled } from '@mui/material';
 import { MuiTelInput } from 'mui-tel-input';
 
+import { useClientTranslation } from '@/shared/lib/hooks';
 import { IFieldProps } from '@/shared/types';
 
-const MuiTelInputStyled = styled(MuiTelInput)`
-  & .MuiTelInput-IconButton {
-    display: none;
-  }
-`;
+// const MuiTelInputStyled = styled(MuiTelInput)`
+//   & .MuiTelInput-IconButton {
+//     display: none;
+//   }
+// `;
 
 export const FormPhoneInput = ({
+  size,
   name,
-  label,
   required,
   disabled,
+  intlLabel,
   placeholder,
 }: Omit<IFieldProps, 'type'>) => {
   const { control } = useFormContext();
+
+  const { translate } = useClientTranslation('forms');
 
   return (
     <Controller
       name={name}
       control={control}
       render={({ field, fieldState }) => (
-        <MuiTelInputStyled
+        <MuiTelInput
           fullWidth
           name={field.name}
-          color="baseDefault"
-          label={label}
+          size={size}
+          color="primary"
+          label={translate(intlLabel)}
           value={field.value || ''}
           error={!!fieldState.error}
           onBlur={field.onBlur}
@@ -38,9 +42,8 @@ export const FormPhoneInput = ({
           disabled={disabled}
           required={required}
           placeholder={placeholder}
-          helperText={fieldState.error?.message}
-          defaultCountry="CA"
-          onlyCountries={['US', 'CA']}
+          helperText={fieldState.error?.message && translate(fieldState.error.message)}
+          defaultCountry="ES"
           InputProps={{ endAdornment: fieldState.error && <Warning color="error" /> }}
         />
       )}

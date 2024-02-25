@@ -30,7 +30,6 @@ export const LanguageSelector = () => {
         <Select
           size="small"
           value={language}
-          color="secondary"
           onChange={handleChange}
           sx={{
             '.MuiSelect-select': {

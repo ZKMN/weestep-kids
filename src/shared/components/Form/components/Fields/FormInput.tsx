@@ -4,17 +4,23 @@ import { Controller, useFormContext } from 'react-hook-form';
 import { Warning } from '@mui/icons-material';
 import { TextField } from '@mui/material';
 
+import { useClientTranslation } from '@/shared/lib/hooks';
 import { IFieldProps } from '@/shared/types';
 
 export const FormInput = ({
+  size,
   name,
-  label,
+  maxRows,
   required,
   disabled,
+  multiline,
+  intlLabel,
   placeholder,
   endAdornment,
 }: Omit<IFieldProps, 'type'>) => {
   const { control } = useFormContext();
+
+  const { translate } = useClientTranslation('forms');
 
   return (
     <Controller
@@ -24,11 +30,15 @@ export const FormInput = ({
         <TextField
           fullWidth
           id={name}
+          size={size}
           name={field.name}
-          label={label}
-          color="baseDefault"
+          label={translate(intlLabel)}
+          color="primary"
           error={!!fieldState.error}
           value={field.value || ''}
+          maxRows={maxRows}
+          minRows={maxRows}
+          multiline={multiline}
           onBlur={field.onBlur}
           onChange={field.onChange}
           inputRef={field.ref}
@@ -36,8 +46,7 @@ export const FormInput = ({
           required={required}
           placeholder={placeholder}
           InputProps={{ endAdornment: fieldState.error ? <Warning color="error" /> : endAdornment }}
-          InputLabelProps={{ shrink: true }}
-          helperText={fieldState.error?.message}
+          helperText={fieldState.error?.message && translate(fieldState.error.message)}
         />
       )}
     />

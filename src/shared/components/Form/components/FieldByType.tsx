@@ -7,10 +7,13 @@ import {
 
 export const FieldByType = ({ field }: { field: IFieldProps; }) => {
   const {
+    size,
     name,
-    label,
+    maxRows,
+    multiline,
     required,
     disabled,
+    intlLabel,
     placeholder,
     endAdornment,
   } = field;
@@ -20,9 +23,12 @@ export const FieldByType = ({ field }: { field: IFieldProps; }) => {
       return (
         <FormInput
           name={name}
-          label={label}
+          size={size}
+          maxRows={maxRows}
+          multiline={multiline}
           required={required}
           disabled={disabled}
+          intlLabel={intlLabel}
           placeholder={placeholder}
           endAdornment={endAdornment}
         />
@@ -31,9 +37,10 @@ export const FieldByType = ({ field }: { field: IFieldProps; }) => {
       return (
         <FormPhoneInput
           name={name}
-          label={label}
+          size={size}
           required={required}
           disabled={disabled}
+          intlLabel={intlLabel}
           placeholder={placeholder}
         />
       );

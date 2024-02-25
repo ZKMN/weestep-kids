@@ -10,7 +10,7 @@ import {
 } from '@mui/material';
 import { useBoolean } from 'ahooks';
 
-import { BaseDrawer } from '@/shared/components';
+import { BaseDrawer, BaseImage } from '@/shared/components';
 import {
   useClientTranslation,
   useLngRouter,
@@ -25,10 +25,9 @@ export const DrawerMenu = () => {
   const [handlePush] = useLngRouter();
   const { isBiggerMd } = useMediaSizes();
   const pathname = usePathnameWithoutLng();
+  const { translate } = useClientTranslation('common');
 
   const [isOpen, { setTrue, setFalse }] = useBoolean();
-
-  const { translate } = useClientTranslation('common');
 
   if (isBiggerMd) {
     return null;
@@ -42,8 +41,17 @@ export const DrawerMenu = () => {
 
       <BaseDrawer
         open={isOpen}
-        title="Weestep"
         onClose={setFalse}
+        titleExtraNode={(
+          <BaseImage
+            priority
+            src="/images/logo-short.svg"
+            alt="Weestep Kids"
+            width={150}
+            height={40}
+            objectFit="contain"
+          />
+        )}
       >
         <Grid
           container
@@ -65,7 +73,7 @@ export const DrawerMenu = () => {
                 handlePush(link);
               }}
             >
-              <Typography fontWeight={700}>
+              <Typography>
                 {translate(label)}
               </Typography>
 

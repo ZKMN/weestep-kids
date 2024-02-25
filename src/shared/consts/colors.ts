@@ -6,7 +6,7 @@ export const COLORS = {
     main: '#115E67',
   },
   background: {
-    page: '#F5F4F2',
+    main: '#f3f1f2',
     paper: '#FFFFFF',
     default: '#FFFFFF',
     error: 'rgba(217, 34, 40, 0.10)',

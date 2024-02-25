@@ -10,9 +10,10 @@ import * as Yup from 'yup';
 
 import { IIntlProps } from '.';
 
-export interface IFieldProps extends BaseTextFieldProps, Pick<InputProps, 'endAdornment'> {
+export interface IFieldProps extends Omit<BaseTextFieldProps, 'label'>, Pick<InputProps, 'endAdornment'> {
   type: IFieldProps.type;
   name: string;
+  intlLabel: string;
 }
 
 export namespace IFieldProps {
