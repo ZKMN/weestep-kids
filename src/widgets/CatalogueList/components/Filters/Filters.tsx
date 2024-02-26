@@ -1,12 +1,17 @@
 'use client';
 
 import React, { Suspense } from 'react';
-import { Checkbox, FormControlLabel, Grid } from '@mui/material';
+import {
+  Checkbox, FormControlLabel, Grid, Typography,
+} from '@mui/material';
 import { useBoolean } from 'ahooks';
 import { useSearchParams } from 'next/navigation';
 
 import {
-  BaseCollapse, BaseDrawer, IntlButton, Loading,
+  BaseCollapse,
+  BaseDrawer,
+  IntlButton,
+  Loading,
 } from '@/shared/components';
 import { useMediaSizes } from '@/shared/lib/hooks';
 
@@ -19,9 +24,11 @@ const filters = [{
   values: [{
     name: 'Male',
     value: 'male',
+    count: 1,
   }, {
     name: 'Woman',
     value: 'woman',
+    count: 1,
   }],
 }, {
   title: 'Color',
@@ -29,9 +36,11 @@ const filters = [{
   values: [{
     name: 'Red',
     value: 'red',
+    count: 1,
   }, {
     name: 'Yellow',
     value: 'yellow',
+    count: 1,
   }],
 }, {
   title: 'Size',
@@ -39,9 +48,11 @@ const filters = [{
   values: [{
     name: '22',
     value: '22',
+    count: 1,
   }, {
     name: '23',
     value: '23',
+    count: 1,
   }],
 }, {
   title: 'Type',
@@ -49,9 +60,11 @@ const filters = [{
   values: [{
     name: 'Sneakers',
     value: 'sneakers',
+    count: 1,
   }, {
     name: 'Boots',
     value: 'boots',
+    count: 1,
   }],
 }];
 
@@ -66,10 +79,20 @@ const FiltersComponent = () => {
   const allFilters = filters.map(({ title, category, values }) => (
     <Grid container key={title}>
       <BaseCollapse title={title}>
-        {values.map(({ name, value }) => (
+        {values.map(({ name, value, count }) => (
           <Grid container key={name}>
             <FormControlLabel
-              label={name}
+              label={(
+                <Grid container alignItems="center">
+                  <Typography mr={1}>
+                    {name}
+                  </Typography>
+
+                  <Typography color="text.grey" fontSize={12}>
+                    {`(${count})`}
+                  </Typography>
+                </Grid>
+              )}
               control={(
                 <Checkbox
                   size="small"
@@ -77,7 +100,7 @@ const FiltersComponent = () => {
                   checked={!!searchParams.get(category)?.includes(value)}
                   onChange={handleChangeCategory(category, value)}
                 />
-            )}
+              )}
             />
           </Grid>
         ))}

@@ -56,7 +56,7 @@ export const BaseImage = ({
         className={className}
         style={{
           objectFit: objectFit || 'cover',
-          cursor: pointer ? 'pointer' : 'default',
+          cursor: pointer ? 'pointer' : '',
           width: '100%',
           height: 'auto',
         }}

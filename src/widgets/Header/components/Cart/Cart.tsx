@@ -24,7 +24,7 @@ export const Cart = () => {
       >
         <Badge
           showZero
-          color="primary"
+          color="secondary"
           badgeContent={unAuthProducts?.length}
         >
           <ShoppingBagOutlined />

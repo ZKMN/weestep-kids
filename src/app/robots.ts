@@ -5,12 +5,13 @@ export default function robots(): MetadataRoute.Robots {
     rules: [
       {
         userAgent: 'Googlebot',
-        allow: ['/'],
-        disallow: [],
+        allow: ['/catalogue', '/about-us', '/brand-of-the-year', '/contacts'],
+        disallow: ['/basket'],
       },
       {
         userAgent: ['Applebot', 'Bingbot'],
-        disallow: [],
+        allow: ['/catalogue', '/about-us', '/brand-of-the-year', '/contacts'],
+        disallow: ['/basket'],
       },
     ],
   };

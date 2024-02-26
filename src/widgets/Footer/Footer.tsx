@@ -5,11 +5,8 @@ import { Box, Grid } from '@mui/material';
 
 import { Socials } from '@/entities/Socials';
 
-import { BaseContainer, BaseImage, Form } from '@/shared/components';
+import { BaseContainer, BaseImage } from '@/shared/components';
 import { useMediaSizes } from '@/shared/lib/hooks';
-
-import { FIELDS } from './consts';
-import { validationSchema } from './lib';
 
 export const Footer = () => {
   const { isLessSm } = useMediaSizes();
@@ -48,22 +45,6 @@ export const Footer = () => {
             mb={isLessSm ? 2 : 0}
           >
             <Socials />
-          </Grid>
-
-          <Grid item xs={12} md={4}>
-            <Form
-              fields={FIELDS}
-              buttonProps={{ size: 'small' }}
-              validationSchema={validationSchema}
-              initialValues={{
-                email: '',
-                subject: '',
-                message: '',
-              }}
-              onSubmit={({ subject, message }) => {
-                window.location.href = `mailto:weestepkids@gmail.com?subject=${subject}&body=${message}`;
-              }}
-            />
           </Grid>
 
         </Grid>

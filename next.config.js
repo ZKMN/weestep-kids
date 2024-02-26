@@ -2,7 +2,7 @@ const mapsGoogleapis = 'https://maps.googleapis.com';
 const fontsGoogleapis = 'https://fonts.googleapis.com';
 const mapsGStatic = 'https://maps.gstatic.com';
 const fontsGStatic = ' https://fonts.gstatic.com';
-const appFTP = '';
+const appFTP = 'https://weestep-kids.es';
 const appAPI = '';
 const vercelAPI = 'https://vercel.live';
 

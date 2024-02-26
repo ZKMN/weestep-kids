@@ -1,8 +1,11 @@
 {
   "texts": {
+    "topSale": "Top Sale",
     "headerUnderLogo": "For children as for adults. even better."
   },
   "titles": {
-    "filters": "Filters"
+    "colors": "Colors",
+    "filters": "Filters",
+    "sizeLeft": "Size Left"
   }
 }

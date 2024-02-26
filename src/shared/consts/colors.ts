@@ -14,8 +14,6 @@ export const COLORS = {
   text: {
     grey: '#7A7575',
     green: '#179427',
-    primary: '#272424',
-    secondary: '#524F4F',
     disabled: '#A5B2BB',
   },
   disabled: {

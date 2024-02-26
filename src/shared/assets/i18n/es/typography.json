@@ -1,8 +1,11 @@
 {
   "texts": {
+    "topSale": "Venta Superior",
     "headerUnderLogo": "Tanto para niños como para adultos. Aun mejor."
   },
   "titles": {
-    "filters": "Filtros"
+    "colors": "Colores",
+    "filters": "Filtros",
+    "sizeLeft": "Talla Izquierda"
   }
 }

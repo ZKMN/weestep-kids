@@ -61,7 +61,7 @@ const RemoveFiltersComponent = () => {
         );
       })}
 
-      {isBiggerMd && parsedKeys.length >= 2 && <ClearAllFiltersButton />}
+      {isBiggerMd && !!parsedKeys.length && <ClearAllFiltersButton />}
     </Grid>
   );
 };
