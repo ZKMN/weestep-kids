@@ -12,6 +12,7 @@ export const COLORS = {
     error: 'rgba(217, 34, 40, 0.10)',
   },
   text: {
+    main: '#FF7C2A',
     grey: '#7A7575',
     green: '#179427',
     disabled: '#A5B2BB',
@@ -21,6 +22,7 @@ export const COLORS = {
   },
   border: {
     main: '#EBE6E6',
+    black: '#272424',
   },
   baseBlack: {
     main: '#272424',

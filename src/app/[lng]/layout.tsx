@@ -1,6 +1,6 @@
 /* eslint-disable max-len */
 import { dir } from 'i18next';
-import type { Metadata } from 'next';
+import { Metadata } from 'next';
 import Script from 'next/script';
 
 import { App } from '@/appLayer/App';

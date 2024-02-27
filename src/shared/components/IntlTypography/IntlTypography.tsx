@@ -7,6 +7,7 @@ import { IIntlProps } from '@/shared/types';
 export const IntlTypography = ({
   sx,
   intl,
+  variant,
   fontFamily,
   fontSize,
   fontWeight,
@@ -16,6 +17,7 @@ export const IntlTypography = ({
   return (
     <Typography
       sx={sx}
+      variant={variant}
       fontFamily={fontFamily}
       fontSize={fontSize}
       fontWeight={fontWeight}

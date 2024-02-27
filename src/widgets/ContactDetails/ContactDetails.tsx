@@ -8,7 +8,7 @@ import { Form } from '@/shared/components';
 import { FIELDS } from './consts';
 import { validationSchema } from './lib';
 
-export const ContactsInfo = () => (
+export const ContactDetails = () => (
   <Grid container>
     <Grid item lg={4}>
 

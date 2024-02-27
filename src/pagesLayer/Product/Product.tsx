@@ -1,11 +1,11 @@
 import React from 'react';
 
-import { ContactDetails } from '@/widgets/ContactDetails';
+import { ProductDetails } from '@/widgets/ProductDetails';
 
 import { BaseContainer } from '@/shared/components';
 
-export const Contacts = () => (
+export const Product = () => (
   <BaseContainer sx={{ pt: 2 }}>
-    <ContactDetails />
+    <ProductDetails />
   </BaseContainer>
 );

@@ -4,8 +4,8 @@
     "headerUnderLogo": "Tanto para niños como para adultos. Aun mejor."
   },
   "titles": {
-    "colors": "Colores",
+    "color": "Colore",
     "filters": "Filtros",
-    "sizeLeft": "Talla Izquierda"
+    "size": "Talla"
   }
 }

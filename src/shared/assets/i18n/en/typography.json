@@ -4,8 +4,8 @@
     "headerUnderLogo": "For children as for adults. even better."
   },
   "titles": {
-    "colors": "Colors",
+    "color": "Color",
     "filters": "Filters",
-    "sizeLeft": "Size Left"
+    "size": "Size"
   }
 }

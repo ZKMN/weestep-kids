@@ -10,7 +10,7 @@ export const PhoneNumber = () => (
         fontSize="small"
       />
 
-      <Link ml={1} href="tel:34611822584">
+      <Link ml={1} href="tel:34611822584" underline="hover">
         +34 611-82-25-84
       </Link>
     </Grid>

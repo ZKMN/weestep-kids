@@ -3,7 +3,7 @@
 import React, { Suspense } from 'react';
 import { Close } from '@mui/icons-material';
 import { Button, Grid } from '@mui/material';
-import { keys, map } from 'lodash';
+import { keys, map, upperFirst } from 'lodash';
 import { useSearchParams } from 'next/navigation';
 import queryString from 'query-string';
 
@@ -40,7 +40,7 @@ const RemoveFiltersComponent = () => {
                 onClick={handleRemoveFilter(key, String(value))}
                 endIcon={<Close />}
               >
-                {value}
+                {upperFirst(String(value))}
               </Button>
             </Grid>
           ));
@@ -55,7 +55,7 @@ const RemoveFiltersComponent = () => {
               onClick={handleRemoveFilter(key, String(parsed[key]))}
               endIcon={<Close />}
             >
-              {parsed[key]}
+              {upperFirst(String(parsed[key]))}
             </Button>
           </Grid>
         );

@@ -34,6 +34,7 @@
     "react-i18next": "^14.0.1",
     "react-toastify": "^10.0.4",
     "sass": "^1.69.5",
+    "swiper": "^11.0.6",
     "zustand": "^4.4.7"
   },
   "devDependencies": {
