@@ -2,7 +2,10 @@
 
 import React, { Suspense } from 'react';
 import {
-  Checkbox, FormControlLabel, Grid, Typography,
+  Checkbox,
+  FormControlLabel,
+  Grid,
+  Typography,
 } from '@mui/material';
 import { useBoolean } from 'ahooks';
 import { useSearchParams } from 'next/navigation';

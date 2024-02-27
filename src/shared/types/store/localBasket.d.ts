@@ -1,17 +1,19 @@
+interface IProduct {
+  name: string;
+  image: string;
+  price: number;
+  sizeId: string;
+  colorId: string;
+  quantity: number;
+  productId: string;
+}
+
 export interface ILocalBasketStore {
-  products: {
-    name: string;
-    image: string;
-    price: number;
-    sizeId: string;
-    colorId: string;
-    quantity: number;
-    productId: string;
-  }[];
+  products?: IProduct[];
 }
 
 export interface ILocalBasketStoreActions {
-  addProductToLocalBasketAction: (data: Record<string, unknown>) => void;
-  editProductInLocalBasketAction: (data: Record<string, unknown>) => void;
+  addProductToLocalBasketAction: (data: IProduct) => void;
+  editProductInLocalBasketAction: (data: IProduct) => void;
   removeProductFromLocalBasketAction: (id: string) => void;
 }

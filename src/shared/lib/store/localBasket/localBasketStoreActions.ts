@@ -6,7 +6,7 @@ import { handleOverrideStorage } from '../../handlers';
 
 export const addProductToLocalBasketAction: ILocalBasketStoreActions['addProductToLocalBasketAction'] = (product) => {
   localBasketStore.setState((state) => {
-    const products = [...state.products, product];
+    const products = [...(state.products || []), product];
 
     handleOverrideStorage({ products });
 
@@ -16,7 +16,7 @@ export const addProductToLocalBasketAction: ILocalBasketStoreActions['addProduct
 
 export const removeProductFromLocalBasketAction: ILocalBasketStoreActions['removeProductFromLocalBasketAction'] = (id) => {
   localBasketStore.setState((state) => {
-    let products = [...state.products];
+    let products = [...(state.products || [])];
 
     products = products.filter(({ productId }) => productId !== id);
 
@@ -28,7 +28,7 @@ export const removeProductFromLocalBasketAction: ILocalBasketStoreActions['remov
 
 export const editProductInLocalBasketAction: ILocalBasketStoreActions['editProductInLocalBasketAction'] = (product) => {
   localBasketStore.setState((state) => {
-    let products = [...state.products];
+    let products = [...(state.products || [])];
 
     products = products.reduce((acc, item) => {
       const productIndex = acc.findIndex(({ productId }) => productId === product.productId);
@@ -40,7 +40,7 @@ export const editProductInLocalBasketAction: ILocalBasketStoreActions['editProdu
       }
 
       return acc;
-    }, [...state.products]);
+    }, [...(state.products || [])]);
 
     handleOverrideStorage({ products });
 
