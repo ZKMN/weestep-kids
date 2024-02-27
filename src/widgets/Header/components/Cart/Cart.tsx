@@ -16,7 +16,7 @@ import { localBasketStore } from '@/shared/lib/store';
 const Cart = () => {
   const products = localBasketStore((state) => state.products);
 
-  const summPrice = products.reduce((acc, item) => {
+  const summPrice = products?.reduce((acc, item) => {
     let price = acc;
 
     price += item.price;
@@ -27,12 +27,12 @@ const Cart = () => {
   return (
     <Grid item>
       <Box
-        sx={{ cursor: !products.length ? '' : 'pointer' }}
+        sx={{ cursor: !products?.length ? '' : 'pointer' }}
         border="none"
         display="flex"
         bgcolor="transparent"
         component="button"
-        disabled={!products.length}
+        disabled={!products?.length}
       >
         <Badge
           showZero
