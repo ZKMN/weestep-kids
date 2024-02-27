@@ -1,11 +1,13 @@
 {
   "texts": {
     "topSale": "Venta Superior",
-    "headerUnderLogo": "Tanto para niños como para adultos. Aun mejor."
+    "headerUnderLogo": "Tanto para niños como para adultos. Aun mejor.",
+    "inStock": "en stock ({{ count }} disponible)"
   },
   "titles": {
     "color": "Colore",
     "filters": "Filtros",
-    "size": "Talla"
+    "size": "Talla",
+    "quantity": "Cantidad"
   }
 }

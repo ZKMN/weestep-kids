@@ -1,24 +1,5 @@
 {
   "filters": "Filters",
   "clearFilters": "Clear Filters",
-  "regular": "Regular",
-  "continueWithGoogle": "Continue with Google",
-  "pickup": "Pickup",
-  "delivery": "Delivery",
-  "apply": "Apply",
-  "logout": "Logout",
-  "back": "Back",
-  "cancel": "Cancel",
-  "submit": "Submit",
-  "customize": "Customize",
-  "list": "List",
-  "map": "Map",
-  "orderHere": "Order Here",
-  "continue": "Continue",
-  "resendCode": "{{ time }} Resend Code",
-  "storeInfo": "Store Info",
-  "close": "Close",
-  "closed": "Closed",
-  "reset": "Reset",
-  "addSpecialInstructions": "Add special instructions"
+  "addToCart": "Add To Cart"
 }

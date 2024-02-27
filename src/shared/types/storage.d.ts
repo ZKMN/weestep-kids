@@ -1,3 +1,3 @@
-import { IUserInfoStore } from './store';
+import { ILocalBasketStore } from './store';
 
-export type TStorage = IUserInfoStore;
+export type TStorage = ILocalBasketStore;

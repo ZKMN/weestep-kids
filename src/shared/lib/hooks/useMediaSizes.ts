@@ -1,21 +1,37 @@
-import { Theme, useMediaQuery } from '@mui/material';
+'use client';
+
+import { useEffect, useState } from 'react';
+
+export function useMediaQuery(query: string) {
+  const [matches, setMatches] = useState(false);
+
+  useEffect(() => {
+    const media = window.matchMedia(query);
+
+    if (media.matches !== matches) {
+      setMatches(media.matches);
+    }
+
+    const listener = () => setMatches(media.matches);
+
+    media.addEventListener('change', listener);
+
+    return () => window.removeEventListener('change', listener);
+  }, [matches, query]);
+
+  return matches;
+}
 
 export const useMediaSizes = () => {
-  const isLessSm = useMediaQuery<Theme>((theme) => theme.breakpoints.down('sm'), { defaultMatches: true });
-  const isLessMd = useMediaQuery<Theme>((theme) => theme.breakpoints.down('md'), { defaultMatches: true });
-  const isLessLg = useMediaQuery<Theme>((theme) => theme.breakpoints.down('lg'), { defaultMatches: true });
-  const isBiggerSm = useMediaQuery<Theme>((theme) => theme.breakpoints.up('sm'), { defaultMatches: true });
-  const isBiggerMd = useMediaQuery<Theme>((theme) => theme.breakpoints.up('md'), { defaultMatches: true });
-  const isBiggerLg = useMediaQuery<Theme>((theme) => theme.breakpoints.up('lg'), { defaultMatches: true });
-  const isBiggerXl = useMediaQuery<Theme>((theme) => theme.breakpoints.up('xl'), { defaultMatches: true });
-
-  return {
-    isLessSm,
-    isLessMd,
-    isLessLg,
-    isBiggerSm,
-    isBiggerMd,
-    isBiggerLg,
-    isBiggerXl,
+  const breakpoints = {
+    isLessSm: useMediaQuery('(max-width: 600px)'),
+    isBiggerSm: useMediaQuery('(min-width: 600px)'),
+    isLessMd: useMediaQuery('(max-width: 900px)'),
+    isBiggerMd: useMediaQuery('(min-width: 900px)'),
+    isLessLg: useMediaQuery('(max-width: 1200px)'),
+    isBiggerLg: useMediaQuery('(min-width: 1200px)'),
+    isBiggerXl: useMediaQuery('(min-width: 1536px)'),
   };
+
+  return breakpoints;
 };

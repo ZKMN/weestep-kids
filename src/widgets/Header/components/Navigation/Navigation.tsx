@@ -4,7 +4,6 @@ import { Box, Grid } from '@mui/material';
 import {
   useClickRedirect,
   useClientTranslation,
-  useMediaSizes,
   usePathnameWithoutLng,
 } from '@/shared/lib/hooks';
 
@@ -16,16 +15,18 @@ export const Navigation = () => {
   const [handleRedirect] = useClickRedirect();
   const pathname = usePathnameWithoutLng();
 
-  const { isLessMd } = useMediaSizes();
-
   const { translate } = useClientTranslation('common');
 
-  if (isLessMd) {
-    return null;
-  }
-
   return (
-    <Grid container justifyContent="flex-end">
+    <Grid
+      container
+      justifyContent="flex-end"
+      sx={(theme) => ({
+        [theme.breakpoints.down('md')]: {
+          display: 'none',
+        },
+      })}
+    >
       <Box component="menu" className={styles.menu}>
         <ul className={styles.menuUl}>
           {getMenuItems.map(({ label, link, color }, index) => (

@@ -1,44 +1,37 @@
-import React, { Dispatch } from 'react';
+import React from 'react';
 import { Button, Grid } from '@mui/material';
+import { useQueryState } from 'nuqs';
 
 import { IntlTypography } from '@/shared/components';
-import { useMediaSizes } from '@/shared/lib/hooks';
 
-export const ChooseSize = ({
-  sizes,
-  size,
-  setSize,
-}: {
-  size: string;
-  sizes: string[];
-  setSize: Dispatch<string>;
-}) => {
-  const { isLessMd } = useMediaSizes();
+export const ChooseSize = ({ sizes }: { sizes: { id: string; value: string; }[]; }) => {
+  const [size, setSize] = useQueryState('size');
 
   return (
     <Grid container mb={2}>
-      <Grid item>
-        <Grid container spacing={3} wrap="nowrap" alignItems="center">
-          <Grid item>
+      <Grid item xs={12}>
+        <Grid container wrap="nowrap" alignItems="center">
+          <Grid item xs={3}>
             <IntlTypography
               intl={{ label: 'titles.size' }}
-              fontSize={isLessMd ? '1.5rem' : '2rem'}
+              fontSize="1.5rem"
               fontWeight={700}
               variant="h3"
+              color="text.grey"
             />
           </Grid>
 
           <Grid item>
             <Grid container>
-              {sizes.map((sz: string) => (
-                <Grid item key={sz}>
+              {sizes.map(({ id, value }) => (
+                <Grid item key={id}>
                   <Button
                     size="xLarge"
                     sx={{ minWidth: 45, padding: 0 }}
-                    color={size === sz ? 'primary' : 'baseGrey'}
-                    onClick={() => setSize(sz)}
+                    variant={Number(size) === Number(id) ? 'outlined' : 'text'}
+                    onClick={() => setSize(id)}
                   >
-                    {sz}
+                    {value}
                   </Button>
                 </Grid>
               ))}

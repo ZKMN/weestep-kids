@@ -8,7 +8,7 @@ import { useClickRedirect, useClientTranslation, useTypedParams } from '@/shared
 import { Links } from '@/shared/types';
 
 export const Bread = () => {
-  const { productId, category } = useTypedParams();
+  const { productId, type } = useTypedParams();
   const { translate } = useClientTranslation('common');
   const [handleRedirect] = useClickRedirect();
 
@@ -22,7 +22,7 @@ export const Bread = () => {
         {upperFirst(translate('menu.catalogue'))}
       </Button>
 
-      <Typography color="text.grey">{startCase(toLower(category))}</Typography>
+      <Typography color="text.grey">{startCase(toLower(type))}</Typography>
 
       <Typography color="text.grey">{productId}</Typography>
     </Breadcrumbs>

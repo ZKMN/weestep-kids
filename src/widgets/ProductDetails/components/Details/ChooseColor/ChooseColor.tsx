@@ -1,30 +1,23 @@
-import React, { Dispatch } from 'react';
+import React from 'react';
 import { Grid } from '@mui/material';
+import { useQueryState } from 'nuqs';
 
 import { ProductColor } from '@/entities/Product';
 
 import { IntlTypography } from '@/shared/components';
-import { useMediaSizes } from '@/shared/lib/hooks';
 
-export const ChooseColor = ({
-  color,
-  colors,
-  setColor,
-}: {
-  color: string;
-  colors: string[];
-  setColor: Dispatch<string>;
-}) => {
-  const { isLessMd } = useMediaSizes();
+export const ChooseColor = ({ colors }: { colors: { id: string; value: string; }[]; }) => {
+  const [color, setColor] = useQueryState('color');
 
   return (
-    <Grid container mt={2}>
-      <Grid item>
-        <Grid container spacing={3} wrap="nowrap" alignItems="center">
-          <Grid item>
+    <Grid container mt={2} mb={2}>
+      <Grid item xs={12}>
+        <Grid container wrap="nowrap" alignItems="center">
+          <Grid item xs={3}>
             <IntlTypography
               intl={{ label: 'titles.color' }}
-              fontSize={isLessMd ? '1.5rem' : '2rem'}
+              color="text.grey"
+              fontSize="1.5rem"
               fontWeight={700}
               variant="h3"
             />
@@ -32,13 +25,13 @@ export const ChooseColor = ({
 
           <Grid item>
             <Grid container spacing={1}>
-              {colors.map((col: string) => (
-                <Grid item key={col}>
+              {colors.map(({ id, value }) => (
+                <Grid item key={id}>
                   <ProductColor
-                    active={color === col}
-                    key={col}
-                    color={col}
-                    onClick={() => setColor(col)}
+                    active={color === id}
+                    key={id}
+                    color={value}
+                    onClick={() => setColor(id)}
                   />
                 </Grid>
               ))}

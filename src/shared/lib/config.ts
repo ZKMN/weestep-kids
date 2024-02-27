@@ -1,5 +1,5 @@
 const commonVars = {
-  storageKeyName: 'appState',
+  storageKeyName: 'r2-d2-kjkszpj',
   icons: [{
     rel: 'icon',
     type: 'image/x-icon',

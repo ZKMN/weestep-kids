@@ -123,7 +123,11 @@ const products = [
     type: 'kids-shoes',
     productId: 'STU678',
   },
-];
+].map((product) => ({
+  ...product,
+  colors: product.colors.map((color, index) => ({ id: String(index + 1), value: color })),
+  sizes: product.sizes.map((size, index) => ({ id: String(index + 1), value: size })),
+}));
 
 export const CatalogueList = () => {
   const { isLessMd, isBiggerMd } = useMediaSizes();

@@ -7,7 +7,7 @@ import { BaseContainer } from '@/shared/components';
 import { Title } from './components';
 
 export const Catalogue = () => (
-  <BaseContainer sx={{ pt: 2 }}>
+  <BaseContainer pt={2}>
     <Title />
 
     <CatalogueList />

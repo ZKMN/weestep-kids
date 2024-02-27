@@ -1,8 +1,6 @@
 'use client';
 
-import { useRef } from 'react';
 import { Box, Grid } from '@mui/material';
-import { useSize } from 'ahooks';
 
 import { BaseContainer, BaseImage, IntlTypography } from '@/shared/components';
 import { useClickRedirect, useMediaSizes } from '@/shared/lib/hooks';
@@ -16,13 +14,12 @@ import {
   PhoneNumber,
 } from './components';
 
+import styles from './Header.module.scss';
+
 export const Header = () => {
-  const ref = useRef();
-  const size = useSize(ref);
   const [handleRedirect] = useClickRedirect();
 
   const {
-    isLessMd,
     isLessLg,
     isLessSm,
     isBiggerMd,
@@ -31,21 +28,19 @@ export const Header = () => {
 
   return (
     <>
-      <Box minHeight={size?.height} />
+      <Box className={styles.headerStub} />
 
       <Box
-        ref={ref}
-        width="100%"
-        padding={isLessMd ? '10px 0' : '20px 0'}
-        bgcolor="baseWhite.main"
-        borderBottom="1px solid"
-        borderColor="border.main"
         component="header"
-        position="fixed"
-        zIndex="5"
+        className={styles.header}
       >
         <BaseContainer>
-          <Box component="section">
+          <Box
+            height="100%"
+            display="flex"
+            alignItems="center"
+            component="section"
+          >
             <Grid
               container
               justifyContent="space-between"

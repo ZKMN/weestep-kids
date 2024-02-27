@@ -14,7 +14,7 @@ export const COLORS = {
   text: {
     main: '#FF7C2A',
     grey: '#7A7575',
-    green: '#179427',
+    green: '#008001',
     disabled: '#A5B2BB',
   },
   disabled: {

@@ -12,7 +12,7 @@ export const ProductColor = ({
 }) => (
   <Box
     padding={0.5}
-    component="button"
+    component={onClick ? 'button' : undefined}
     border={`${active ? 2 : 1}px solid`}
     bgcolor="transparent"
     borderColor={`border.${active ? 'black' : 'main'}`}

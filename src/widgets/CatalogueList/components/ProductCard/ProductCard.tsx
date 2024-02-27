@@ -21,8 +21,6 @@ export const ProductCard = ({ product }: any) => {
     name,
     price,
     type,
-    sizes,
-    colors,
     discount,
     topSales,
     productId,
@@ -31,6 +29,9 @@ export const ProductCard = ({ product }: any) => {
   const [handleRedirect] = useClickRedirect();
 
   const [show, { setTrue, setFalse }] = useBoolean();
+
+  const sizes = product.sizes as { id: string; value: string; }[];
+  const colors = product.colors as { id: string; value: string; }[];
 
   return (
     <Box
@@ -99,9 +100,9 @@ export const ProductCard = ({ product }: any) => {
                     </Grid>
 
                     <Stack spacing={1} direction="row">
-                      {sizes.map((size: string) => (
-                        <Typography key={size}>
-                          {size}
+                      {sizes.map(({ id, value }) => (
+                        <Typography key={id}>
+                          {value}
                         </Typography>
                       ))}
                     </Stack>
@@ -116,10 +117,10 @@ export const ProductCard = ({ product }: any) => {
                     </Grid>
 
                     <Stack spacing={1} direction="row">
-                      {colors.map((color: string) => (
+                      {colors.map(({ id, value }) => (
                         <ProductColor
-                          key={color}
-                          color={color}
+                          key={id}
+                          color={value}
                         />
                       ))}
                     </Stack>

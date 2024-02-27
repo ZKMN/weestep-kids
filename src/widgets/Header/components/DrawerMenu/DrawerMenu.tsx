@@ -14,7 +14,6 @@ import { BaseDrawer, BaseImage } from '@/shared/components';
 import {
   useClientTranslation,
   useLngRouter,
-  useMediaSizes,
   usePathnameWithoutLng,
 } from '@/shared/lib/hooks';
 
@@ -23,18 +22,20 @@ import { LanguageSelector, PhoneNumber } from '..';
 
 export const DrawerMenu = () => {
   const [handlePush] = useLngRouter();
-  const { isBiggerMd } = useMediaSizes();
   const pathname = usePathnameWithoutLng();
   const { translate } = useClientTranslation('common');
 
   const [isOpen, { setTrue, setFalse }] = useBoolean();
 
-  if (isBiggerMd) {
-    return null;
-  }
-
   return (
-    <Grid item>
+    <Grid
+      item
+      sx={(theme) => ({
+        [theme.breakpoints.up('md')]: {
+          display: 'none',
+        },
+      })}
+    >
       <IconButton onClick={setTrue}>
         <Menu />
       </IconButton>

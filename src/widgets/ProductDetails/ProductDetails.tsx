@@ -13,16 +13,46 @@ export const ProductDetails = () => {
     price: 29.99,
     discount: 10,
     topSales: true,
-    colors: ['#FF0000', '#0000FF', '#00FF00'],
-    sizes: [22, 23, 24, 25, 26, 27, 28],
+    available: 2,
     type: 'kids-shoes',
     productId: 'ABC123',
-    details: {
-      material: 'leather / eco-leather',
-      deisgn: '',
-      benefits: '',
-    },
     youMayLike: [],
+    colors: [{
+      id: '1',
+      value: '#FF0000',
+    }, {
+      id: '2',
+      value: '#0000FF',
+    }, {
+      id: '3',
+      value: '#00FF00',
+    }],
+    sizes: [{
+      id: '1',
+      value: 22,
+    }, {
+      id: '2',
+      value: 23,
+    }, {
+      id: '3',
+      value: 24,
+    }, {
+      id: '4',
+      value: 25,
+    }, {
+      id: '5',
+      value: 26,
+    }],
+    details: [{
+      title: 'Material',
+      value: 'leather / eco-leather',
+    }, {
+      title: 'Design',
+      value: '',
+    }, {
+      title: 'Benefits',
+      value: '',
+    }],
   };
 
   return (

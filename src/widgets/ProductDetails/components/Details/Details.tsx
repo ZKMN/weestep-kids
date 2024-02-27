@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React from 'react';
 import {
   Box,
   Divider,
@@ -10,13 +10,18 @@ import {
 
 import { ProductPrice, ProductTopSale } from '@/entities/Product';
 
-import { useMediaSizes } from '@/shared/lib/hooks';
+import { IntlTypography } from '@/shared/components';
+import { useMediaSizes, useTypedParams } from '@/shared/lib/hooks';
 
+import { AddProductButton } from './AddProductButton';
 import { Carousel } from './Carousel';
 import { ChooseColor } from './ChooseColor';
+import { ChooseQuantity } from './ChooseQuantity';
 import { ChooseSize } from './ChooseSize';
 
 export const Details = ({ product }: any) => {
+  const { productId } = useTypedParams();
+
   const {
     name,
     price,
@@ -25,11 +30,8 @@ export const Details = ({ product }: any) => {
     images,
     discount,
     topSales,
-    productId,
+    available,
   } = product;
-
-  const [size, setSize] = useState('');
-  const [color, setColor] = useState('');
 
   const { isLessMd } = useMediaSizes();
 
@@ -61,9 +63,18 @@ export const Details = ({ product }: any) => {
         ml={isLessMd ? 0 : 8}
         component="section"
       >
-        <Typography color="text.grey">
-          {productId}
-        </Typography>
+
+        <Grid container>
+          <Typography mr={2} color="text.grey">
+            {productId}
+          </Typography>
+
+          <IntlTypography
+            color="text.green"
+            intl={{ label: 'texts.inStock', values: { count: available } }}
+            fontWeight={700}
+          />
+        </Grid>
 
         <Grid
           container
@@ -85,19 +96,24 @@ export const Details = ({ product }: any) => {
           />
         </Grid>
 
-        <ChooseSize
-          size={size}
-          sizes={sizes}
-          setSize={setSize}
-        />
+        <ChooseSize sizes={sizes} />
 
         <Divider />
 
-        <ChooseColor
-          color={color}
-          colors={colors}
-          setColor={setColor}
-        />
+        <ChooseColor colors={colors} />
+
+        <Divider />
+
+        <ChooseQuantity available={available} />
+
+        <Grid container mt={3}>
+          <Grid item>
+            <AddProductButton
+              price={price}
+              image={images[0]}
+            />
+          </Grid>
+        </Grid>
       </Grid>
     </Grid>
   );

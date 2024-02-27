@@ -1,11 +1,13 @@
 {
   "texts": {
     "topSale": "Top Sale",
-    "headerUnderLogo": "For children as for adults. even better."
+    "headerUnderLogo": "For children as for adults. even better.",
+    "inStock": "in stock ({{ count }} available)"
   },
   "titles": {
     "color": "Color",
     "filters": "Filters",
-    "size": "Size"
+    "size": "Size",
+    "quantity": "Quantity"
   }
 }
