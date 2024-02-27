@@ -109,6 +109,7 @@ export const Details = ({ product }: any) => {
         <Grid container mt={3}>
           <Grid item>
             <AddProductButton
+              name={name}
               price={price}
               image={images[0]}
             />

@@ -4,8 +4,9 @@ import { useSearchParams } from 'next/navigation';
 import { IntlButton } from '@/shared/components';
 import { useTypedParams } from '@/shared/lib/hooks';
 import { addProductToLocalBasketAction } from '@/shared/lib/store';
+import { IProduct } from '@/shared/types';
 
-export const AddProductButton = ({ price, image }: { price: number; image: string; }) => {
+export const AddProductButton = ({ name, price, image }: Pick<IProduct, 'name' | 'price' | 'image'>) => {
   const search = useSearchParams();
   const { productId } = useTypedParams();
 
@@ -18,11 +19,12 @@ export const AddProductButton = ({ price, image }: { price: number; image: strin
       intl={{ label: 'addToCart' }}
       disabled={!sizeId || !colorId}
       onClick={() => addProductToLocalBasketAction({
+        name,
         image,
         price,
-        sizeId,
-        colorId,
         productId,
+        sizeId: String(sizeId),
+        colorId: String(colorId),
         quantity: Number(quantity),
       })}
     />
