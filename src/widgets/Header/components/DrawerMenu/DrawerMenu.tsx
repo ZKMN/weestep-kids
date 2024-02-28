@@ -10,6 +10,7 @@ import {
 } from '@mui/material';
 import { useBoolean } from 'ahooks';
 
+import { breakpoints } from '@/shared/assets';
 import { BaseDrawer, BaseImage } from '@/shared/components';
 import {
   useClientTranslation,
@@ -30,11 +31,11 @@ export const DrawerMenu = () => {
   return (
     <Grid
       item
-      sx={(theme) => ({
-        [theme.breakpoints.up('md')]: {
+      sx={{
+        [breakpoints.up('md')]: {
           display: 'none',
         },
-      })}
+      }}
     >
       <IconButton onClick={setTrue}>
         <Menu />

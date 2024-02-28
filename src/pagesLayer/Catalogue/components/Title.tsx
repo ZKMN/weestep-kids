@@ -3,29 +3,26 @@
 import React from 'react';
 import { Typography } from '@mui/material';
 
-import { useClientTranslation, useMediaSizes } from '@/shared/lib/hooks';
+import { breakpoints } from '@/shared/assets';
+import { useClientTranslation } from '@/shared/lib/hooks';
 
 export const Title = () => {
   const { translate } = useClientTranslation('common');
-
-  const { isLessMd, isLessLg } = useMediaSizes();
-
-  let fontSize = '4rem';
-
-  if (isLessLg) {
-    fontSize = '3rem';
-  }
-
-  if (isLessMd) {
-    fontSize = '2rem';
-  }
 
   return (
     <Typography
       color="primary"
       variant="h1"
       fontWeight={600}
-      fontSize={fontSize}
+      sx={{
+        fontSize: '4rem',
+        [breakpoints.down('lg')]: {
+          fontSize: '3rem',
+        },
+        [breakpoints.down('md')]: {
+          fontSize: '2rem',
+        },
+      }}
     >
       {translate('menu.catalogue')}
     </Typography>

@@ -7,19 +7,11 @@ import {
   Grid,
   Typography,
 } from '@mui/material';
-import { useBoolean } from 'ahooks';
 import { useSearchParams } from 'next/navigation';
 
-import {
-  BaseCollapse,
-  BaseDrawer,
-  IntlButton,
-  Loading,
-} from '@/shared/components';
-import { useMediaSizes } from '@/shared/lib/hooks';
+import { BaseCollapse, Loading } from '@/shared/components';
 
 import { useChangeFilter } from '../../lib/hooks';
-import { ClearAllFiltersButton } from '../ClearAllFiltersButton';
 
 const filters = [{
   title: 'Gender',
@@ -74,12 +66,9 @@ const filters = [{
 const FiltersComponent = () => {
   const searchParams = useSearchParams();
 
-  const { isLessMd } = useMediaSizes();
-  const [isOpen, { setTrue, setFalse }] = useBoolean();
-
   const handleChangeCategory = useChangeFilter();
 
-  const allFilters = filters.map(({ title, category, values }) => (
+  return filters.map(({ title, category, values }) => (
     <Grid container key={title}>
       <BaseCollapse title={title}>
         {values.map(({ name, value, count }) => (
@@ -110,32 +99,6 @@ const FiltersComponent = () => {
       </BaseCollapse>
     </Grid>
   ));
-
-  if (isLessMd) {
-    return (
-      <>
-        <IntlButton
-          sx={{ height: '100%' }}
-          size="small"
-          intl={{ label: 'filters' }}
-          color="secondary"
-          onClick={setTrue}
-        />
-
-        <BaseDrawer
-          open={isOpen}
-          anchor="left"
-          onClose={setFalse}
-          titleIntl={{ label: 'titles.filters' }}
-          titleExtraNode={<ClearAllFiltersButton />}
-        >
-          {allFilters}
-        </BaseDrawer>
-      </>
-    );
-  }
-
-  return allFilters;
 };
 
 export const Filters = () => (

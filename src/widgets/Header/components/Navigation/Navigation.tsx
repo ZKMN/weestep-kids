@@ -1,6 +1,7 @@
 import React from 'react';
 import { Box, Grid } from '@mui/material';
 
+import { breakpoints } from '@/shared/assets';
 import {
   useClickRedirect,
   useClientTranslation,
@@ -21,11 +22,11 @@ export const Navigation = () => {
     <Grid
       container
       justifyContent="flex-end"
-      sx={(theme) => ({
-        [theme.breakpoints.down('md')]: {
+      sx={{
+        [breakpoints.down('md')]: {
           display: 'none',
         },
-      })}
+      }}
     >
       <Box component="menu" className={styles.menu}>
         <ul className={styles.menuUl}>

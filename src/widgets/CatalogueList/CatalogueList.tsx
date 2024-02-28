@@ -3,10 +3,11 @@
 import React from 'react';
 import { Box, Grid } from '@mui/material';
 
-import { useMediaSizes } from '@/shared/lib/hooks';
+import { breakpoints } from '@/shared/assets';
 
 import {
   Filters,
+  FiltersDrawer,
   ProductCard,
   RemoveFilters,
   SortBy,
@@ -129,63 +130,81 @@ const products = [
   sizes: product.sizes.map((size, index) => ({ id: String(index + 1), value: size })),
 }));
 
-export const CatalogueList = () => {
-  const { isLessMd, isBiggerMd } = useMediaSizes();
+export const CatalogueList = () => (
+  <Box mt={3}>
+    <Grid
+      container
+      mb={3}
+      justifyContent="space-between"
+    >
+      <Grid item flex={1}>
+        <RemoveFilters />
+      </Grid>
 
-  return (
-    <Box mt={3}>
       <Grid
-        container
-        mb={3}
-        justifyContent="space-between"
+        item
+        xs={2}
+        sx={{
+          [breakpoints.down('md')]: {
+            display: 'none',
+          },
+        }}
       >
-        <Grid item flex={1}>
-          <RemoveFilters />
-        </Grid>
-
-        {isBiggerMd && (
-          <Grid item xs={2}>
-            <SortBy />
-          </Grid>
-        )}
+        <SortBy />
       </Grid>
+    </Grid>
 
-      <Grid container spacing={3}>
-        <Grid item xs={12} md={3} lg={2}>
-          <Box component="section" width="100%">
-            <Grid container spacing={{ xs: 1 }}>
-              <Grid item xs={6} md={12}>
+    <Grid container spacing={3}>
+      <Grid item xs={12} md={3} lg={2}>
+        <Box component="section" width="100%">
+          <Grid container spacing={{ xs: 1 }}>
+            <Grid item xs={6} md={12}>
+              <Box
+                sx={{
+                  [breakpoints.down('md')]: {
+                    display: 'none',
+                  },
+                }}
+              >
                 <Filters />
-              </Grid>
+              </Box>
 
-              {isLessMd && (
-                <Grid item xs={6}>
-                  <SortBy />
-                </Grid>
-              )}
+              <FiltersDrawer />
             </Grid>
-          </Box>
-        </Grid>
 
-        <Grid item flex={1}>
-          <Box component="section" width="100%">
-            <Grid container spacing={2}>
-              {products.map((product) => (
-                <Grid
-                  item
-                  key={product.productId}
-                  xs={12}
-                  sm={6}
-                  md={4}
-                  lg={3}
-                >
-                  <ProductCard product={product} />
-                </Grid>
-              ))}
+            <Grid
+              item
+              xs={6}
+              sx={{
+                [breakpoints.up('md')]: {
+                  display: 'none',
+                },
+              }}
+            >
+              <SortBy />
             </Grid>
-          </Box>
-        </Grid>
+          </Grid>
+        </Box>
       </Grid>
-    </Box>
-  );
-};
+
+      <Grid item flex={1}>
+        <Box component="section" width="100%">
+          <Grid container spacing={2}>
+            {products.map((product) => (
+              <Grid
+                item
+                key={product.productId}
+                xs={12}
+                sm={6}
+                md={4}
+                lg={3}
+              >
+                <ProductCard product={product} />
+              </Grid>
+            ))}
+          </Grid>
+        </Box>
+      </Grid>
+    </Grid>
+  </Box>
+);

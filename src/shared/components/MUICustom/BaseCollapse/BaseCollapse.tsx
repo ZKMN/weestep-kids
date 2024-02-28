@@ -5,11 +5,8 @@ import { ArrowForwardIos } from '@mui/icons-material';
 import { Box, Collapse, Typography } from '@mui/material';
 import { useBoolean } from 'ahooks';
 
-import { useMediaSizes } from '@/shared/lib/hooks';
-
 export const BaseCollapse = ({ title, children }: React.PropsWithChildren<{ title: string; }>) => {
   const [isOpen, { toggle }] = useBoolean();
-  const { isLessMd } = useMediaSizes();
 
   return (
     <>
@@ -25,7 +22,7 @@ export const BaseCollapse = ({ title, children }: React.PropsWithChildren<{ titl
         bgcolor="baseWhite.main"
         borderBottom="1px solid"
         borderColor="border.main"
-        padding={isLessMd ? '5px 0' : '10px 0'}
+        padding="10px 0"
       >
         <Typography
           color="secondary"

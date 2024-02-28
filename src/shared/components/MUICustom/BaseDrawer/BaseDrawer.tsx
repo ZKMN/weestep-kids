@@ -6,6 +6,7 @@ import {
   IconButton,
 } from '@mui/material';
 
+import { breakpoints } from '@/shared/assets';
 import { useMediaSizes } from '@/shared/lib/hooks';
 import { BaseDrawerProps } from '@/shared/types';
 
@@ -27,19 +28,19 @@ export const BaseDrawer = ({
       anchor={anchor || 'right'}
       onClose={onClose}
       PaperProps={{
-        sx: (theme) => ({
+        sx: {
           width: '30%',
           padding: 2,
-          [theme.breakpoints.up('xl')]: {
+          [breakpoints.up('xl')]: {
             width: '60%',
           },
-          [theme.breakpoints.down('md')]: {
+          [breakpoints.down('md')]: {
             width: '50%',
           },
-          [theme.breakpoints.down('sm')]: {
+          [breakpoints.down('sm')]: {
             width: '90%',
           },
-        }),
+        },
       }}
     >
       <Grid

@@ -31,7 +31,7 @@ export const useLngRouter = (): [
     url: string,
     options?: NavigateOptions,
   ) => {
-    router.push(`/${lng}${url}`, options);
+    router.push(`/${lng}${url}`, { scroll: true, ...options });
   }, [router.push]);
 
   return [handlePush, router];

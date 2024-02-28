@@ -1,9 +1,10 @@
 'use client';
 
-import { Box, Grid } from '@mui/material';
+import { Box, Grid, useMediaQuery } from '@mui/material';
 
+import { breakpoints } from '@/shared/assets';
 import { BaseContainer, BaseImage, IntlTypography } from '@/shared/components';
-import { useClickRedirect, useMediaSizes } from '@/shared/lib/hooks';
+import { useClickRedirect } from '@/shared/lib/hooks';
 import { Links } from '@/shared/types';
 
 import {
@@ -19,12 +20,7 @@ import styles from './Header.module.scss';
 export const Header = () => {
   const [handleRedirect] = useClickRedirect();
 
-  const {
-    isLessLg,
-    isLessSm,
-    isBiggerMd,
-    isBiggerSm,
-  } = useMediaSizes();
+  const isLessLg = useMediaQuery((theme) => theme.breakpoints.down('lg'), { defaultMatches: true });
 
   return (
     <>
@@ -57,12 +53,18 @@ export const Header = () => {
                   objectFit="contain"
                 />
 
-                {isBiggerMd && (
+                <Box
+                  sx={{
+                    [breakpoints.down('md')]: {
+                      display: 'none',
+                    },
+                  }}
+                >
                   <IntlTypography
                     intl={{ label: 'texts.headerUnderLogo' }}
                     fontSize="17px"
                   />
-                )}
+                </Box>
               </Grid>
 
               <Grid item flex={1}>
@@ -72,15 +74,36 @@ export const Header = () => {
                       container
                       spacing={{ xs: 1 }}
                       alignItems="center"
-                      justifyContent={isLessSm ? 'flex-end' : 'space-between'}
+                      sx={{
+                        justifyContent: 'space-between',
+                        [breakpoints.down('sm')]: {
+                          justifyContent: 'flex-end',
+                        },
+                      }}
                     >
-                      {isBiggerSm && <PhoneNumber />}
+                      <Box
+                        sx={{
+                          [breakpoints.down('sm')]: {
+                            display: 'none',
+                          },
+                        }}
+                      >
+                        <PhoneNumber />
+                      </Box>
 
                       <Cart />
 
                       <DrawerMenu />
 
-                      {isBiggerMd && <LanguageSelector />}
+                      <Box
+                        sx={{
+                          [breakpoints.down('md')]: {
+                            display: 'none',
+                          },
+                        }}
+                      >
+                        <LanguageSelector />
+                      </Box>
                     </Grid>
                   </Grid>
                 </Grid>
