@@ -13,7 +13,7 @@ export interface IBaseDialogProps extends Omit<DialogProps, 'open' | 'children' 
 
 export interface BaseDrawerProps extends Omit<DrawerProps, 'onClose'> {
   onClose: () => void;
-  titleIntl: IIntlProps['intl'];
+  titleIntl?: IIntlProps['intl'];
   titleExtraNode?: React.ReactNode;
 }
 

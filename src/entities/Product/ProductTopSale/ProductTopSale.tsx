@@ -21,7 +21,7 @@ export const ProductTopSale = ({
     <Chip
       size={size}
       label={translate('texts.topSale')}
-      color="secondary"
+      color="error"
       icon={<Whatshot />}
     />
   );
