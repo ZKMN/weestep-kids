@@ -1,6 +1,11 @@
 'use client';
 
-import { Box, Grid, useMediaQuery } from '@mui/material';
+import {
+  Box,
+  Grid,
+  Theme,
+  useMediaQuery,
+} from '@mui/material';
 
 import { breakpoints } from '@/shared/assets';
 import { BaseContainer, BaseImage, IntlTypography } from '@/shared/components';
@@ -20,7 +25,7 @@ import styles from './Header.module.scss';
 export const Header = () => {
   const [handleRedirect] = useClickRedirect();
 
-  const isLessLg = useMediaQuery((theme) => theme.breakpoints.down('lg'), { defaultMatches: true });
+  const isLessLg = useMediaQuery<Theme>((theme) => theme.breakpoints.down('lg'), { defaultMatches: true });
 
   return (
     <>
