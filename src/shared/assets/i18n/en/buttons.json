@@ -1,5 +1,10 @@
 {
   "filters": "Filters",
   "clearFilters": "Clear Filters",
-  "addToCart": "Add To Cart"
+  "addToCart": "Add To Cart",
+  "checkout": "Checkout",
+  "continueShopping": "Continue Shopping",
+  "edit": "Edit",
+  "remove": "Remove",
+  "confirm": "Confirm"
 }

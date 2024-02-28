@@ -8,6 +8,7 @@
     "color": "Colore",
     "filters": "Filtros",
     "size": "Talla",
-    "quantity": "Cantidad"
+    "quantity": "Cantidad",
+    "orderSummary": "Resumen del pedido"
   }
 }

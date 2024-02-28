@@ -27,7 +27,7 @@ export const dynamicParams = true;
 //     }
 
 //     return acc;
-//   }, {}) as IProduct;
+//   }, {}) as IBasketProduct;
 
 //   return {
 //     title: `${product.name}, Customize it!`,

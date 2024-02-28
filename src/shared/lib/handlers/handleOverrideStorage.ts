@@ -29,5 +29,5 @@ export const handleOverrideStorage = (data: Partial<TStorage>) => {
 
   const newLocalState = JSON.stringify(newStorage);
 
-  localStorage.setItem(String(config?.storageKeyName), newLocalState);
+  sessionStorage.setItem(String(config?.storageKeyName), newLocalState);
 };

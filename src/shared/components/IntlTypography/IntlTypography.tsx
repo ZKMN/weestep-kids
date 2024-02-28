@@ -12,6 +12,7 @@ export const IntlTypography = ({
   fontFamily,
   fontSize,
   fontWeight,
+  textTransform,
 }: Omit<TypographyProps, 'children'> & IIntlProps) => {
   const { translate } = useClientTranslation('typography');
 
@@ -23,6 +24,7 @@ export const IntlTypography = ({
       fontFamily={fontFamily}
       fontSize={fontSize}
       fontWeight={fontWeight}
+      textTransform={textTransform}
     >
       {translate(intl.label, intl.values)}
     </Typography>

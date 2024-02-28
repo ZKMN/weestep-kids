@@ -11,13 +11,13 @@ export const ChooseSize = ({ sizes }: { sizes: { id: string; value: string; }[];
     <Grid container mb={2}>
       <Grid item xs={12}>
         <Grid container wrap="nowrap" alignItems="center">
-          <Grid item xs={3}>
+          <Grid item xs={4} md={3}>
             <IntlTypography
               intl={{ label: 'titles.size' }}
+              color="text.grey"
+              variant="h3"
               fontSize="1.5rem"
               fontWeight={700}
-              variant="h3"
-              color="text.grey"
             />
           </Grid>
 

@@ -126,7 +126,7 @@ const FiltersComponent = () => {
           open={isOpen}
           anchor="left"
           onClose={setFalse}
-          titleIntl="titles.filters"
+          titleIntl={{ label: 'titles.filters' }}
           titleExtraNode={<ClearAllFiltersButton />}
         >
           {allFilters}

@@ -2,34 +2,24 @@ import React from 'react';
 import { Close } from '@mui/icons-material';
 import {
   Drawer,
-  DrawerProps,
   Grid,
   IconButton,
 } from '@mui/material';
 
 import { useMediaSizes } from '@/shared/lib/hooks';
+import { BaseDrawerProps } from '@/shared/types';
 
 import { IntlTypography } from '../..';
 
-interface BaseDrawerProps {
-   onClose: () => void;
-   titleIntl?: string;
-   titleExtraNode?: React.ReactNode;
-  }
-
 export const BaseDrawer = ({
   open,
-  titleIntl,
   anchor,
-  titleExtraNode,
   children,
+  titleIntl,
+  titleExtraNode,
   onClose,
-}: React.PropsWithChildren<Omit<DrawerProps, 'onClose'>> & BaseDrawerProps) => {
-  const { isLessSm, isLessMd, isBiggerXl } = useMediaSizes();
-
-  const smWidth = isLessSm && '90%';
-  const mdWidth = isLessMd && '50%';
-  const xxlWidth = isBiggerXl && '25%';
+}: React.PropsWithChildren<BaseDrawerProps>) => {
+  const { isLessSm } = useMediaSizes();
 
   return (
     <Drawer
@@ -37,10 +27,19 @@ export const BaseDrawer = ({
       anchor={anchor || 'right'}
       onClose={onClose}
       PaperProps={{
-        sx: {
-          width: smWidth || mdWidth || xxlWidth || '30%',
+        sx: (theme) => ({
+          width: '30%',
           padding: 2,
-        },
+          [theme.breakpoints.up('xl')]: {
+            width: '60%',
+          },
+          [theme.breakpoints.down('md')]: {
+            width: '50%',
+          },
+          [theme.breakpoints.down('sm')]: {
+            width: '90%',
+          },
+        }),
       }}
     >
       <Grid
@@ -49,30 +48,33 @@ export const BaseDrawer = ({
         alignItems="center"
         justifyContent="space-between"
       >
-        <Grid item>
+        <Grid item xs={12}>
           <Grid container alignItems="center">
-
             <IconButton onClick={onClose}>
               <Close />
             </IconButton>
 
-            {titleIntl && (
-              <IntlTypography
-                ml={2}
-                variant="h6"
-                fontWeight={700}
-                fontSize={isLessSm ? 20 : 28}
-                intl={{ label: titleIntl }}
-              />
-            )}
+            <Grid item flex={1}>
+              <Grid container justifyContent="space-between">
+                <Grid item>
+                  {titleIntl && (
+                    <IntlTypography
+                      ml={2}
+                      variant="h6"
+                      fontWeight={700}
+                      fontSize={isLessSm ? 20 : 28}
+                      intl={titleIntl}
+                    />
+                  )}
+                </Grid>
+
+                <Grid item>
+                  {titleExtraNode}
+                </Grid>
+              </Grid>
+            </Grid>
           </Grid>
         </Grid>
-
-        {titleExtraNode && (
-          <Grid item>
-            {titleExtraNode}
-          </Grid>
-        )}
       </Grid>
 
       {children}

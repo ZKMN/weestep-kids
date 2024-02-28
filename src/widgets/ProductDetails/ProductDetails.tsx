@@ -13,7 +13,7 @@ export const ProductDetails = () => {
     price: 29.99,
     discount: 10,
     topSales: true,
-    available: 2,
+    available: 4,
     type: 'kids-shoes',
     productId: 'ABC123',
     youMayLike: [],
@@ -56,10 +56,10 @@ export const ProductDetails = () => {
   };
 
   return (
-    <div>
+    <>
       <Bread />
 
       <Details product={product} />
-    </div>
+    </>
   );
 };

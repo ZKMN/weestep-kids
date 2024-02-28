@@ -1,19 +1,24 @@
-export interface IProduct {
+export interface IBasketProduct {
+  type: string;
   name: string;
   image: string;
   price: number;
-  sizeId: string;
-  colorId: string;
+  size?: { id: string; value: string; };
+  color?: { id: string; value: string; };
   quantity: number;
+  discount: number;
   productId: string;
+  available: number;
 }
 
 export interface ILocalBasketStore {
-  products?: IProduct[];
+  products?: IBasketProduct[];
 }
 
 export interface ILocalBasketStoreActions {
-  addProductToLocalBasketAction: (data: IProduct) => void;
-  editProductInLocalBasketAction: (data: IProduct) => void;
+  increaseProductQuantityAction: (id: string) => void;
+  decreaseProductQuantityAction: (id: string) => void;
+  addProductToLocalBasketAction: (data: IBasketProduct) => void;
+  editProductInLocalBasketAction: (data: IBasketProduct) => void;
   removeProductFromLocalBasketAction: (id: string) => void;
 }

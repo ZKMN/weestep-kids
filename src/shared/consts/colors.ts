@@ -14,6 +14,7 @@ export const COLORS = {
   text: {
     main: '#FF7C2A',
     grey: '#7A7575',
+    white: '#FFFFFF',
     green: '#008001',
     disabled: '#A5B2BB',
   },
@@ -37,9 +38,9 @@ export const COLORS = {
     main: 'rgba(0, 0, 0, 0.38)',
   },
   error: {
-    main: '#A81016',
+    main: '#FF4D4F',
   },
   success: {
-    main: '#0C893E',
+    main: '#52C41A',
   },
 };

@@ -23,6 +23,7 @@ export const Details = ({ product }: any) => {
   const { productId } = useTypedParams();
 
   const {
+    type,
     name,
     price,
     sizes,
@@ -33,7 +34,7 @@ export const Details = ({ product }: any) => {
     available,
   } = product;
 
-  const { isLessMd } = useMediaSizes();
+  const { isLessMd, isLessSm } = useMediaSizes();
 
   return (
     <Grid container mt={2}>
@@ -42,8 +43,8 @@ export const Details = ({ product }: any) => {
         xs={12}
         md={5}
         mb={isLessMd ? 3 : 0}
-        component="section"
         position="relative"
+        component="section"
       >
         <Box position="absolute" left={0} top={10} zIndex={2}>
           <ProductTopSale
@@ -63,57 +64,62 @@ export const Details = ({ product }: any) => {
         ml={isLessMd ? 0 : 8}
         component="section"
       >
-
         <Grid container>
-          <Typography mr={2} color="text.grey">
-            {productId}
-          </Typography>
+          <Grid item xs={12} mb={2}>
 
-          <IntlTypography
-            color="text.green"
-            intl={{ label: 'texts.inStock', values: { count: available } }}
-            fontWeight={700}
-          />
-        </Grid>
+            <Grid container mb={isLessSm ? 1 : 0}>
+              <Typography mr={2} color="text.grey">
+                {productId}
+              </Typography>
 
-        <Grid
-          container
-          mb={isLessMd ? 2 : 5}
-          justifyContent="space-between"
-        >
-          <Typography
-            variant="h1"
-            fontSize={isLessMd ? '2rem' : '3rem'}
-            fontWeight={700}
-          >
-            {name}
-          </Typography>
+              <IntlTypography
+                color="text.green"
+                intl={{ label: 'texts.inStock', values: { count: available } }}
+                fontWeight={700}
+              />
+            </Grid>
 
-          <ProductPrice
-            large
-            price={price}
-            discount={discount}
-          />
-        </Grid>
+            <Grid
+              container
+              mb={isLessMd ? 2 : 5}
+              justifyContent="space-between"
+            >
+              <Typography
+                variant="h1"
+                fontSize={isLessMd ? '2rem' : '3rem'}
+                fontWeight={700}
+              >
+                {name}
+              </Typography>
 
-        <ChooseSize sizes={sizes} />
+              <ProductPrice
+                large
+                price={price}
+                discount={discount}
+              />
+            </Grid>
 
-        <Divider />
+            <ChooseSize sizes={sizes} />
 
-        <ChooseColor colors={colors} />
+            <Divider />
 
-        <Divider />
+            <ChooseColor colors={colors} />
 
-        <ChooseQuantity available={available} />
+            <Divider />
 
-        <Grid container mt={3}>
-          <Grid item>
-            <AddProductButton
-              name={name}
-              price={price}
-              image={images[0]}
-            />
+            <ChooseQuantity available={available} />
           </Grid>
+
+          <AddProductButton
+            name={name}
+            type={type}
+            image={images[0]}
+            price={price}
+            sizes={sizes}
+            colors={colors}
+            discount={discount}
+            available={available}
+          />
         </Grid>
       </Grid>
     </Grid>

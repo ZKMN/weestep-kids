@@ -19,25 +19,33 @@ const Cart = () => {
   const summPrice = products?.reduce((acc, item) => {
     let price = acc;
 
-    price += item.price;
+    price += item.price * item.quantity;
 
     return price;
+  }, 0);
+
+  const quantity = products?.reduce((acc, item) => {
+    let qty = acc;
+
+    qty += item.quantity;
+
+    return qty;
   }, 0);
 
   return (
     <Grid item>
       <Box
-        sx={{ cursor: !products?.length ? '' : 'pointer' }}
+        sx={{ cursor: !quantity ? '' : 'pointer' }}
         border="none"
         display="flex"
         bgcolor="transparent"
         component="button"
-        disabled={!products?.length}
+        disabled={!quantity}
       >
         <Badge
           showZero
           color="secondary"
-          badgeContent={products?.length}
+          badgeContent={quantity}
         >
           <ShoppingBagOutlined />
         </Badge>

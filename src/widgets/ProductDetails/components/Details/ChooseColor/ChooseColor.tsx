@@ -13,13 +13,13 @@ export const ChooseColor = ({ colors }: { colors: { id: string; value: string; }
     <Grid container mt={2} mb={2}>
       <Grid item xs={12}>
         <Grid container wrap="nowrap" alignItems="center">
-          <Grid item xs={3}>
+          <Grid item xs={4} md={3}>
             <IntlTypography
               intl={{ label: 'titles.color' }}
               color="text.grey"
+              variant="h3"
               fontSize="1.5rem"
               fontWeight={700}
-              variant="h3"
             />
           </Grid>
 
