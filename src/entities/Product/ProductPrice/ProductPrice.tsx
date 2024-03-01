@@ -14,7 +14,7 @@ export const ProductPrice = ({
 }) => (
   <Box position="relative">
     <Typography
-      color={discount ? 'primary' : ''}
+      color={discount ? 'error' : ''}
       fontSize={large ? 28 : 18}
       fontWeight={700}
     >

@@ -14,14 +14,14 @@ import { IFieldProps } from '@/shared/types';
 export const FormPhoneInput = ({
   size,
   name,
+  intl,
   required,
   disabled,
-  intlLabel,
   placeholder,
 }: Omit<IFieldProps, 'type'>) => {
   const { control } = useFormContext();
 
-  const { translate } = useClientTranslation('forms');
+  const { translate } = useClientTranslation('form');
 
   return (
     <Controller
@@ -33,7 +33,7 @@ export const FormPhoneInput = ({
           name={field.name}
           size={size}
           color="primary"
-          label={translate(intlLabel)}
+          label={translate(intl.label, intl.values)}
           value={field.value || ''}
           error={!!fieldState.error}
           onBlur={field.onBlur}

@@ -6,13 +6,13 @@ export const COLORS = {
     main: '#115E67',
   },
   background: {
-    main: '#f3f1f2',
     paper: '#FFFFFF',
-    default: '#FFFFFF',
+    default: '#F5F2F2',
+    primary: '#FF7C2A',
+    secondary: '#115E67',
     error: 'rgba(217, 34, 40, 0.10)',
   },
   text: {
-    main: '#FF7C2A',
     grey: '#7A7575',
     white: '#FFFFFF',
     green: '#008001',
@@ -22,7 +22,7 @@ export const COLORS = {
     main: '#BBB7B7',
   },
   border: {
-    main: '#EBE6E6',
+    main: '#D6D5D5',
     black: '#272424',
   },
   baseBlack: {

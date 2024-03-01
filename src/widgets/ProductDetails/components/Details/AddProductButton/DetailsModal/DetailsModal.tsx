@@ -4,7 +4,7 @@ import { Grid, Typography } from '@mui/material';
 import { ProductBasketDetails } from '@/entities/Product';
 
 import { BaseDialog, IntlButton } from '@/shared/components';
-import { getCurrency } from '@/shared/lib/helpers';
+import { getCurrency, getProductsPrice, getProductsQuantity } from '@/shared/lib/helpers';
 import { useClickRedirect } from '@/shared/lib/hooks';
 import { localBasketStore } from '@/shared/lib/store';
 import { IBaseDialogProps, Links } from '@/shared/types';
@@ -20,18 +20,13 @@ export const DetailsModal = ({ isOpen, setFalse }: Pick<IBaseDialogProps, 'isOpe
     }
   }, [products]);
 
-  const summPrice = products?.reduce((acc, item) => {
-    let price = acc;
-
-    price += item.price * item.quantity;
-
-    return price;
-  }, 0);
+  const price = getProductsPrice(products);
+  const quantity = getProductsQuantity(products);
 
   return (
     <BaseDialog
-      maxWidth="xs"
       isOpen={isOpen}
+      maxWidth="xs"
       closable={false}
       titleIntl={{ label: 'titles.orderSummary' }}
       titleExtraNode={(
@@ -40,7 +35,9 @@ export const DetailsModal = ({ isOpen, setFalse }: Pick<IBaseDialogProps, 'isOpe
           fontSize={18}
           fontWeight={700}
         >
-          {getCurrency(summPrice)}
+          {`(${quantity})`}
+          {' '}
+          {getCurrency(price)}
         </Typography>
       )}
       footer={(
@@ -49,7 +46,7 @@ export const DetailsModal = ({ isOpen, setFalse }: Pick<IBaseDialogProps, 'isOpe
             <IntlButton
               intl={{ label: 'checkout' }}
               color="secondary"
-              onClick={handleRedirect(Links.BASKET)}
+              onClick={handleRedirect(Links.CHECKOUT)}
             />
           </Grid>
 
@@ -67,7 +64,7 @@ export const DetailsModal = ({ isOpen, setFalse }: Pick<IBaseDialogProps, 'isOpe
           <Grid item key={product.productId} xs={12}>
             <ProductBasketDetails
               product={product}
-              setFalse={setFalse}
+              onEdit={setFalse}
             />
           </Grid>
         ))}

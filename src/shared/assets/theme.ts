@@ -1,12 +1,14 @@
 'use client';
 
+/* eslint-disable prefer-destructuring */
 import { createTheme, Palette } from '@mui/material';
 
 import { COLORS } from '@/shared/consts';
 
 import { weestepFont } from './font';
 
-export const { palette, breakpoints } = createTheme({ palette: COLORS as unknown as Palette });
+export const palette = createTheme({ palette: COLORS as unknown as Palette }).palette;
+export const breakpoints = createTheme().breakpoints;
 
 const options = {
   palette,
@@ -51,7 +53,7 @@ const options = {
       styleOverrides: {
         root: {
           borderRadius: '8px',
-          background: palette.background.default,
+          background: palette.background.paper,
           '&.Mui-error': {
             background: palette.background.error,
           },

@@ -1,4 +1,6 @@
 const commonVars = {
+  stripePK: process.env.NEXT_PUBLIC_STRIPE_PUBLISH_KEY,
+  stripeSK: process.env.STRIPE_SECRET_KEY,
   storageKeyName: 'r2-d2-kjkszpj',
   icons: [{
     rel: 'icon',
@@ -47,4 +49,4 @@ export const config = {
     },
   },
   development: commonVars,
-}[process.env.APP_ENV || 'development'];
+}[process.env.NEXT_PUBLIC_APP_ENV || 'development'];

@@ -15,5 +15,13 @@ declare module '@mui/material/styles' {
 
   interface TypeBackground {
     error: TypeBackground['default'];
+    primary: TypeBackground['default'];
+    secondary: TypeBackground['default'];
+  }
+
+  interface TypeText {
+    grey: TypeText['primary'];
+    white: TypeText['primary'];
+    green: TypeText['primary'];
   }
 }

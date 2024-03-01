@@ -13,8 +13,8 @@ export const Footer = () => {
 
   return (
     <Box
-      mt={2}
-      bgcolor="background.main"
+      mt={4}
+      bgcolor="background.default"
       component="footer"
     >
       <BaseContainer>

@@ -10,17 +10,17 @@ import { IFieldProps } from '@/shared/types';
 export const FormInput = ({
   size,
   name,
+  intl,
   maxRows,
   required,
   disabled,
   multiline,
-  intlLabel,
   placeholder,
   endAdornment,
 }: Omit<IFieldProps, 'type'>) => {
   const { control } = useFormContext();
 
-  const { translate } = useClientTranslation('forms');
+  const { translate } = useClientTranslation('form');
 
   return (
     <Controller
@@ -32,7 +32,7 @@ export const FormInput = ({
           id={name}
           size={size}
           name={field.name}
-          label={translate(intlLabel)}
+          label={translate(intl.label, intl.values)}
           color="primary"
           error={!!fieldState.error}
           value={field.value || ''}

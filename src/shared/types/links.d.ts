@@ -4,5 +4,5 @@ export enum Links {
   BRAND_OF_YEAR = '/brand-of-the-year',
   CONTACTS = '/contacts',
   FIND_FIT = '/find-your-fit',
-  BASKET = '/basket'
+  CHECKOUT = '/checkout'
 }

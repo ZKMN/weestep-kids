@@ -27,7 +27,8 @@ export const Details = ({ product }: any) => {
     name,
     price,
     sizes,
-    colors,
+    color,
+    colorsAvailable,
     images,
     discount,
     topSales,
@@ -41,12 +42,12 @@ export const Details = ({ product }: any) => {
       <Grid
         item
         xs={12}
-        md={5}
+        md={6}
         mb={isLessMd ? 3 : 0}
         position="relative"
         component="section"
       >
-        <Box position="absolute" left={0} top={10} zIndex={2}>
+        <Box position="absolute" right={0} top={10} zIndex={2}>
           <ProductTopSale
             size="medium"
             topSales={topSales}
@@ -91,7 +92,12 @@ export const Details = ({ product }: any) => {
               >
                 {name}
               </Typography>
+            </Grid>
 
+            <Grid
+              container
+              mb={isLessMd ? 2 : 5}
+            >
               <ProductPrice
                 large
                 price={price}
@@ -103,7 +109,7 @@ export const Details = ({ product }: any) => {
 
             <Divider />
 
-            <ChooseColor colors={colors} />
+            <ChooseColor color={color} colors={colorsAvailable} />
 
             <Divider />
 
@@ -115,8 +121,8 @@ export const Details = ({ product }: any) => {
             type={type}
             image={images[0]}
             price={price}
+            color={color}
             sizes={sizes}
-            colors={colors}
             discount={discount}
             available={available}
           />

@@ -16,10 +16,10 @@ export const AddProductButton = ({
   price,
   image,
   sizes,
-  colors,
+  color,
   discount,
   available,
-}: Pick<IBasketProduct, 'name' | 'price' | 'image' | 'available' | 'type' | 'discount'> & { sizes: []; colors: []; }) => {
+}: Pick<IBasketProduct, 'name' | 'price' | 'image' | 'available' | 'type' | 'discount' | 'color'> & { sizes: []; }) => {
   const [isOpen, { setTrue, setFalse }] = useBoolean();
 
   const search = useSearchParams();
@@ -27,11 +27,9 @@ export const AddProductButton = ({
 
   const edit = search.get('edit');
   const sizeId = search.get('size');
-  const colorId = search.get('color');
   const quantity = search.get('quantity');
 
   const size = sizes.find(({ id }) => id === sizeId);
-  const color = colors.find(({ id }) => id === colorId);
 
   const basketProduct = {
     type,
@@ -53,7 +51,6 @@ export const AddProductButton = ({
       width="100%"
       position="sticky"
       bottom={0}
-      bgcolor="background.default"
       justifyContent="flex-end"
     >
       <DetailsModal
@@ -64,7 +61,7 @@ export const AddProductButton = ({
       <IntlButton
         sx={{ width: 'max-content' }}
         intl={{ label: edit ? 'confirm' : 'addToCart' }}
-        disabled={!sizeId || !colorId}
+        disabled={!sizeId}
         onClick={() => {
           setTrue();
           addProductToLocalBasketAction(basketProduct);

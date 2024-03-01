@@ -12,7 +12,7 @@ import { useBoolean } from 'ahooks';
 import { ProductColor, ProductPrice, ProductTopSale } from '@/entities/Product';
 
 import { BaseImage, IntlTypography } from '@/shared/components';
-import { useClickRedirect } from '@/shared/lib/hooks';
+import { useClickRedirect, useMediaSizes } from '@/shared/lib/hooks';
 import { Links } from '@/shared/types';
 
 export const ProductCard = ({ product }: any) => {
@@ -29,6 +29,7 @@ export const ProductCard = ({ product }: any) => {
   const [handleRedirect] = useClickRedirect();
 
   const [show, { setTrue, setFalse }] = useBoolean();
+  const { isBiggerLg } = useMediaSizes();
 
   const sizes = product.sizes as { id: string; value: string; }[];
   const colors = product.colors as { id: string; value: string; }[];
@@ -40,8 +41,8 @@ export const ProductCard = ({ product }: any) => {
     >
       <Card
         component="button"
-        onMouseOut={setFalse}
-        onMouseOver={setTrue}
+        onMouseOut={isBiggerLg ? setFalse : undefined}
+        onMouseOver={isBiggerLg ? setTrue : undefined}
         onClick={handleRedirect(`${Links.CATALOGUE}/${type}/${productId}`)}
         elevation={show ? 1 : 0}
         sx={{

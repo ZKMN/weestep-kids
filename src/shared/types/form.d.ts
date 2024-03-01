@@ -5,15 +5,20 @@ import {
   UseFormHandleSubmit,
   UseFormProps,
 } from 'react-hook-form';
-import { BaseTextFieldProps, ButtonProps, InputProps } from '@mui/material';
+import {
+  BaseTextFieldProps,
+  ButtonProps,
+  InputProps,
+  RegularBreakpoints,
+} from '@mui/material';
 import * as Yup from 'yup';
 
 import { IIntlProps } from '.';
 
-export interface IFieldProps extends Omit<BaseTextFieldProps, 'label'>, Pick<InputProps, 'endAdornment'> {
+export interface IFieldProps extends Omit<BaseTextFieldProps, 'label'>, Pick<InputProps, 'endAdornment'>, RegularBreakpoints {
   type: IFieldProps.type;
   name: string;
-  intlLabel: string;
+  intl: IIntlProps['intl'];
 }
 
 export namespace IFieldProps {
@@ -28,7 +33,7 @@ export namespace IFieldProps {
 export interface IFormProps<T extends FieldValues> extends UseFormProps<T> {
   fields: IFieldProps[];
   loading?: boolean;
-  buttonProps?: ButtonProps & { loading?: boolean; intLabel?: string; intlValues?: IIntlProps['intl']['values']; };
+  buttonProps?: ButtonProps & { loading?: boolean; intl?: IIntlProps['intl']; };
   initialValues: DefaultValues<T>;
   validationSchema: Yup.ObjectSchema<T>;
   onSubmit: SubmitFn<T>;

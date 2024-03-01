@@ -24,6 +24,7 @@ const products = [
     sizes: [22, 25, 28],
     type: 'kids-shoes',
     productId: 'ABC123',
+    santimeters: 20,
   },
   {
     img: 'https://weestep-kids.es/media/cache/38/27/382776f060c825d466cccb37fabbaaad.jpg',
@@ -35,6 +36,7 @@ const products = [
     sizes: [25, 28, 31],
     type: 'kids-shoes',
     productId: 'XYZ789',
+    santimeters: 20,
   },
   {
     img: 'https://weestep-kids.es/media/cache/38/27/382776f060c825d466cccb37fabbaaad.jpg',
@@ -46,6 +48,7 @@ const products = [
     sizes: [22, 28, 31],
     type: 'kids-shoes',
     productId: 'PQR456',
+    santimeters: 20,
   },
   {
     img: 'https://weestep-kids.es/media/cache/38/27/382776f060c825d466cccb37fabbaaad.jpg',
@@ -57,6 +60,7 @@ const products = [
     sizes: [22, 25, 31],
     type: 'kids-shoes',
     productId: 'LMN789',
+    santimeters: 20,
   },
   {
     img: 'https://weestep-kids.es/media/cache/38/27/382776f060c825d466cccb37fabbaaad.jpg',
@@ -68,6 +72,7 @@ const products = [
     sizes: [25, 28, 31],
     type: 'kids-shoes',
     productId: 'DEF321',
+    santimeters: 20,
   },
   {
     img: 'https://weestep-kids.es/media/cache/38/27/382776f060c825d466cccb37fabbaaad.jpg',
@@ -79,6 +84,7 @@ const products = [
     sizes: [22, 25, 28],
     type: 'kids-shoes',
     productId: 'JKL987',
+    santimeters: 20,
   },
   {
     img: 'https://weestep-kids.es/media/cache/38/27/382776f060c825d466cccb37fabbaaad.jpg',
@@ -90,6 +96,7 @@ const products = [
     sizes: [25, 28, 31],
     type: 'kids-shoes',
     productId: 'GHI654',
+    santimeters: 20,
   },
   {
     img: 'https://weestep-kids.es/media/cache/38/27/382776f060c825d466cccb37fabbaaad.jpg',
@@ -101,6 +108,7 @@ const products = [
     sizes: [22, 28, 31],
     type: 'kids-shoes',
     productId: 'MNO012',
+    santimeters: 20,
   },
   {
     img: 'https://weestep-kids.es/media/cache/38/27/382776f060c825d466cccb37fabbaaad.jpg',
@@ -112,6 +120,7 @@ const products = [
     sizes: [22, 25, 28],
     type: 'kids-shoes',
     productId: 'UVW345',
+    santimeters: 20,
   },
   {
     img: 'https://weestep-kids.es/media/cache/38/27/382776f060c825d466cccb37fabbaaad.jpg',
@@ -123,6 +132,7 @@ const products = [
     sizes: [25, 28, 31],
     type: 'kids-shoes',
     productId: 'STU678',
+    santimeters: 20,
   },
 ].map((product) => ({
   ...product,

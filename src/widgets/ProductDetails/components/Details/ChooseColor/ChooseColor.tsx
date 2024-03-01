@@ -1,13 +1,18 @@
 import React from 'react';
 import { Grid } from '@mui/material';
-import { useQueryState } from 'nuqs';
 
 import { ProductColor } from '@/entities/Product';
 
 import { IntlTypography } from '@/shared/components';
+import { useClickRedirect, useTypedParams } from '@/shared/lib/hooks';
+import { Links } from '@/shared/types';
 
-export const ChooseColor = ({ colors }: { colors: { id: string; value: string; }[]; }) => {
-  const [color, setColor] = useQueryState('color');
+type TColor = { id: string; value: string; productId: string; };
+
+export const ChooseColor = ({ color, colors }: { color: TColor; colors: TColor[]; }) => {
+  const { type } = useTypedParams();
+
+  const [handleRedirect] = useClickRedirect();
 
   return (
     <Grid container mt={2} mb={2}>
@@ -25,13 +30,18 @@ export const ChooseColor = ({ colors }: { colors: { id: string; value: string; }
 
           <Grid item>
             <Grid container spacing={1}>
-              {colors.map(({ id, value }) => (
+              <Grid item>
+                <ProductColor
+                  active
+                  color={color.value}
+                />
+              </Grid>
+
+              {colors.map(({ id, value, productId }) => (
                 <Grid item key={id}>
                   <ProductColor
-                    active={color === id}
-                    key={id}
                     color={value}
-                    onClick={() => setColor(id)}
+                    onClick={handleRedirect(`${Links.CATALOGUE}/${type}/${productId}`)}
                   />
                 </Grid>
               ))}

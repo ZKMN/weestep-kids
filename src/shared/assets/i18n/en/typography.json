@@ -9,6 +9,13 @@
     "filters": "Filters",
     "size": "Size",
     "quantity": "Quantity",
-    "orderSummary": "Order Summary"
+    "orderSummary": "Order Summary",
+    "checkout": "Checkout",
+    "total": "Total ({{ quantity }})",
+    "deliveryInformation": "Delivery Information",
+    "payment": "Payment"
+  },
+  "labels": {
+
   }
 }

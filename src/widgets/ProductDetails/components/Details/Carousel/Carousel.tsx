@@ -1,43 +1,32 @@
 'use client';
 
 import React from 'react';
-import {
-  Autoplay,
-  Keyboard,
-  Pagination,
-} from 'swiper/modules';
-import { Swiper, SwiperSlide } from 'swiper/react';
+import Slider from 'react-slick';
 
 import { BaseImage } from '@/shared/components';
 
-import 'swiper/css/pagination';
-
-import 'swiper/css';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 
 export const Carousel = ({ images }: { images: string[];}) => (
-  <Swiper
-    loop
-    grabCursor
-    modules={[Keyboard, Pagination, Autoplay]}
-    speed={2000}
-    slidesPerView={1}
-    slidesPerGroupSkip={1}
-    keyboard={{ enabled: true }}
-    pagination={{ dynamicBullets: true }}
-    autoplay={{
-      delay: 3000,
-      disableOnInteraction: false,
-    }}
+  <Slider
+    dots
+    infinite
+    autoplay
+    vertical
+    verticalSwiping
+    speed={1000}
+    slidesToShow={1}
+    slidesToScroll={1}
   >
     {images.map((imgSrc) => (
-      <SwiperSlide key={imgSrc}>
-        <BaseImage
-          fullWidth
-          src={imgSrc}
-          alt="Product"
-          objectFit="contain"
-        />
-      </SwiperSlide>
+      <BaseImage
+        key={imgSrc}
+        fullWidth
+        src={imgSrc}
+        alt="Product"
+        objectFit="contain"
+      />
     ))}
-  </Swiper>
+  </Slider>
 );

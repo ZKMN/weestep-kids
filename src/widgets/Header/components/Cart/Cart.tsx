@@ -10,37 +10,29 @@ import {
 } from '@mui/material';
 import dynamic from 'next/dynamic';
 
-import { getCurrency } from '@/shared/lib/helpers';
+import { getCurrency, getProductsPrice, getProductsQuantity } from '@/shared/lib/helpers';
+import { useClickRedirect } from '@/shared/lib/hooks';
 import { localBasketStore } from '@/shared/lib/store';
+import { Links } from '@/shared/types';
 
 const Cart = () => {
   const products = localBasketStore((state) => state.products);
 
-  const summPrice = products?.reduce((acc, item) => {
-    let price = acc;
+  const [handleClick] = useClickRedirect();
 
-    price += item.price * item.quantity;
-
-    return price;
-  }, 0);
-
-  const quantity = products?.reduce((acc, item) => {
-    let qty = acc;
-
-    qty += item.quantity;
-
-    return qty;
-  }, 0);
+  const price = getProductsPrice(products);
+  const quantity = getProductsQuantity(products);
 
   return (
     <Grid item>
       <Box
-        sx={{ cursor: !quantity ? '' : 'pointer' }}
+        sx={{ cursor: !quantity ? 'default' : 'pointer' }}
         border="none"
         display="flex"
         bgcolor="transparent"
         component="button"
         disabled={!quantity}
+        onClick={handleClick(Links.CHECKOUT)}
       >
         <Badge
           showZero
@@ -51,7 +43,7 @@ const Cart = () => {
         </Badge>
 
         <Typography ml={1}>
-          {getCurrency(summPrice)}
+          {getCurrency(price)}
         </Typography>
       </Box>
     </Grid>

@@ -9,11 +9,11 @@ export const FieldByType = ({ field }: { field: IFieldProps; }) => {
   const {
     size,
     name,
+    intl,
     maxRows,
     multiline,
     required,
     disabled,
-    intlLabel,
     placeholder,
     endAdornment,
   } = field;
@@ -24,11 +24,11 @@ export const FieldByType = ({ field }: { field: IFieldProps; }) => {
         <FormInput
           name={name}
           size={size}
+          intl={intl}
           maxRows={maxRows}
           multiline={multiline}
           required={required}
           disabled={disabled}
-          intlLabel={intlLabel}
           placeholder={placeholder}
           endAdornment={endAdornment}
         />
@@ -38,9 +38,9 @@ export const FieldByType = ({ field }: { field: IFieldProps; }) => {
         <FormPhoneInput
           name={name}
           size={size}
+          intl={intl}
           required={required}
           disabled={disabled}
-          intlLabel={intlLabel}
           placeholder={placeholder}
         />
       );

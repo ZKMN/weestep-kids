@@ -10,7 +10,7 @@ import { Actions } from './Actions';
 
 import { ProductColor, ProductPrice, ProductQuantity } from '..';
 
-export const ProductBasketDetails = ({ product, setFalse }: { product: IBasketProduct; setFalse: () => void; }) => {
+export const ProductBasketDetails = ({ product, onEdit }: { product: IBasketProduct; onEdit?: () => void; }) => {
   const {
     type,
     name,
@@ -28,19 +28,17 @@ export const ProductBasketDetails = ({ product, setFalse }: { product: IBasketPr
     <Grid
       container
       p={1}
-      border="1px solid"
-      borderColor="border.main"
-      borderRadius={1}
+      bgcolor="background.default"
+      borderRadius={2}
     >
       <Grid item flex={1} position="relative">
         <Box position="absolute" right={0} zIndex={5}>
           <Actions
             type={type}
             sizeId={size?.id}
-            colorId={color?.id}
             quantity={quantity}
             productId={productId}
-            setFalse={setFalse}
+            onEdit={onEdit}
           />
         </Box>
 

@@ -5,16 +5,21 @@ import { Container, ContainerProps } from '@mui/material';
 
 import { breakpoints } from '@/shared/assets';
 
-type BaseContainerProps = Omit<ContainerProps, 'sx'> & { pt?: number; };
+type BaseContainerProps = Omit<ContainerProps, 'sx' | 'maxWidth'> & { pt?: number; maxWidth?: number; };
 
-export const BaseContainer = ({ pt, disableGutters, children }: PropsWithChildren<BaseContainerProps>) => (
+export const BaseContainer = ({
+  pt,
+  maxWidth,
+  children,
+  disableGutters,
+}: PropsWithChildren<BaseContainerProps>) => (
   <Container
     sx={{
       pt,
       height: '100%',
-      maxWidth: '1366px',
+      maxWidth: maxWidth || 1366,
       [breakpoints.up('xl')]: {
-        maxWidth: '1500px',
+        maxWidth: maxWidth || 1500,
         padding: 0,
       },
     }}

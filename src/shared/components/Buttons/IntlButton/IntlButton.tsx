@@ -8,6 +8,7 @@ export const IntlButton = ({
   sx,
   size,
   intl,
+  type,
   color = 'primary',
   variant = 'contained',
   disabled,
@@ -21,6 +22,7 @@ export const IntlButton = ({
     <Button
       sx={sx}
       size={size}
+      type={type}
       color={color}
       variant={variant}
       onClick={onClick}

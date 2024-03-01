@@ -21,13 +21,13 @@ export const ProductQuantity = ({
       <Grid item xs={12}>
         <Grid
           container
-          height={isLessSm ? 25 : 35}
+          height={isLessSm ? 25 : 30}
         >
           <IconButton
-            onClick={onMinus}
-            disabled={disableMinus}
             sx={{ cursor: disableMinus ? 'default' : 'pointer', height: '100%' }}
             size={isLessSm ? 'small' : 'medium'}
+            onClick={onMinus}
+            disabled={disableMinus}
           >
             <Remove />
           </IconButton>
@@ -51,10 +51,10 @@ export const ProductQuantity = ({
           </Grid>
 
           <IconButton
-            onClick={onPlus}
-            disabled={disablePlus}
             sx={{ cursor: disablePlus ? 'default' : 'pointer', height: '100%' }}
             size={isLessSm ? 'small' : 'medium'}
+            onClick={onPlus}
+            disabled={disablePlus}
           >
             <Add />
           </IconButton>

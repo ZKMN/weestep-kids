@@ -1,0 +1,30 @@
+{
+  "labels": {
+    "subject": "Subject",
+    "email": "Email",
+    "message": "Message",
+    "sortBy": "Sort By",
+    "creditCardNumber": "Credit Card Number",
+    "expiredDate": "Expired Dater",
+    "cvc": "CVC",
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "phoneNumber": "Phone Number"
+  },
+  "errors": {
+    "subjectRequired": "Subject is required",
+    "emailInvalid": "Email is invalid",
+    "emailRequired": "Email is required",
+    "messageRequired": "Message is required",
+    "cardNumberInvalid": "Credit card number is invalid",
+    "cardNumberIncomplete": "Credit card number is incomplete",
+    "cardExpiryInvalid": "Expiration date is invalid",
+    "cardExpiryIncomplete": "Card expiry is incomplete",
+    "cardCVCIncomplete": "CVC is incomplete",
+    "firstNameMax": "First name should be max 50 characters",
+    "firstNameRequired": "First name is required",
+    "lastNameMax": "Last name should be max 50 characters",
+    "phoneNumberRequired": "Phone number is required",
+    "phoneNumberIncorrect": "Phone number is incorrect! Should be ES format"
+  }
+}

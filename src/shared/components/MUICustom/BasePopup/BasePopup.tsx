@@ -24,8 +24,8 @@ export const BasePopup = ({ icon, children }: React.PropsWithChildren<{ icon?: R
       >
         <ClickAwayListener onClickAway={setFalse}>
           <Box
-            padding="10px 15px"
-            bgcolor="background.default"
+            p={1}
+            bgcolor="background.paper"
             border="1px solid"
             borderColor="border.main"
             borderRadius={1}

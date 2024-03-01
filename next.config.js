@@ -1,18 +1,19 @@
+const vercelAPI = 'https://vercel.live';
+const stripeApi = 'https://js.stripe.com';
 const mapsGoogleapis = 'https://maps.googleapis.com';
 const fontsGoogleapis = 'https://fonts.googleapis.com';
 const mapsGStatic = 'https://maps.gstatic.com';
 const fontsGStatic = ' https://fonts.gstatic.com';
 const appFTP = 'https://weestep-kids.es';
 const appAPI = '';
-const vercelAPI = 'https://vercel.live';
 
 const cspHeader = `
   default-src 'self';
-  script-src 'self' 'unsafe-eval' 'unsafe-inline' ${mapsGoogleapis} ${vercelAPI};
-  script-src-elem 'self' 'unsafe-eval' 'unsafe-inline' ${mapsGoogleapis} ${vercelAPI};
+  script-src 'self' 'unsafe-eval' 'unsafe-inline' ${mapsGoogleapis} ${stripeApi} ${vercelAPI};
+  script-src-elem 'self' 'unsafe-eval' 'unsafe-inline' ${mapsGoogleapis} ${stripeApi} ${vercelAPI};
   style-src 'self' 'unsafe-inline' ${fontsGoogleapis};
   style-src-elem 'self' 'unsafe-inline' ${fontsGoogleapis} ${vercelAPI};
-  img-src 'self' ${appFTP} ${mapsGoogleapis} ${mapsGStatic} ${vercelAPI} data:;
+  img-src 'self' ${appFTP} ${mapsGoogleapis} ${mapsGStatic} ${vercelAPI} https://flagcdn.com/w40/es.webp data:;
   font-src 'self' ${fontsGStatic};
   object-src 'none';
   base-uri 'self';
@@ -20,8 +21,8 @@ const cspHeader = `
   frame-ancestors 'none';
   block-all-mixed-content;
   upgrade-insecure-requests;
-  connect-src 'self' ${appAPI} ${mapsGoogleapis} ${vercelAPI};
-  frame-src 'self' ${vercelAPI};
+  connect-src 'self' ${appAPI} ${mapsGoogleapis} ${stripeApi} ${vercelAPI};
+  frame-src 'self' ${vercelAPI} ${stripeApi};
 `;
 
 /** @type {import('next').NextConfig} */

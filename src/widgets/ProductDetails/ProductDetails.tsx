@@ -13,19 +13,24 @@ export const ProductDetails = () => {
     price: 29.99,
     discount: 10,
     topSales: true,
-    available: 4,
+    available: 1,
     type: 'kids-shoes',
     productId: 'ABC123',
     youMayLike: [],
-    colors: [{
+    santimeters: 20,
+    color: {
+      id: '3',
+      value: '#00FF00',
+      productId: 1234,
+    },
+    colorsAvailable: [{
       id: '1',
       value: '#FF0000',
+      productId: 12,
     }, {
       id: '2',
       value: '#0000FF',
-    }, {
-      id: '3',
-      value: '#00FF00',
+      productId: 123,
     }],
     sizes: [{
       id: '1',

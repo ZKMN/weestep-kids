@@ -53,7 +53,7 @@ export const Form = <T extends FieldValues>({
     <FormProvider {...form}>
       <Grid container spacing={2}>
         {fields.map((field) => (
-          <Grid item xs={12} key={field.name}>
+          <Grid item xs={field.xs || 12} key={field.name}>
             <FieldByType field={field} />
           </Grid>
         ))}
@@ -61,15 +61,17 @@ export const Form = <T extends FieldValues>({
 
       {children}
 
-      <Grid container mt={3}>
-        <LoadingIntlButton
-          size={buttonProps?.size || 'large'}
-          loading={loading}
-          onClick={form.handleSubmit(onSubmit)}
-          disabled={loading || !isValid || !isDirty || buttonProps?.disabled}
-          intl={{ label: buttonProps?.intLabel || 'submit', values: buttonProps?.intlValues }}
-        />
-      </Grid>
+      {buttonProps && (
+        <Grid container mt={3}>
+          <LoadingIntlButton
+            size={buttonProps?.size || 'large'}
+            loading={loading}
+            onClick={form.handleSubmit(onSubmit)}
+            disabled={loading || !isValid || !isDirty || buttonProps?.disabled}
+            intl={{ label: buttonProps.intl?.label || 'submit', values: buttonProps.intl?.values }}
+          />
+        </Grid>
+      )}
     </FormProvider>
   );
 };

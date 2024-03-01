@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Button, Grid } from '@mui/material';
 import { useQueryState } from 'nuqs';
 
@@ -6,6 +6,12 @@ import { IntlTypography } from '@/shared/components';
 
 export const ChooseSize = ({ sizes }: { sizes: { id: string; value: string; }[]; }) => {
   const [size, setSize] = useQueryState('size');
+
+  useEffect(() => {
+    if (sizes) {
+      setSize(sizes[0].id);
+    }
+  }, [sizes]);
 
   return (
     <Grid container mb={2}>

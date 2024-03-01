@@ -17,7 +17,7 @@ export const ChooseQuantity = ({ available }: { available: number; }) => {
     if (Number(quantity) > available) {
       setQuantity(String(available));
     }
-  }, []);
+  }, [quantity]);
 
   return (
     <Grid container mt={2}>

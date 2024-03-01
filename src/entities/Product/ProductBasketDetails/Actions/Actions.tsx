@@ -11,25 +11,24 @@ import { IBasketProduct, Links } from '@/shared/types';
 export const Actions = ({
   type,
   sizeId,
-  colorId,
   quantity,
   productId,
-  setFalse,
-}: Pick<IBasketProduct, 'type' | 'quantity' | 'productId'> & { sizeId?: string; colorId?: string; setFalse: () => void; }) => {
+  onEdit,
+}: Pick<IBasketProduct, 'type' | 'quantity' | 'productId'> & { sizeId?: string; onEdit?: () => void; }) => {
   const [handleRedirect] = useLngRouter();
 
   return (
     <BasePopup icon={<MoreVert />}>
-      <Grid container justifyContent="flex-start">
+      <Grid container>
         <Grid item>
           <IntlButton
-            sx={{ p: 0, minWidth: 'auto' }}
+            sx={{ minWidth: 'auto' }}
             size="small"
             intl={{ label: 'edit' }}
             variant="text"
             startIcon={<Edit />}
             onClick={() => {
-              setFalse();
+              onEdit?.();
               handleRedirect(
                 addQueryParamsToURL(
                   `${Links.CATALOGUE}/${type}/${productId}`,
@@ -37,7 +36,6 @@ export const Actions = ({
                     quantity,
                     edit: true,
                     size: sizeId,
-                    color: colorId,
                   },
                 ),
               );
@@ -47,7 +45,7 @@ export const Actions = ({
 
         <Grid item>
           <IntlButton
-            sx={{ p: 0, minWidth: 'auto' }}
+            sx={{ minWidth: 'auto' }}
             size="small"
             intl={{ label: 'remove' }}
             color="error"
