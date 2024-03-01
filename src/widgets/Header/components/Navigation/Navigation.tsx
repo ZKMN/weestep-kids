@@ -16,7 +16,7 @@ export const Navigation = () => {
   const [handleRedirect] = useClickRedirect();
   const pathname = usePathnameWithoutLng();
 
-  const { translate } = useClientTranslation('common');
+  const [translate] = useClientTranslation('common');
 
   return (
     <Grid

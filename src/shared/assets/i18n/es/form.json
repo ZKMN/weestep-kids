@@ -9,7 +9,13 @@
     "cvc": "CVC",
     "firstName": "Nombre",
     "lastName": "Apellido",
-    "phoneNumber": "Número de Teléfono"
+    "phoneNumber": "Número de Teléfono",
+    "searchAddress": "Dirección de búsqueda",
+    "city": "Ciudad",
+    "postalCode": "Código Postal",
+    "street": "Calle",
+    "streetNumber": "Número de la Calle",
+    "additionalInformation": "Información Adicional"
   },
   "errors": {
     "subjectRequired": "El tema es obligatorio",
@@ -24,7 +30,16 @@
     "firstNameMax": "El nombre debe tener un máximo de 50 caracteres",
     "firstNameRequired": "El nombre es obligatorio",
     "lastNameMax": "El apellido debe tener un máximo de 50 caracteres",
+    "lastNameRequired": "Apellido obligatorio",
     "phoneNumberRequired": "Número de teléfono obligatorio",
-    "phoneNumberIncorrect": "El número de teléfono es incorrecto. Debería tener el formato de España"
+    "phoneNumberInvalid": "El número de teléfono no es válido. Debería tener el formato de España",
+    "postalCodeRequired": "Código postal requerido",
+    "postalCodeInvalid": "Código postal no válido",
+    "cityRequired": "Ciudad requerida",
+    "streetRequired": "Calle requerida",
+    "streetNumberRequired": "Número de calle requerido"
+  },
+  "texts": {
+    "useSearchAddress": "Utilice la búsqueda para simplificar la entrada de su dirección"
   }
 }

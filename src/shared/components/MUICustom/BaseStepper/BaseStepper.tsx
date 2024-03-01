@@ -73,7 +73,7 @@ export const BaseStepper = ({
   stepNodes: { [index: string]: React.ReactElement; };
   activeStep: number;
 }) => {
-  const { translate } = useClientTranslation('typography');
+  const [translate] = useClientTranslation('typography');
 
   return (
     <Grid container>

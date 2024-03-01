@@ -53,7 +53,7 @@ export const Form = <T extends FieldValues>({
     <FormProvider {...form}>
       <Grid container spacing={2}>
         {fields.map((field) => (
-          <Grid item xs={field.xs || 12} key={field.name}>
+          <Grid item xs={field.xs || 12} md={field.md} key={field.name}>
             <FieldByType field={field} />
           </Grid>
         ))}

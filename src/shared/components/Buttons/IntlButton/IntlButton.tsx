@@ -16,7 +16,7 @@ export const IntlButton = ({
   startIcon,
   onClick,
 }: Omit<ButtonProps, 'children'> & IIntlProps) => {
-  const { translate } = useClientTranslation('buttons');
+  const [translate] = useClientTranslation('buttons');
 
   return (
     <Button

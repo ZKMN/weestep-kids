@@ -3,7 +3,7 @@
 import { useCallback, useEffect, useState } from 'react';
 import { useCookies } from 'react-cookie';
 import { initReactI18next, useTranslation } from 'react-i18next';
-import i18next from 'i18next';
+import i18next, { i18n } from 'i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
 import resourcesToBackend from 'i18next-resources-to-backend';
 
@@ -26,7 +26,10 @@ i18next
     preload: runsOnServerSide ? LANGUAGES : [],
   });
 
-export const useClientTranslation = (filename = 'common', options = { keyPrefix: '' }) => {
+export const useClientTranslation = (
+  filename = 'common',
+  options = { keyPrefix: '' },
+): [(label: string, values?: Record<string, unknown>) => string, { i18n: i18n; ready: boolean; }] => {
   const { lng } = useTypedParams();
 
   const [cookies, setCookie] = useCookies([I18N_COOKIE_NAME]);
@@ -60,9 +63,5 @@ export const useClientTranslation = (filename = 'common', options = { keyPrefix:
 
   const handleTranslation = useCallback((label: string, values?: Record<string, unknown>) => translation.t(label, values), []);
 
-  return {
-    i18n,
-    ready: translation.ready,
-    translate: handleTranslation,
-  };
+  return [handleTranslation, { i18n, ready: translation.ready }];
 };

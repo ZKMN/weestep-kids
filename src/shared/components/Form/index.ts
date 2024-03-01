@@ -1,2 +1,2 @@
 export * from './Form';
-export * from './components/Fields/FormInput';
+export * from './components';

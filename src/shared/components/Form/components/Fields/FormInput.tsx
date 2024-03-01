@@ -20,7 +20,7 @@ export const FormInput = ({
 }: Omit<IFieldProps, 'type'>) => {
   const { control } = useFormContext();
 
-  const { translate } = useClientTranslation('form');
+  const [translate] = useClientTranslation('form');
 
   return (
     <Controller

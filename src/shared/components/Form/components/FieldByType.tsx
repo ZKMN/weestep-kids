@@ -1,3 +1,5 @@
+'use client';
+
 import { IFieldProps } from '@/shared/types';
 
 import {

@@ -24,7 +24,7 @@ import { LanguageSelector, PhoneNumber } from '..';
 export const DrawerMenu = () => {
   const [handlePush] = useLngRouter();
   const pathname = usePathnameWithoutLng();
-  const { translate } = useClientTranslation('common');
+  const [translate] = useClientTranslation('common');
 
   const [isOpen, { setTrue, setFalse }] = useBoolean();
 

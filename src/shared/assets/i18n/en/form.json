@@ -9,7 +9,13 @@
     "cvc": "CVC",
     "firstName": "First Name",
     "lastName": "Last Name",
-    "phoneNumber": "Phone Number"
+    "phoneNumber": "Phone Number",
+    "searchAddress": "Search Address",
+    "city": "City",
+    "postalCode": "Postal Code",
+    "street": "Street",
+    "streetNumber": "Street Number",
+    "additionalInformation": "Additional Information"
   },
   "errors": {
     "subjectRequired": "Subject is required",
@@ -24,7 +30,16 @@
     "firstNameMax": "First name should be max 50 characters",
     "firstNameRequired": "First name is required",
     "lastNameMax": "Last name should be max 50 characters",
+    "lastNameRequired": "Last name is required",
     "phoneNumberRequired": "Phone number is required",
-    "phoneNumberIncorrect": "Phone number is incorrect! Should be ES format"
+    "phoneNumberInvalid": "Phone number is invalid! Should be ES format",
+    "postalCodeRequired": "Postal code required",
+    "postalCodeInvalid": "Postal code invalid",
+    "cityRequired": "City required",
+    "streetRequired": "Street required",
+    "streetNumberRequired": "Street number required"
+  },
+  "texts": {
+    "useSearchAddress": "Use the search to simplify your address entry"
   }
 }

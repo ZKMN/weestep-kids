@@ -15,7 +15,7 @@ export const ProductTopSale = ({
     return null;
   }
 
-  const { translate } = useClientTranslation('typography');
+  const [translate] = useClientTranslation('typography');
 
   return (
     <Chip

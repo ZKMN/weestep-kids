@@ -15,7 +15,7 @@ export const LoadingIntlButton = ({
   children,
   onClick,
 }: ButtonProps & Partial<IIntlProps> & { loading?: boolean; }) => {
-  const { translate } = useClientTranslation('buttons');
+  const [translate] = useClientTranslation('buttons');
 
   return (
     <Button

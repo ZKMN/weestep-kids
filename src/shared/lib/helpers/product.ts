@@ -6,7 +6,7 @@ export const getProductsPrice = (products?: IBasketProduct[]) => products?.reduc
   price += item.price * item.quantity;
 
   return price;
-}, 0);
+}, 0) as number;
 
 export const getProductsQuantity = (products?: IBasketProduct[]) => products?.reduce((acc, item) => {
   let qty = acc;

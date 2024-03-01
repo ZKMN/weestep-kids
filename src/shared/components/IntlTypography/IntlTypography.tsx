@@ -16,7 +16,7 @@ export const IntlTypography = ({
   textAlign,
   textTransform,
 }: Omit<TypographyProps, 'children'> & IIntlProps) => {
-  const { translate } = useClientTranslation('typography');
+  const [translate] = useClientTranslation('typography');
 
   return (
     <Typography

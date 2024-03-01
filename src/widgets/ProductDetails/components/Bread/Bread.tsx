@@ -9,7 +9,7 @@ import { Links } from '@/shared/types';
 
 export const Bread = () => {
   const { productId, type } = useTypedParams();
-  const { translate } = useClientTranslation('common');
+  const [translate] = useClientTranslation('common');
   const [handleRedirect] = useClickRedirect();
 
   return (

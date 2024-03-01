@@ -7,7 +7,7 @@ import { breakpoints } from '@/shared/assets';
 import { useClientTranslation } from '@/shared/lib/hooks';
 
 export const Title = () => {
-  const { translate } = useClientTranslation('common');
+  const [translate] = useClientTranslation('common');
 
   return (
     <Typography

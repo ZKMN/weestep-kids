@@ -11,9 +11,8 @@ import {
 import { LoadingIntlButton } from '@/shared/components';
 import { useClientTranslation } from '@/shared/lib/hooks';
 
-import { StripeInput } from '.';
-
-import { useSubmitStripePayment, useValidateCreditCardInputs } from '../lib/hooks';
+import { useSubmitStripePayment, useValidateCreditCardInputs } from '../../lib/hooks';
+import { StripeInput } from '..';
 
 export const StripeForm = () => {
   const stripe = useStripe();
@@ -27,7 +26,7 @@ export const StripeForm = () => {
 
   const [handleSubmit, { loading }] = useSubmitStripePayment();
 
-  const { translate } = useClientTranslation('form');
+  const [translate] = useClientTranslation('form');
 
   return (
     <form onSubmit={handleSubmit}>

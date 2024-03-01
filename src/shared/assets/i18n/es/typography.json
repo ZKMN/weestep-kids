@@ -13,6 +13,7 @@
     "checkout": "Pedido",
     "total": "Total ({{ quantity }})",
     "deliveryInformation": "Información de entrega",
-    "payment": "Pago"
+    "payment": "Pago",
+    "back": "Volver"
   }
 }

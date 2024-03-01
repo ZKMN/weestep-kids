@@ -1,7 +1,9 @@
 const commonVars = {
-  stripePK: process.env.NEXT_PUBLIC_STRIPE_PUBLISH_KEY,
-  stripeSK: process.env.STRIPE_SECRET_KEY,
   storageKeyName: 'r2-d2-kjkszpj',
+  keys: {
+    gAPI: process.env.NEXT_PUBLIC_GAPI_KEY,
+    stripePublish: process.env.NEXT_PUBLIC_STRIPE_PUBLISH_KEY,
+  },
   icons: [{
     rel: 'icon',
     type: 'image/x-icon',

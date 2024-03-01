@@ -1,15 +1,11 @@
+'use cliend';
+
 import { Controller, useFormContext } from 'react-hook-form';
 import { Warning } from '@mui/icons-material';
 import { MuiTelInput } from 'mui-tel-input';
 
 import { useClientTranslation } from '@/shared/lib/hooks';
 import { IFieldProps } from '@/shared/types';
-
-// const MuiTelInputStyled = styled(MuiTelInput)`
-//   & .MuiTelInput-IconButton {
-//     display: none;
-//   }
-// `;
 
 export const FormPhoneInput = ({
   size,
@@ -21,7 +17,7 @@ export const FormPhoneInput = ({
 }: Omit<IFieldProps, 'type'>) => {
   const { control } = useFormContext();
 
-  const { translate } = useClientTranslation('form');
+  const [translate] = useClientTranslation('form');
 
   return (
     <Controller
