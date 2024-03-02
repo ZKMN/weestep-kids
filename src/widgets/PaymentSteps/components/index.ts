@@ -1,3 +1,4 @@
-export * from './CreditCard';
-export * from './BasketDetails';
-export * from './DeliveryDetails';
+export * from './PaymentStep';
+export * from './SuccessDetails';
+export * from './BasketDetailsStep';
+export * from './DeliveryDetailsStep';

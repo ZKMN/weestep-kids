@@ -17,7 +17,7 @@ export const SortBy = () => {
     value: 'newest',
   }];
 
-  const [translate] = useClientTranslation('forms');
+  const [translate] = useClientTranslation('form');
 
   return (
     <FormControl fullWidth>

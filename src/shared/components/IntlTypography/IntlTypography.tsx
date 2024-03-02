@@ -10,10 +10,11 @@ export const IntlTypography = ({
   intl,
   color,
   variant,
-  fontFamily,
   fontSize,
-  fontWeight,
+  component,
   textAlign,
+  fontWeight,
+  fontFamily,
   textTransform,
 }: Omit<TypographyProps, 'children'> & IIntlProps) => {
   const [translate] = useClientTranslation('typography');
@@ -26,6 +27,8 @@ export const IntlTypography = ({
       variant={variant}
       fontFamily={fontFamily}
       fontSize={fontSize}
+      // @ts-ignore
+      component={component}
       textAlign={textAlign}
       fontWeight={fontWeight}
       textTransform={textTransform}

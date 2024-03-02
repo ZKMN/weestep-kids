@@ -44,7 +44,7 @@ export const Form = <T extends FieldValues>({
   }, [form.formState.isDirty, form.formState.isValid]);
 
   useKeyPress('enter', () => {
-    if (isValid && isDirty) {
+    if (isValid && isDirty && onSubmit) {
       form.handleSubmit(onSubmit)();
     }
   });
@@ -61,7 +61,7 @@ export const Form = <T extends FieldValues>({
 
       {children}
 
-      {buttonProps && (
+      {buttonProps && onSubmit && (
         <Grid container mt={3}>
           <LoadingIntlButton
             size={buttonProps?.size || 'large'}

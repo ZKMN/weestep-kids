@@ -36,7 +36,7 @@ export interface IFormProps<T extends FieldValues> extends UseFormProps<T> {
   buttonProps?: ButtonProps & { loading?: boolean; intl?: IIntlProps['intl']; };
   initialValues: DefaultValues<T>;
   validationSchema: Yup.ObjectSchema<T>;
-  onSubmit: SubmitFn<T>;
+  onSubmit?: SubmitFn<T>;
 }
 
 export interface IFieldErrorProps<T extends FieldValues> {

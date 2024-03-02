@@ -2,7 +2,10 @@
   "texts": {
     "topSale": "Venta Superior",
     "headerUnderLogo": "Tanto para niños como para adultos. Aun mejor.",
-    "inStock": "en stock ({{ count }} disponible)"
+    "inStock": "en stock ({{ count }} disponible)",
+    "paymentInfo": "El pago se realiza mediante Stripe y está protegido con 3Dsecure. Aquí tienes toda la información que necesitas: ",
+    "link": "enlace",
+    "confirmDetailsOnMail": "Recibirá los detalles de la confirmación por correo electrónico!"
   },
   "titles": {
     "color": "Colore",
@@ -11,9 +14,14 @@
     "quantity": "Cantidad",
     "orderSummary": "Resumen del pedido",
     "checkout": "Pedido",
-    "total": "Total ({{ quantity }})",
+    "pairs": "pares ({{ quantity }})",
+    "total": "Total",
+    "totalQty": "Total ({{ quantity }})",
+    "delivery": "entrega",
     "deliveryInformation": "Información de entrega",
     "payment": "Pago",
-    "back": "Volver"
+    "shippingMethod": "Forma de Envío",
+    "paymentMethod": "Forma de Pago",
+    "orderConfirmed": "Pedido confirmado"
   }
 }

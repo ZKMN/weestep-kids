@@ -23,5 +23,3 @@ export const config = {
   },
   development: commonVars,
 }[process.env.NEXT_PUBLIC_APP_ENV || 'development'];
-
-console.log(config, process.env.NEXT_PUBLIC_APP_ENV);

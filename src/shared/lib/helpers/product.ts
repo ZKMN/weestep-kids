@@ -14,4 +14,4 @@ export const getProductsQuantity = (products?: IBasketProduct[]) => products?.re
   qty += item.quantity;
 
   return qty;
-}, 0);
+}, 0) as number;

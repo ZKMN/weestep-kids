@@ -24,6 +24,7 @@ export const COLORS = {
   border: {
     main: '#D6D5D5',
     black: '#272424',
+    active: '#FF7C2A',
   },
   baseBlack: {
     main: '#272424',

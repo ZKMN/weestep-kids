@@ -2,7 +2,10 @@
   "texts": {
     "topSale": "Top Sale",
     "headerUnderLogo": "For children as for adults. even better.",
-    "inStock": "in stock ({{ count }} available)"
+    "inStock": "in stock ({{ count }} available)",
+    "paymentInfo": "Payment is made using Stripe and protected with 3Dsecure. Here's all the information you need: ",
+    "link": "link",
+    "confirmDetailsOnMail": "You will receive confiramtion details on email!"
   },
   "titles": {
     "color": "Color",
@@ -11,8 +14,14 @@
     "quantity": "Quantity",
     "orderSummary": "Order Summary",
     "checkout": "Checkout",
-    "total": "Total ({{ quantity }})",
+    "pairs": "pairs ({{ quantity }})",
+    "total": "Total",
+    "totalQty": "Total ({{ quantity }})",
+    "delivery": "delivery",
     "deliveryInformation": "Delivery Information",
-    "payment": "Payment"
+    "payment": "Payment",
+    "shippingMethod": "Shipping Method",
+    "paymentMethod": "Payment Method",
+    "orderConfirmed": "Order Confirmed"
   }
 }
