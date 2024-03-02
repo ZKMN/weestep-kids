@@ -2,10 +2,12 @@ import React, { useState } from 'react';
 import { useFormContext } from 'react-hook-form';
 import { Cancel, SearchOutlined } from '@mui/icons-material';
 import { IconButton, TextField } from '@mui/material';
-import { Autocomplete, useLoadScript } from '@react-google-maps/api';
+import { Autocomplete, Libraries, useLoadScript } from '@react-google-maps/api';
 
 import { config } from '@/shared/lib/config';
 import { useClientTranslation, useTypedParams } from '@/shared/lib/hooks';
+
+const libraries = ['places'] as Libraries;
 
 export const AutocompleteInput = () => {
   const { lng } = useTypedParams();
@@ -15,9 +17,9 @@ export const AutocompleteInput = () => {
   const [autocomplete, setAutocomplete] = useState<google.maps.places.Autocomplete>();
 
   const { isLoaded } = useLoadScript({
-    id: 'google-map-script',
+    id: 'google-script',
     language: lng,
-    libraries: ['places'],
+    libraries,
     googleMapsApiKey: String(config?.keys.gAPI),
   });
 
