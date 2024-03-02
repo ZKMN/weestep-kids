@@ -11,7 +11,10 @@ import { Grid } from '@mui/material';
 import { BaseStepper } from '@/shared/components';
 
 import {
-  BasketDetailsStep, DeliveryDetails, PaymentStep, SuccessDetails,
+  BasketDetailsStep,
+  DeliveryDetails,
+  PaymentStep,
+  SuccessDetails,
 } from './components';
 import { CARRIERS, CUSTOMER_INITIAL_VALUES } from './consts';
 import { ICarrier } from './types';

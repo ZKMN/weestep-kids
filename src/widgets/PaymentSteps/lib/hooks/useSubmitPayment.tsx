@@ -58,7 +58,7 @@ export const useSubmitStripePayment = ({
       });
 
       if (result.error?.message) {
-        errorMessage(result.error.message);
+        errorMessage(result.error.message, { style: { top: '100px', maxWidth: '450px' } });
 
         return;
       }
@@ -66,7 +66,7 @@ export const useSubmitStripePayment = ({
       setSuccessId(String(result.paymentIntent?.id));
       setActiveStep((step) => step + 1);
     } catch (error) {
-      errorMessage(JSON.stringify(error));
+      errorMessage(JSON.stringify(error), { style: { top: '100px', maxWidth: '450px' } });
     } finally {
       setFalse();
     }
