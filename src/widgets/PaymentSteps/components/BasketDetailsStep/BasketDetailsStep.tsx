@@ -101,6 +101,7 @@ const BasketDetailsStep = ({ setActiveStep }: TActiveStep) => {
               size="small"
               color="primary"
               onClick={() => setActiveStep((step) => step + 1)}
+              disabled={!products?.length}
             />
           </Grid>
         </Grid>

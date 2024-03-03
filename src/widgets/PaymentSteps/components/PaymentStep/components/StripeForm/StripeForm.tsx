@@ -113,6 +113,7 @@ export const StripeForm = ({
         <Grid item flex={1}>
           <LoadingIntlButton
             intl={{ label: 'confirmOrder' }}
+            size="small"
             onClick={handleSubmit}
             loading={loading}
             disabled={!stripe || !completed}

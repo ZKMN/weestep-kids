@@ -4,17 +4,17 @@ import { useQueryState } from 'nuqs';
 
 import { IntlTypography } from '@/shared/components';
 
-export const ChooseSize = ({ sizes }: { sizes: { id: string; value: string; }[]; }) => {
-  const [size, setSize] = useQueryState('size');
+export const ChooseSize = ({ sizes }: { sizes: { id: string; value: string; santimeters:number; }[]; }) => {
+  const [sizeId, setSizeId] = useQueryState('sizeId');
 
   useEffect(() => {
     if (sizes) {
-      setSize(sizes[0].id);
+      setSizeId(sizes[0].id);
     }
   }, [sizes]);
 
   return (
-    <Grid container mb={2}>
+    <Grid container mt={2} mb={2}>
       <Grid item xs={12}>
         <Grid container wrap="nowrap" alignItems="center">
           <Grid item xs={4} md={3}>
@@ -34,8 +34,8 @@ export const ChooseSize = ({ sizes }: { sizes: { id: string; value: string; }[];
                   <Button
                     size="xLarge"
                     sx={{ minWidth: 45, padding: 0 }}
-                    variant={Number(size) === Number(id) ? 'outlined' : 'text'}
-                    onClick={() => setSize(id)}
+                    variant={Number(sizeId) === Number(id) ? 'outlined' : 'text'}
+                    onClick={() => setSizeId(id)}
                   >
                     {value}
                   </Button>

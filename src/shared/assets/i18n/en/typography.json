@@ -11,6 +11,7 @@
     "color": "Color",
     "filters": "Filters",
     "size": "Size",
+    "foot": "Foot(sm)",
     "quantity": "Quantity",
     "orderSummary": "Order Summary",
     "checkout": "Checkout",

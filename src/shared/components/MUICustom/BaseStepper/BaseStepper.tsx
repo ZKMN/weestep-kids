@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import { CheckOutlined } from '@mui/icons-material';
 import {
   Grid,
   Step,
@@ -20,14 +21,13 @@ const ColorlibConnector = styled(StepConnector)(({ theme }) => ({
   },
   [`&.${stepConnectorClasses.active}`]: {
     [`& .${stepConnectorClasses.line}`]: {
-      backgroundImage:
-        'linear-gradient( 95deg,rgb(242,113,33) 0%,rgb(233,64,87) 50%,rgb(138,35,135) 100%)',
+      background: 'rgb(255,124,42)',
+      backgroundImage: 'linear-gradient(90deg, rgba(255,124,42,1) 0%, rgba(17,94,103,1) 100%)',
     },
   },
   [`&.${stepConnectorClasses.completed}`]: {
     [`& .${stepConnectorClasses.line}`]: {
-      backgroundImage:
-        'linear-gradient( 95deg,rgb(242,113,33) 0%,rgb(233,64,87) 50%,rgb(138,35,135) 100%)',
+      backgroundColor: theme.palette.background.primary,
     },
   },
   [`& .${stepConnectorClasses.line}`]: {
@@ -39,9 +39,11 @@ const ColorlibConnector = styled(StepConnector)(({ theme }) => ({
   },
 }));
 
-const ColorlibStepIconRoot = styled('div')<{
-  ownerState: { completed?: boolean; active?: boolean; };
-}>(({ theme, ownerState }) => ({
+const ColorlibStepIconRoot = styled('div')<{ completed?: boolean; active?: boolean;}>(({
+  theme,
+  active,
+  completed,
+}) => ({
   backgroundColor: theme.palette.mode === 'dark' ? theme.palette.grey[700] : '#ccc',
   zIndex: 1,
   color: theme.palette.text.white,
@@ -51,17 +53,8 @@ const ColorlibStepIconRoot = styled('div')<{
   borderRadius: '50%',
   justifyContent: 'center',
   alignItems: 'center',
-  ...(ownerState.active && {
-    // backgroundImage:
-    //   'linear-gradient( 136deg, rgb(242,113,33) 0%, rgb(233,64,87) 50%, rgb(138,35,135) 100%)',
-    // boxShadow: '0 4px 10px 0 rgba(0,0,0,.25)',
-    background: theme.palette.background.secondary,
-  }),
-  ...(ownerState.completed && {
-    background: theme.palette.background.primary,
-    // backgroundImage:
-    //   'linear-gradient( 136deg, rgb(242,113,33) 0%, rgb(233,64,87) 50%, rgb(138,35,135) 100%)',
-  }),
+  ...(active && { backgroundColor: theme.palette.background.secondary }),
+  ...(completed && { backgroundColor: theme.palette.background.primary }),
 }));
 
 export const BaseStepper = ({
@@ -90,8 +83,12 @@ export const BaseStepper = ({
                 sx={{ fontSize: 20 }}
                 // eslint-disable-next-line react/no-unstable-nested-components
                 StepIconComponent={({ completed, active, className }) => (
-                  <ColorlibStepIconRoot ownerState={{ completed, active }} className={className}>
-                    {icon}
+                  <ColorlibStepIconRoot
+                    active={active}
+                    completed={completed}
+                    className={className}
+                  >
+                    {completed ? <CheckOutlined /> : icon}
                   </ColorlibStepIconRoot>
                 )}
               >

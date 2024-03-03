@@ -15,23 +15,23 @@ export const ProductColor = ({
   onClick?: () => void;
 }) => (
   <Box
-    padding={small ? 0 : 0.5}
-    component={onClick ? 'button' : undefined}
-    border={noBorders ? 'none' : `${active ? 2 : 1}px solid`}
-    bgcolor="transparent"
-    borderColor={`border.${active ? 'black' : 'main'}`}
-    onClick={onClick}
-    borderRadius={1}
     sx={{ cursor: onClick ? 'pointer' : 'default' }}
+    border={noBorders ? 'none' : `${active ? 2 : 1}px solid`}
+    padding={(noBorders || small) ? 0 : 0.5}
+    bgcolor="transparent"
+    onClick={onClick}
+    component={onClick ? 'button' : undefined}
+    borderColor={`border.${active ? 'black' : 'main'}`}
+    borderRadius={1}
   >
     <Box
       key={color}
-      bgcolor={color}
       width={small ? 15 : 20}
       height={small ? 15 : 20}
+      bgcolor={color}
       borderRadius={1}
-      border={noBorders ? 'none' : '2px solid'}
-      borderColor="border.black"
+      border="1px solid"
+      borderColor="border.main"
     />
   </Box>
 );

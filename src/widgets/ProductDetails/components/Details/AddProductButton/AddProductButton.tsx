@@ -26,7 +26,7 @@ export const AddProductButton = ({
   const { productId } = useTypedParams();
 
   const edit = search.get('edit');
-  const sizeId = search.get('size');
+  const sizeId = search.get('sizeId');
   const quantity = search.get('quantity');
 
   const size = sizes.find(({ id }) => id === sizeId);

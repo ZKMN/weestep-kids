@@ -17,7 +17,6 @@ export const ProductDetails = () => {
     type: 'kids-shoes',
     productId: 'ABC123',
     youMayLike: [],
-    santimeters: 20,
     color: {
       id: '3',
       value: '#00FF00',
@@ -35,18 +34,23 @@ export const ProductDetails = () => {
     sizes: [{
       id: '1',
       value: 22,
+      santimeters: 16,
     }, {
       id: '2',
       value: 23,
+      santimeters: 17,
     }, {
       id: '3',
       value: 24,
+      santimeters: 18,
     }, {
       id: '4',
       value: 25,
+      santimeters: 19,
     }, {
       id: '5',
       value: 26,
+      santimeters: 20,
     }],
     details: [{
       title: 'Material',

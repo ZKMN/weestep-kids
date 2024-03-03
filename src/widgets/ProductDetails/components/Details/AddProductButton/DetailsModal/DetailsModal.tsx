@@ -46,6 +46,7 @@ export const DetailsModal = ({ isOpen, setFalse }: Pick<IBaseDialogProps, 'isOpe
             <IntlButton
               intl={{ label: 'checkout' }}
               color="secondary"
+              variant="outlined"
               onClick={handleRedirect(Links.CHECKOUT)}
             />
           </Grid>

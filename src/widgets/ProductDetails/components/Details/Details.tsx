@@ -18,6 +18,7 @@ import { Carousel } from './Carousel';
 import { ChooseColor } from './ChooseColor';
 import { ChooseQuantity } from './ChooseQuantity';
 import { ChooseSize } from './ChooseSize';
+import { FootLength } from './FootLength';
 
 export const Details = ({ product }: any) => {
   const { productId } = useTypedParams();
@@ -104,6 +105,10 @@ export const Details = ({ product }: any) => {
                 discount={discount}
               />
             </Grid>
+
+            <FootLength sizes={sizes} />
+
+            <Divider />
 
             <ChooseSize sizes={sizes} />
 

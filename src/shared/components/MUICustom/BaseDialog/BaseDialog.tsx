@@ -74,7 +74,7 @@ export const BaseDialog = ({
       fullScreen={isLessSm}
       TransitionComponent={Transition}
     >
-      <AppBar color="secondary" position="sticky">
+      <AppBar position="sticky">
         <DialogTitle>
           <Grid container>
             <Grid item flex={1}>

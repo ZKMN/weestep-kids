@@ -4,15 +4,13 @@ import {
   Card,
   CardContent,
   Grid,
-  Stack,
   Typography,
 } from '@mui/material';
-import { useBoolean } from 'ahooks';
 
 import { ProductColor, ProductPrice, ProductTopSale } from '@/entities/Product';
 
 import { BaseImage, IntlTypography } from '@/shared/components';
-import { useClickRedirect, useMediaSizes } from '@/shared/lib/hooks';
+import { useClickRedirect } from '@/shared/lib/hooks';
 import { Links } from '@/shared/types';
 
 export const ProductCard = ({ product }: any) => {
@@ -28,34 +26,28 @@ export const ProductCard = ({ product }: any) => {
 
   const [handleRedirect] = useClickRedirect();
 
-  const [show, { setTrue, setFalse }] = useBoolean();
-  const { isBiggerLg } = useMediaSizes();
-
   const sizes = product.sizes as { id: string; value: string; }[];
-  const colors = product.colors as { id: string; value: string; }[];
+  const colorsAvailable = product.colorsAvailable as { id: string; value: string; }[];
 
   return (
     <Box
       width="100%"
+      height="100%"
       position="relative"
     >
       <Card
         component="button"
-        onMouseOut={isBiggerLg ? setFalse : undefined}
-        onMouseOver={isBiggerLg ? setTrue : undefined}
         onClick={handleRedirect(`${Links.CATALOGUE}/${type}/${productId}`)}
-        elevation={show ? 1 : 0}
+        elevation={1}
         sx={{
           width: '100%',
+          height: '100%',
           cursor: 'pointer',
           border: 'none',
           background: 'baseWhite.main',
-          top: 0,
-          position: show ? 'absolute' : 'relative',
-          zIndex: show ? 3 : 1,
         }}
       >
-        <CardContent>
+        <CardContent sx={{ height: '100%' }}>
           <Grid container>
             <Grid item flex={1}>
               <Grid container mb={2} justifyContent="space-between">
@@ -67,7 +59,7 @@ export const ProductCard = ({ product }: any) => {
                 <ProductTopSale topSales={topSales} />
               </Grid>
 
-              <Grid container>
+              <Grid container mb={2}>
                 <BaseImage
                   fullWidth
                   src={img}
@@ -75,59 +67,63 @@ export const ProductCard = ({ product }: any) => {
                 />
               </Grid>
 
-              {show && (
-                <>
-                  <Grid
-                    container
+              <Grid
+                container
+                mb={1}
+                justifyContent="space-between"
+              >
+                <Typography fontWeight={700}>
+                  {name}
+                </Typography>
+
+                <Typography color="text.grey">
+                  {productId}
+                </Typography>
+              </Grid>
+
+              <Grid container>
+                <Grid item xs={6}>
+                  <IntlTypography
                     mb={1}
-                    mt={2}
-                    justifyContent="space-between"
-                  >
-                    <Typography fontWeight={700}>
-                      {name}
-                    </Typography>
+                    intl={{ label: 'titles.size' }}
+                    color="text.grey"
+                    textAlign="left"
+                    fontWeight={700}
+                  />
 
-                    <Typography color="text.grey">
-                      {productId}
-                    </Typography>
-                  </Grid>
-
-                  <Grid container mb={1}>
-                    <Grid item xs={12} mb={1}>
-                      <IntlTypography
-                        intl={{ label: 'titles.size' }}
-                        fontWeight={700}
-                      />
-                    </Grid>
-
-                    <Stack spacing={1} direction="row">
-                      {sizes.map(({ id, value }) => (
-                        <Typography key={id}>
+                  <Grid container spacing={1}>
+                    {sizes.map(({ id, value }) => (
+                      <Grid item key={id}>
+                        <Typography>
                           {value}
                         </Typography>
-                      ))}
-                    </Stack>
+                      </Grid>
+                    ))}
                   </Grid>
+                </Grid>
 
-                  <Grid container>
-                    <Grid item xs={12} mb={1}>
-                      <IntlTypography
-                        intl={{ label: 'titles.color' }}
-                        fontWeight={700}
-                      />
-                    </Grid>
+                <Grid item xs={6}>
+                  <IntlTypography
+                    mb={1}
+                    intl={{ label: 'titles.color' }}
+                    color="text.grey"
+                    textAlign="right"
+                    fontWeight={700}
+                  />
 
-                    <Stack spacing={1} direction="row">
-                      {colors.map(({ id, value }) => (
+                  <Grid container spacing={1} justifyContent="flex-end">
+                    {colorsAvailable.map(({ id, value }) => (
+                      <Grid item key={id}>
                         <ProductColor
+                          noBorders
                           key={id}
                           color={value}
                         />
-                      ))}
-                    </Stack>
+                      </Grid>
+                    ))}
                   </Grid>
-                </>
-              )}
+                </Grid>
+              </Grid>
             </Grid>
           </Grid>
         </CardContent>

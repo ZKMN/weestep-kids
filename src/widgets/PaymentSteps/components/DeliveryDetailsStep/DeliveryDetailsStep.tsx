@@ -52,7 +52,7 @@ export const DeliveryDetails = ({
           </Grid>
 
           {CARRIERS.map((carr) => (
-            <Grid item key={carr.id} xs={4}>
+            <Grid item key={carr.id} xs={6} md={4}>
               <CarrierButton
                 active={carrier.id === carr.id}
                 carrier={carr}

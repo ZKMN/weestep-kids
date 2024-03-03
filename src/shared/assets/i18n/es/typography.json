@@ -10,6 +10,7 @@
   "titles": {
     "color": "Colore",
     "filters": "Filtros",
+    "foot": "Pie(cm)",
     "size": "Talla",
     "quantity": "Cantidad",
     "orderSummary": "Resumen del pedido",
