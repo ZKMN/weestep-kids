@@ -8,7 +8,7 @@ import {
   useStripe,
 } from '@stripe/react-stripe-js';
 
-import { CUSTOMER_INITIAL_VALUES } from '@/widgets/PaymentSteps/consts';
+import { DELIVERY_INITIAL_VALUES } from '@/widgets/PaymentSteps/consts';
 import { useSubmitStripePayment, useValidateCreditCardInputs } from '@/widgets/PaymentSteps/lib/hooks';
 import { TActiveStep } from '@/widgets/PaymentSteps/types';
 
@@ -21,7 +21,7 @@ export const StripeForm = ({
   amount,
   deliveryDetails,
   setActiveStep,
-}: TActiveStep & { amount: number; deliveryDetails?: typeof CUSTOMER_INITIAL_VALUES; }) => {
+}: TActiveStep & { amount: number; deliveryDetails?: typeof DELIVERY_INITIAL_VALUES; }) => {
   const stripe = useStripe();
   const {
     completed,

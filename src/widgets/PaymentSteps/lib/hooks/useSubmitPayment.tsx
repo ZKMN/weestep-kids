@@ -6,7 +6,7 @@ import { useQueryState } from 'nuqs';
 import { errorMessage } from '@/shared/lib/helpers';
 import { localBasketStore } from '@/shared/lib/store';
 
-import { CUSTOMER_INITIAL_VALUES } from '../../consts';
+import { DELIVERY_INITIAL_VALUES } from '../../consts';
 import { TActiveStep } from '../../types';
 
 export const useSubmitStripePayment = ({
@@ -15,7 +15,7 @@ export const useSubmitStripePayment = ({
   setActiveStep,
 }: {
   amount: number;
-  deliveryDetails?: typeof CUSTOMER_INITIAL_VALUES;
+  deliveryDetails?: typeof DELIVERY_INITIAL_VALUES;
 } & TActiveStep): [() => void, { loading: boolean; }] => {
   const products = localBasketStore((state) => state.products);
 

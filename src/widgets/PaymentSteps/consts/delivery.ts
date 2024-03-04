@@ -61,7 +61,7 @@ export const ADDRESS_FIELDS: IFieldProps[] = [{
   maxRows: 3,
 }];
 
-export const CUSTOMER_INITIAL_VALUES = {
+export const DELIVERY_INITIAL_VALUES = {
   firstName: '',
   lastName: '',
   email: '',

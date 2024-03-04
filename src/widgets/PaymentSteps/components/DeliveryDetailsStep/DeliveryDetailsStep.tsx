@@ -2,7 +2,10 @@ import React from 'react';
 import { Divider, Grid } from '@mui/material';
 
 import {
-  FieldByType, Form, IntlButton, IntlTypography,
+  FieldByType,
+  Form,
+  IntlButton,
+  IntlTypography,
 } from '@/shared/components';
 
 import { AutocompleteInput, CarrierButton, SubmitFormButton } from './components';
@@ -11,13 +14,14 @@ import {
   ADDRESS_FIELDS,
   CARRIERS,
   CUSTOMER_FIELDS,
-  CUSTOMER_INITIAL_VALUES,
+  DELIVERY_INITIAL_VALUES,
 } from '../../consts';
 import { CUSTOMER_FORM_SCHEMA } from '../../lib/helpers';
 import { IDeliveryDetailsStepProps } from '../../types';
 
 export const DeliveryDetails = ({
   carrier,
+  deliveryDetails,
   setCarrier,
   setActiveStep,
   setDeliveryDetails,
@@ -26,7 +30,7 @@ export const DeliveryDetails = ({
     <Grid item xs={12} md={8}>
       <Form
         fields={CUSTOMER_FIELDS}
-        initialValues={CUSTOMER_INITIAL_VALUES}
+        initialValues={deliveryDetails || DELIVERY_INITIAL_VALUES}
         validationSchema={CUSTOMER_FORM_SCHEMA}
       >
         <Grid container spacing={2}>

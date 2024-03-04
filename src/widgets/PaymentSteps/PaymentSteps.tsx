@@ -16,7 +16,7 @@ import {
   PaymentStep,
   SuccessDetails,
 } from './components';
-import { CARRIERS, CUSTOMER_INITIAL_VALUES } from './consts';
+import { CARRIERS, DELIVERY_INITIAL_VALUES } from './consts';
 import { ICarrier } from './types';
 
 const steps = [{
@@ -33,7 +33,7 @@ const steps = [{
 export const PaymentSteps = () => {
   const [carrier, setCarrier] = useState<ICarrier>(CARRIERS[0]);
   const [activeStep, setActiveStep] = useState(0);
-  const [deliveryDetails, setDeliveryDetails] = useState<typeof CUSTOMER_INITIAL_VALUES>();
+  const [deliveryDetails, setDeliveryDetails] = useState(DELIVERY_INITIAL_VALUES);
 
   useEffect(() => {
     window.scrollTo({ top: 0 });
@@ -53,6 +53,7 @@ export const PaymentSteps = () => {
               carrier={carrier}
               setCarrier={setCarrier}
               setActiveStep={setActiveStep}
+              deliveryDetails={deliveryDetails}
               setDeliveryDetails={setDeliveryDetails}
             />,
             2: <PaymentStep

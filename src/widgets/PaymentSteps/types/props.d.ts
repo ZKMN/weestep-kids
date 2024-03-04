@@ -1,6 +1,6 @@
 import { Dispatch, SetStateAction } from 'react';
 
-import { CUSTOMER_INITIAL_VALUES } from '../consts';
+import { DELIVERY_INITIAL_VALUES } from '../consts';
 
 export interface ICarrier {
   id: number;
@@ -15,13 +15,14 @@ export type TActiveStep = {
 
 export interface IDeliveryDetailsStepProps {
   carrier: ICarrier;
+  deliveryDetails: typeof DELIVERY_INITIAL_VALUES;
   setCarrier: Dispatch<ICarrier>;
   setActiveStep: TActiveStep['setActiveStep'];
-  setDeliveryDetails: Dispatch<typeof CUSTOMER_INITIAL_VALUES>;
+  setDeliveryDetails: Dispatch<typeof DELIVERY_INITIAL_VALUES>;
 }
 
 export interface IPaymentStepProps {
   carrier: ICarrier;
-  deliveryDetails?: typeof CUSTOMER_INITIAL_VALUES;
+  deliveryDetails?: typeof DELIVERY_INITIAL_VALUES;
   setActiveStep: TActiveStep['setActiveStep'];
 }
