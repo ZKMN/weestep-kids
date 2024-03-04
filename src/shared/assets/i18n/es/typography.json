@@ -5,12 +5,13 @@
     "inStock": "en stock ({{ count }} disponible)",
     "paymentInfo": "El pago se realiza mediante Stripe y está protegido con 3Dsecure. Aquí tienes toda la información que necesitas: ",
     "link": "enlace",
-    "confirmDetailsOnMail": "Recibirá los detalles de la confirmación por correo electrónico!"
+    "confirmDetailsOnMail": "Recibirá los detalles de la confirmación por correo electrónico!",
+    "sm": "{{ value }} (cm)"
   },
   "titles": {
     "color": "Colore",
     "filters": "Filtros",
-    "foot": "Pie(cm)",
+    "foot": "Pie",
     "size": "Talla",
     "quantity": "Cantidad",
     "orderSummary": "Resumen del pedido",

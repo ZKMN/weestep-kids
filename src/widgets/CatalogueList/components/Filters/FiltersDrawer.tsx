@@ -22,7 +22,6 @@ export const FiltersDrawer = () => {
     >
       <IntlButton
         sx={{ height: '100%' }}
-        size="small"
         intl={{ label: 'filters' }}
         color="secondary"
         onClick={setTrue}

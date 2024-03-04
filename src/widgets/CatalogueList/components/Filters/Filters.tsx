@@ -2,6 +2,7 @@
 
 import React, { Suspense } from 'react';
 import {
+  Box,
   Checkbox,
   FormControlLabel,
   Grid,
@@ -9,6 +10,7 @@ import {
 } from '@mui/material';
 import { useSearchParams } from 'next/navigation';
 
+import { breakpoints } from '@/shared/assets';
 import { BaseCollapse, Loading } from '@/shared/components';
 
 import { useChangeFilter } from '../../lib/hooks';
@@ -109,6 +111,14 @@ export const Filters = () => (
       </div>
     )}
   >
-    <FiltersComponent />
+    <Box
+      sx={{
+        [breakpoints.down('md')]: {
+          display: 'none',
+        },
+      }}
+    >
+      <FiltersComponent />
+    </Box>
   </Suspense>
 );

@@ -159,15 +159,7 @@ export const CatalogueList = () => (
         <Box component="section" width="100%">
           <Grid container spacing={{ xs: 1 }}>
             <Grid item xs={6} md={12}>
-              <Box
-                sx={{
-                  [breakpoints.down('md')]: {
-                    display: 'none',
-                  },
-                }}
-              >
-                <Filters />
-              </Box>
+              <Filters />
 
               <FiltersDrawer />
             </Grid>

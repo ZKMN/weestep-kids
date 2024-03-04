@@ -10,8 +10,9 @@ import {
 
 import { ProductPrice, ProductTopSale } from '@/entities/Product';
 
+import { breakpoints } from '@/shared/assets';
 import { IntlTypography } from '@/shared/components';
-import { useMediaSizes, useTypedParams } from '@/shared/lib/hooks';
+import { useTypedParams } from '@/shared/lib/hooks';
 
 import { AddProductButton } from './AddProductButton';
 import { Carousel } from './Carousel';
@@ -36,17 +37,20 @@ export const Details = ({ product }: any) => {
     available,
   } = product;
 
-  const { isLessMd, isLessSm } = useMediaSizes();
-
   return (
     <Grid container mt={2}>
       <Grid
         item
         xs={12}
         md={6}
-        mb={isLessMd ? 3 : 0}
         position="relative"
         component="section"
+        sx={{
+          mb: 0,
+          [breakpoints.down('md')]: {
+            mb: 3,
+          },
+        }}
       >
         <Box position="absolute" right={0} top={10} zIndex={2}>
           <ProductTopSale
@@ -63,13 +67,25 @@ export const Details = ({ product }: any) => {
         xs={12}
         md={6}
         lg={5}
-        ml={isLessMd ? 0 : 8}
         component="section"
+        sx={{
+          ml: 8,
+          [breakpoints.down('md')]: {
+            ml: 0,
+          },
+        }}
       >
         <Grid container>
           <Grid item xs={12} mb={2}>
-
-            <Grid container mb={isLessSm ? 1 : 0}>
+            <Grid
+              container
+              sx={{
+                mb: 0,
+                [breakpoints.down('sm')]: {
+                  mb: 1,
+                },
+              }}
+            >
               <Typography mr={2} color="text.grey">
                 {productId}
               </Typography>
@@ -83,13 +99,23 @@ export const Details = ({ product }: any) => {
 
             <Grid
               container
-              mb={isLessMd ? 2 : 5}
               justifyContent="space-between"
+              sx={{
+                mb: 5,
+                [breakpoints.down('md')]: {
+                  mb: 2,
+                },
+              }}
             >
               <Typography
                 variant="h1"
-                fontSize={isLessMd ? '2rem' : '3rem'}
                 fontWeight={700}
+                sx={{
+                  fontSize: '3rem',
+                  [breakpoints.down('md')]: {
+                    fontSize: '2rem',
+                  },
+                }}
               >
                 {name}
               </Typography>
@@ -97,7 +123,12 @@ export const Details = ({ product }: any) => {
 
             <Grid
               container
-              mb={isLessMd ? 2 : 5}
+              sx={{
+                mb: 5,
+                [breakpoints.down('md')]: {
+                  mb: 2,
+                },
+              }}
             >
               <ProductPrice
                 large

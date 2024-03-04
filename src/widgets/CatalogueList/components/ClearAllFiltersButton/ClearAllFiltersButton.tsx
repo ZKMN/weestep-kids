@@ -14,7 +14,6 @@ export const ClearAllFiltersButton = () => {
   return (
     <Grid item>
       <IntlButton
-        size="small"
         intl={{ label: 'clearFilters' }}
         color="secondary"
         onClick={handlePush(Links.CATALOGUE)}

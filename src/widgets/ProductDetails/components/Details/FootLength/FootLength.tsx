@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, Typography } from '@mui/material';
+import { Grid } from '@mui/material';
 import { useQueryState } from 'nuqs';
 
 import { IntlTypography } from '@/shared/components';
@@ -18,18 +18,17 @@ export const FootLength = ({ sizes }: { sizes: { id: string; value: string; sant
               intl={{ label: 'titles.foot' }}
               color="text.grey"
               variant="h3"
-              fontSize="1.5rem"
+              fontSize="1.4rem"
               fontWeight={700}
             />
           </Grid>
 
           <Grid item>
-            <Typography
-              fontSize="1.5rem"
+            <IntlTypography
+              fontSize="1.4rem"
               fontWeight={700}
-            >
-              {santimeters}
-            </Typography>
+              intl={{ label: 'texts.sm', values: { value: santimeters } }}
+            />
           </Grid>
         </Grid>
       </Grid>

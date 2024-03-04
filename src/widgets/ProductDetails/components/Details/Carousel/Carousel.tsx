@@ -16,13 +16,14 @@ export const Carousel = ({ images }: { images: string[];}) => (
     vertical
     verticalSwiping
     speed={1000}
+    arrows={false}
     slidesToShow={1}
     slidesToScroll={1}
   >
     {images.map((imgSrc) => (
       <BaseImage
-        key={imgSrc}
         fullWidth
+        key={imgSrc}
         src={imgSrc}
         alt="Product"
         objectFit="contain"

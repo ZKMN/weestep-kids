@@ -34,7 +34,6 @@ const RemoveFiltersComponent = () => {
           return map(parsed[key], (value) => (
             <Grid item key={value}>
               <Button
-                size="small"
                 variant="outlined"
                 color="secondary"
                 onClick={handleRemoveFilter(key, String(value))}
@@ -49,7 +48,6 @@ const RemoveFiltersComponent = () => {
         return (
           <Grid item key={key}>
             <Button
-              size="small"
               variant="outlined"
               color="secondary"
               onClick={handleRemoveFilter(key, String(parsed[key]))}
