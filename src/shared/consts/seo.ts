@@ -1,4 +1,4 @@
-export const icons = [{
+export const ICONS = [{
   rel: 'icon',
   type: 'image/x-icon',
   sizes: '16x16',

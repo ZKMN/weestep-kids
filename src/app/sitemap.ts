@@ -11,9 +11,21 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1,
     },
     {
-      url: 'https://weestep-kids.vercel.app/es/locations',
+      url: `${config?.urls.site}/catalogue`,
       lastModified: new Date(),
-      changeFrequency: 'monthly',
+      changeFrequency: 'yearly',
+      priority: 1,
+    },
+    {
+      url: `${config?.urls.site}/contacts`,
+      lastModified: new Date(),
+      changeFrequency: 'yearly',
+      priority: 0.9,
+    },
+    {
+      url: `${config?.urls.site}/find-your-fit`,
+      lastModified: new Date(),
+      changeFrequency: 'yearly',
       priority: 0.8,
     },
   ];

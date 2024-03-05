@@ -6,12 +6,12 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: 'Googlebot',
         allow: ['/catalogue', '/about-us', '/brand-of-the-year', '/contacts'],
-        disallow: ['/basket'],
+        disallow: ['/checkout'],
       },
       {
         userAgent: ['Applebot', 'Bingbot'],
         allow: ['/catalogue', '/about-us', '/brand-of-the-year', '/contacts'],
-        disallow: ['/basket'],
+        disallow: ['/checkout'],
       },
     ],
   };
