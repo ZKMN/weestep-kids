@@ -27,6 +27,7 @@ export const IntlTypography = ({
       variant={variant}
       fontFamily={fontFamily}
       fontSize={fontSize}
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
       component={component}
       textAlign={textAlign}
