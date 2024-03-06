@@ -1,13 +1,12 @@
 'use client';
 
 import { useCallback, useEffect, useState } from 'react';
-import { useCookies } from 'react-cookie';
 import { initReactI18next, useTranslation } from 'react-i18next';
 import i18next, { i18n } from 'i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
 import resourcesToBackend from 'i18next-resources-to-backend';
 
-import { I18N_COOKIE_NAME, LANGUAGES } from '@/shared/consts';
+import { DEFAULT_FILE_NAME, LANGUAGES } from '@/shared/consts';
 import { getI18IntlOptions } from '@/shared/lib/helpers';
 import { useTypedParams } from '@/shared/lib/hooks';
 
@@ -27,12 +26,11 @@ i18next
   });
 
 export const useClientTranslation = (
-  filename = 'common',
+  filename = DEFAULT_FILE_NAME,
   options = { keyPrefix: '' },
 ): [(label: string, values?: Record<string, unknown>) => string, { i18n: i18n; ready: boolean; }] => {
   const { lng } = useTypedParams();
 
-  const [cookies, setCookie] = useCookies([I18N_COOKIE_NAME]);
   const translation = useTranslation(filename, options);
 
   const { i18n } = translation;
@@ -53,12 +51,6 @@ export const useClientTranslation = (
 
       i18n.changeLanguage(lng);
     }, [lng, i18n]);
-
-    useEffect(() => {
-      if (cookies.i18next === lng) return;
-
-      setCookie(I18N_COOKIE_NAME, lng, { path: '/' });
-    }, [lng, cookies.i18next]);
   }
 
   const handleTranslation = useCallback((label: string, values?: Record<string, unknown>) => translation.t(label, values), []);

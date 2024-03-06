@@ -64,11 +64,11 @@ export const Form = <T extends FieldValues>({
       {buttonProps && onSubmit && (
         <Grid container mt={3}>
           <LoadingIntlButton
+            intl={{ label: buttonProps.intl.label, values: buttonProps.intl?.values }}
             size={buttonProps?.size || 'large'}
             loading={loading}
             onClick={form.handleSubmit(onSubmit)}
             disabled={loading || !isValid || !isDirty || buttonProps?.disabled}
-            intl={{ label: buttonProps.intl?.label || 'submit', values: buttonProps.intl?.values }}
           />
         </Grid>
       )}

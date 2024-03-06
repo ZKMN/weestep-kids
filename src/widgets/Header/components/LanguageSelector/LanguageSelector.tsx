@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
+import { useCookies } from 'react-cookie';
 import {
   FormControl,
   Grid,
@@ -8,20 +9,22 @@ import {
 } from '@mui/material';
 import { useRouter } from 'next/navigation';
 
-import { LANGUAGES } from '@/shared/consts';
+import { I18N_COOKIE_NAME, LANGUAGES } from '@/shared/consts';
 import { useTypedParams } from '@/shared/lib/hooks';
-import { TLanguages } from '@/shared/types';
 
 export const LanguageSelector = () => {
   const { lng } = useTypedParams();
   const { push } = useRouter();
+  const [cookies, setCookie] = useCookies([I18N_COOKIE_NAME]);
 
-  const [language, setLanguage] = useState<TLanguages>(lng);
+  useEffect(() => {
+    if (cookies.i18next === lng) return;
+
+    setCookie(I18N_COOKIE_NAME, lng, { path: '/' });
+  }, [lng, cookies.i18next]);
 
   const handleChange = (event: SelectChangeEvent) => {
     push(`/${event.target.value}/${window.location.pathname.replace(`/${lng}`, '')}${window.location.search}`);
-
-    setLanguage(event.target.value as TLanguages);
   };
 
   return (
@@ -29,7 +32,7 @@ export const LanguageSelector = () => {
       <FormControl fullWidth>
         <Select
           size="small"
-          value={language}
+          value={lng}
           onChange={handleChange}
           sx={{
             '.MuiSelect-select': {

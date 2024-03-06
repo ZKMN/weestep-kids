@@ -43,7 +43,7 @@ export const Navigation = () => {
               >
                 {translate(label)}
 
-                {(pathname === link || (!pathname && index === 0)) && (
+                {(pathname.includes(link) || (!pathname && index === 0)) && (
                   <span
                     className={styles.activeMenuItem}
                     style={{ background: color }}

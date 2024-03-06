@@ -23,5 +23,6 @@ declare module '@mui/material/styles' {
     grey: TypeText['primary'];
     white: TypeText['primary'];
     green: TypeText['primary'];
+    black: TypeText['primary'];
   }
 }

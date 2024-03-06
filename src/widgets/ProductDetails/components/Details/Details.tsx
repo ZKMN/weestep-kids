@@ -118,6 +118,19 @@ export const Details = ({ product }: any) => {
                 price={price}
                 discount={discount}
               />
+
+              <Grid
+                item
+                pb={0.5}
+                ml={1}
+                display="flex"
+                alignItems="end"
+              >
+                <IntlTypography
+                  intl={{ label: 'texts.taxIncluded' }}
+                  color="text.grey"
+                />
+              </Grid>
             </Grid>
 
             <FootLength sizes={sizes} />

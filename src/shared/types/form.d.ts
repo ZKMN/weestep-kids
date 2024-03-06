@@ -33,7 +33,7 @@ export namespace IFieldProps {
 export interface IFormProps<T extends FieldValues> extends UseFormProps<T> {
   fields: IFieldProps[];
   loading?: boolean;
-  buttonProps?: ButtonProps & { loading?: boolean; intl?: IIntlProps['intl']; };
+  buttonProps?: ButtonProps & { loading?: boolean; intl: IIntlProps['intl']; };
   initialValues: DefaultValues<T>;
   validationSchema: Yup.ObjectSchema<T>;
   onSubmit?: SubmitFn<T>;

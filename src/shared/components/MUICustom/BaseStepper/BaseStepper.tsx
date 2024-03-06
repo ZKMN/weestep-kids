@@ -81,7 +81,6 @@ export const BaseStepper = ({
             <Step key={intl.label}>
               <StepLabel
                 sx={{ fontSize: 20 }}
-                // eslint-disable-next-line react/no-unstable-nested-components
                 StepIconComponent={({ completed, active, className }) => (
                   <ColorlibStepIconRoot
                     active={active}

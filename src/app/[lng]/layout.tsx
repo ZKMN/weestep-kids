@@ -2,7 +2,7 @@
 import { dir } from 'i18next';
 import { Metadata } from 'next';
 import Script from 'next/script';
-import { BrandJsonLd, LocalBusinessJsonLd } from 'next-seo';
+import { BrandJsonLd, LocalBusinessJsonLd, LogoJsonLd } from 'next-seo';
 
 import { App } from '@/appLayer/App';
 
@@ -26,6 +26,12 @@ export async function generateStaticParams() {
 const RootLayout = ({ children, params: { lng } }: React.PropsWithChildren<{ params: { lng: TLanguages; }; }>) => (
   <html lang={lng} dir={dir(lng)}>
     <body className={weestepFont.className}>
+      <LogoJsonLd
+        useAppDir
+        url={String(config?.urls.site)}
+        logo="https://img.ankorstore.com/brands/rounded/16969-47df8e2d48b214.jpg?auto=compress&fm=pjpg&h=158&dpr=2"
+      />
+
       <BrandJsonLd
         useAppDir
         id={String(config?.urls.site)}
@@ -37,6 +43,7 @@ const RootLayout = ({ children, params: { lng } }: React.PropsWithChildren<{ par
           ratingCount: '600',
         }}
       />
+
       <LocalBusinessJsonLd
         useAppDir
         type="Zapatería infantil"

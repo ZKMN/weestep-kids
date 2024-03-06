@@ -5,9 +5,6 @@ import Slider from 'react-slick';
 
 import { BaseImage } from '@/shared/components';
 
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
-
 export const Carousel = ({ images }: { images: string[];}) => (
   <Slider
     dots
@@ -15,10 +12,21 @@ export const Carousel = ({ images }: { images: string[];}) => (
     autoplay
     vertical
     verticalSwiping
-    speed={1000}
+    speed={2000}
     arrows={false}
     slidesToShow={1}
     slidesToScroll={1}
+    autoplaySpeed={4000}
+    dotsClass="slick-dots slick-thumb-custom"
+    customPaging={(i) => (
+      <BaseImage
+        width={50}
+        height={50}
+        src={images[i]}
+        alt="Product"
+        objectFit="contain"
+      />
+    )}
   >
     {images.map((imgSrc) => (
       <BaseImage

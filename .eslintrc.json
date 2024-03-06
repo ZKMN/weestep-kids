@@ -75,6 +75,7 @@
     "react/jsx-filename-extension": "off",
     "react/require-default-props": "off",
     "react/function-component-definition": [2, { "namedComponents": "arrow-function" }],
+    "react/no-unstable-nested-components": [ "error", { "allowAsProps": true }],
     "@typescript-eslint/ban-ts-comment": "warn",
     "@typescript-eslint/no-namespace": "off",
     "@typescript-eslint/semi": "error",

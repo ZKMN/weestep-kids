@@ -1,16 +1,27 @@
 import React from 'react';
-import { Phone } from '@mui/icons-material';
+import { PhoneIphone, WhatsApp } from '@mui/icons-material';
 import { Grid, Link } from '@mui/material';
 
 export const PhoneNumber = () => (
   <Grid item>
     <Grid container alignItems="center">
-      <Phone
-        color="primary"
-        fontSize="small"
-      />
+      <Link
+        mr={1}
+        href="https://wa.me/+34611822584"
+        color="text.black"
+      >
+        <WhatsApp />
+      </Link>
 
-      <Link ml={1} href="tel:34611822584" underline="hover">
+      <Link
+        href="tel:34611822584"
+        color="text.black"
+        underline="hover"
+        display="flex"
+        alignItems="center"
+      >
+        <PhoneIphone />
+
         +34 611-82-25-84
       </Link>
     </Grid>

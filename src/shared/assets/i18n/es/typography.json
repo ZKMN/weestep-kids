@@ -6,7 +6,8 @@
     "paymentInfo": "El pago se realiza mediante Stripe y está protegido con 3Dsecure. Aquí tienes toda la información que necesitas: ",
     "link": "enlace",
     "confirmDetailsOnMail": "Recibirá los detalles de la confirmación por correo electrónico!",
-    "sm": "{{ value }} (cm)"
+    "sm": "{{ value }} (cm)",
+    "taxIncluded": "IVA incluido"
   },
   "titles": {
     "color": "Colore",
@@ -24,6 +25,8 @@
     "payment": "Pago",
     "shippingMethod": "Forma de Envío",
     "paymentMethod": "Forma de Pago",
-    "orderConfirmed": "Pedido confirmado"
+    "orderConfirmed": "Pedido confirmado",
+    "leaveUsMsg": "Déjanos un mensaje",
+    "ourSocials": "Nuestras Redes Sociales"
   }
 }

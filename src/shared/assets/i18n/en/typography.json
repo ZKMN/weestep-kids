@@ -6,7 +6,8 @@
     "paymentInfo": "Payment is made using Stripe and protected with 3Dsecure. Here's all the information you need: ",
     "link": "link",
     "confirmDetailsOnMail": "You will receive confiramtion details on email!",
-    "sm": "{{ value }} (sm)"
+    "sm": "{{ value }} (sm)",
+    "taxIncluded": "Tax included"
   },
   "titles": {
     "color": "Color",
@@ -24,6 +25,8 @@
     "payment": "Payment",
     "shippingMethod": "Shipping Method",
     "paymentMethod": "Payment Method",
-    "orderConfirmed": "Order Confirmed"
+    "orderConfirmed": "Order Confirmed",
+    "leaveUsMsg": "Leave us a message",
+    "ourSocials": "Our Social Networks"
   }
 }

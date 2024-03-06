@@ -403,7 +403,13 @@ const products = [
 ];
 
 export const CatalogueList = () => (
-  <Box mt={3}>
+  <Box
+    sx={{
+      [breakpoints.up('md')]: {
+        mt: 3,
+      },
+    }}
+  >
     <Grid
       container
       mb={3}

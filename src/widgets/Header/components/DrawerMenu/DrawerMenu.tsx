@@ -79,7 +79,7 @@ export const DrawerMenu = () => {
                 {translate(label)}
               </Typography>
 
-              {(pathname === link || (!pathname && index === 0)) && (
+              {(pathname.includes(link) || (!pathname && index === 0)) && (
                 <Box
                   ml={3}
                   width={7}
