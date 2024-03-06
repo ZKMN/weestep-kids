@@ -66,6 +66,15 @@ export const dynamicParams = true;
 //   return [];
 // }
 
+// {/* <meta property="product:retailer_item_id" content="107437" />
+// <meta property="product:item_group_id" content="107437" />
+// <meta property="product:condition" content="new" />
+// <meta property="product:availability" content="in stock" />
+// <meta property="brand" content="Batilas" />
+// <meta property="product:category" content="0" />
+// <meta property="product:sale_price:amount" content="15" />
+// <meta property="product:sale_price:currency" content="EUR" /> */}
+
 const Layout = ({ children }: React.PropsWithChildren) => children;
 
 export default Layout;

@@ -46,9 +46,9 @@ export const AddProductButton = ({
 
   return (
     <Box
+      width="100%"
       display="flex"
       padding="8px 0"
-      width="100%"
       position="sticky"
       bottom={0}
       justifyContent="flex-end"

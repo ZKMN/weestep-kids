@@ -20,8 +20,50 @@ const products = [
     price: 29.99,
     discount: 10,
     topSales: true,
-    colorsAvailable: ['#FF0000', '#0000FF', '#00FF00'],
-    sizes: [22, 23, 24, 25, 26, 27, 28],
+    colorsAvailable: [
+      {
+        id: '1',
+        value: '#FF0000',
+      },
+      {
+        id: '2',
+        value: '#0000FF',
+      },
+      {
+        id: '3',
+        value: '#00FF00',
+      },
+    ],
+    sizes: [
+      {
+        id: '1',
+        value: 22,
+      },
+      {
+        id: '2',
+        value: 23,
+      },
+      {
+        id: '3',
+        value: 24,
+      },
+      {
+        id: '4',
+        value: 25,
+      },
+      {
+        id: '5',
+        value: 26,
+      },
+      {
+        id: '6',
+        value: 27,
+      },
+      {
+        id: '7',
+        value: 28,
+      },
+    ],
     type: 'kids-shoes',
     productId: 'ABC123',
   },
@@ -31,8 +73,34 @@ const products = [
     price: 39.99,
     discount: 0,
     topSales: false,
-    colorsAvailable: ['#000000', '#FFFFFF', '#808080'],
-    sizes: [25, 28, 31],
+    colorsAvailable: [
+      {
+        id: '1',
+        value: '#000000',
+      },
+      {
+        id: '2',
+        value: '#FFFFFF',
+      },
+      {
+        id: '3',
+        value: '#808080',
+      },
+    ],
+    sizes: [
+      {
+        id: '1',
+        value: 25,
+      },
+      {
+        id: '2',
+        value: 28,
+      },
+      {
+        id: '3',
+        value: 31,
+      },
+    ],
     type: 'kids-shoes',
     productId: 'XYZ789',
   },
@@ -42,8 +110,34 @@ const products = [
     price: 49.99,
     discount: 20,
     topSales: true,
-    colorsAvailable: ['#FFFF00', '#800080', '#FFA500'],
-    sizes: [22, 28, 31],
+    colorsAvailable: [
+      {
+        id: '1',
+        value: '#FFFF00',
+      },
+      {
+        id: '2',
+        value: '#800080',
+      },
+      {
+        id: '3',
+        value: '#FFA500',
+      },
+    ],
+    sizes: [
+      {
+        id: '1',
+        value: 22,
+      },
+      {
+        id: '2',
+        value: 28,
+      },
+      {
+        id: '3',
+        value: 31,
+      },
+    ],
     type: 'kids-shoes',
     productId: 'PQR456',
   },
@@ -53,8 +147,34 @@ const products = [
     price: 25.99,
     discount: 0,
     topSales: false,
-    colorsAvailable: ['#A52A2A', '#00FFFF', '#FFC0CB'],
-    sizes: [22, 25, 31],
+    colorsAvailable: [
+      {
+        id: '1',
+        value: '#A52A2A',
+      },
+      {
+        id: '2',
+        value: '#00FFFF',
+      },
+      {
+        id: '3',
+        value: '#FFC0CB',
+      },
+    ],
+    sizes: [
+      {
+        id: '1',
+        value: 22,
+      },
+      {
+        id: '2',
+        value: 25,
+      },
+      {
+        id: '3',
+        value: 31,
+      },
+    ],
     type: 'kids-shoes',
     productId: 'LMN789',
   },
@@ -64,8 +184,34 @@ const products = [
     price: 59.99,
     discount: 25,
     topSales: true,
-    colorsAvailable: ['#0000FF', '#00FF00', '#FFFFFF'],
-    sizes: [25, 28, 31],
+    colorsAvailable: [
+      {
+        id: '1',
+        value: '#0000FF',
+      },
+      {
+        id: '2',
+        value: '#00FF00',
+      },
+      {
+        id: '3',
+        value: '#FFFFFF',
+      },
+    ],
+    sizes: [
+      {
+        id: '1',
+        value: 25,
+      },
+      {
+        id: '2',
+        value: 28,
+      },
+      {
+        id: '3',
+        value: 31,
+      },
+    ],
     type: 'kids-shoes',
     productId: 'DEF321',
   },
@@ -75,8 +221,34 @@ const products = [
     price: 19.99,
     discount: 0,
     topSales: false,
-    colorsAvailable: ['#FF0000', '#000000', '#FFFF00'],
-    sizes: [22, 25, 28],
+    colorsAvailable: [
+      {
+        id: '1',
+        value: '#FF0000',
+      },
+      {
+        id: '2',
+        value: '#000000',
+      },
+      {
+        id: '3',
+        value: '#FFFF00',
+      },
+    ],
+    sizes: [
+      {
+        id: '1',
+        value: 22,
+      },
+      {
+        id: '2',
+        value: 25,
+      },
+      {
+        id: '3',
+        value: 28,
+      },
+    ],
     type: 'kids-shoes',
     productId: 'JKL987',
   },
@@ -86,8 +258,34 @@ const products = [
     price: 34.99,
     discount: 12,
     topSales: true,
-    colorsAvailable: ['#800080', '#FFA500', '#808080'],
-    sizes: [25, 28, 31],
+    colorsAvailable: [
+      {
+        id: '1',
+        value: '#800080',
+      },
+      {
+        id: '2',
+        value: '#FFA500',
+      },
+      {
+        id: '3',
+        value: '#808080',
+      },
+    ],
+    sizes: [
+      {
+        id: '1',
+        value: 25,
+      },
+      {
+        id: '2',
+        value: 28,
+      },
+      {
+        id: '3',
+        value: 31,
+      },
+    ],
     type: 'kids-shoes',
     productId: 'GHI654',
   },
@@ -97,8 +295,34 @@ const products = [
     price: 45.99,
     discount: 18,
     topSales: false,
-    colorsAvailable: ['#A52A2A', '#FFC0CB', '#00FFFF'],
-    sizes: [22, 28, 31],
+    colorsAvailable: [
+      {
+        id: '1',
+        value: '#A52A2A',
+      },
+      {
+        id: '2',
+        value: '#FFC0CB',
+      },
+      {
+        id: '3',
+        value: '#00FFFF',
+      },
+    ],
+    sizes: [
+      {
+        id: '1',
+        value: 22,
+      },
+      {
+        id: '2',
+        value: 28,
+      },
+      {
+        id: '3',
+        value: 31,
+      },
+    ],
     type: 'kids-shoes',
     productId: 'MNO012',
   },
@@ -108,8 +332,34 @@ const products = [
     price: 27.99,
     discount: 7,
     topSales: true,
-    colorsAvailable: ['#000000', '#FFFFFF', '#0000FF'],
-    sizes: [22, 25, 28],
+    colorsAvailable: [
+      {
+        id: '1',
+        value: '#000000',
+      },
+      {
+        id: '2',
+        value: '#FFFFFF',
+      },
+      {
+        id: '3',
+        value: '#0000FF',
+      },
+    ],
+    sizes: [
+      {
+        id: '1',
+        value: 22,
+      },
+      {
+        id: '2',
+        value: 25,
+      },
+      {
+        id: '3',
+        value: 28,
+      },
+    ],
     type: 'kids-shoes',
     productId: 'UVW345',
   },
@@ -119,16 +369,38 @@ const products = [
     price: 55.99,
     discount: 22,
     topSales: false,
-    colorsAvailable: ['#00FF00', '#FF0000', '#800080'],
-    sizes: [25, 28, 31],
+    colorsAvailable: [
+      {
+        id: '1',
+        value: '#00FF00',
+      },
+      {
+        id: '2',
+        value: '#FF0000',
+      },
+      {
+        id: '3',
+        value: '#800080',
+      },
+    ],
+    sizes: [
+      {
+        id: '1',
+        value: 25,
+      },
+      {
+        id: '2',
+        value: 28,
+      },
+      {
+        id: '3',
+        value: 31,
+      },
+    ],
     type: 'kids-shoes',
     productId: 'STU678',
   },
-].map((product) => ({
-  ...product,
-  colorsAvailable: product.colorsAvailable.map((color, index) => ({ id: String(index + 1), value: color })),
-  sizes: product.sizes.map((size, index) => ({ id: String(index + 1), value: size })),
-}));
+];
 
 export const CatalogueList = () => (
   <Box mt={3}>
@@ -159,7 +431,15 @@ export const CatalogueList = () => (
         <Box component="section" width="100%">
           <Grid container spacing={{ xs: 1 }}>
             <Grid item xs={6} md={12}>
-              <Filters />
+              <Box
+                sx={{
+                  [breakpoints.down('md')]: {
+                    display: 'none',
+                  },
+                }}
+              >
+                <Filters />
+              </Box>
 
               <FiltersDrawer />
             </Grid>

@@ -77,15 +77,7 @@ export const Details = ({ product }: any) => {
       >
         <Grid container>
           <Grid item xs={12} mb={2}>
-            <Grid
-              container
-              sx={{
-                mb: 0,
-                [breakpoints.down('sm')]: {
-                  mb: 1,
-                },
-              }}
-            >
+            <Grid container>
               <Typography mr={2} color="text.grey">
                 {productId}
               </Typography>
@@ -97,16 +89,7 @@ export const Details = ({ product }: any) => {
               />
             </Grid>
 
-            <Grid
-              container
-              justifyContent="space-between"
-              sx={{
-                mb: 5,
-                [breakpoints.down('md')]: {
-                  mb: 2,
-                },
-              }}
-            >
+            <Grid container mb={5}>
               <Typography
                 variant="h1"
                 fontWeight={700}
