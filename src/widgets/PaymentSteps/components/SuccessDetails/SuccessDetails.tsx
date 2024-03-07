@@ -5,6 +5,7 @@ import { useQueryState } from 'nuqs';
 
 import { IntlButton, IntlTypography } from '@/shared/components';
 import { useClickRedirect } from '@/shared/lib/hooks';
+import { resetBasketProductsAction } from '@/shared/lib/store';
 import { Links } from '@/shared/types';
 
 import { paymentStore } from '../../lib/store';
@@ -13,19 +14,20 @@ export const SuccessDetails = () => {
   const step = paymentStore((state) => state.step);
   const clientSecret = paymentStore((state) => state.clientSecret);
 
-  const [redirectStep] = useQueryState('redirect_step');
-
   const [handleRedirect] = useClickRedirect();
 
-  const [redirectStatus] = useQueryState('redirect_status');
   const [paymentIntent] = useQueryState('payment_intent');
+  const [redirectStatus] = useQueryState('redirect_status');
   const [paymentIntentClientSecret] = useQueryState('payment_intent_client_secret');
 
   useEffect(() => {
-    console.log(redirectStatus, paymentIntent, paymentIntentClientSecret, clientSecret);
-  }, [redirectStatus, paymentIntent, paymentIntentClientSecret]);
+    if (clientSecret === paymentIntentClientSecret && paymentIntent && redirectStatus === 'succeeded') {
+      paymentStore.setState({ step: 3 });
+      resetBasketProductsAction();
+    }
+  }, [redirectStatus, paymentIntent, clientSecret, paymentIntentClientSecret]);
 
-  if (step !== 3 && !redirectStep) {
+  if (step !== 3) {
     return null;
   }
 

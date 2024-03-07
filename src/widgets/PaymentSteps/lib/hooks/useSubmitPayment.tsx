@@ -54,9 +54,9 @@ export const useSubmitStripePayment = (amount: string): [() => void, { loading: 
         return;
       }
 
+      incrStepAction();
       setSuccessPayIntent(String(result.paymentIntent?.id));
       resetBasketProductsAction();
-      incrStepAction();
     } catch (error) {
       errorMessage(JSON.stringify(error), { style: { top: '100px', maxWidth: '450px' } });
     } finally {

@@ -8,7 +8,6 @@ import {
 } from '@mui/icons-material';
 import { Grid } from '@mui/material';
 import { useUnmount } from 'ahooks';
-import { useQueryState } from 'nuqs';
 
 import { BaseStepper, Loading } from '@/shared/components';
 
@@ -33,7 +32,6 @@ const steps = [{
 
 const PaymentComponent = () => {
   const step = paymentStore((state) => state.step);
-  const [redirectStep] = useQueryState('redirect_step');
 
   useEffect(() => {
     window.scrollTo({ top: 0 });
@@ -48,7 +46,7 @@ const PaymentComponent = () => {
       <Grid item xs={12}>
         <BaseStepper
           steps={steps}
-          activeStep={step || Number(redirectStep)}
+          activeStep={step}
           stepNodes={{
             0: <BasketDetailsStep />,
             1: <DeliveryDetails />,
