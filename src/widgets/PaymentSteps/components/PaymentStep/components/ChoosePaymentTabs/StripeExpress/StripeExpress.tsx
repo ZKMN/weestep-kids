@@ -90,7 +90,7 @@ export const StripeExpress = ({ amount }: { amount: string; }) => {
         clientSecret,
         confirmParams: {
           // return_url: 'https://3a99-91-242-149-25.ngrok-free.app/en/checkout?redirect_step=3',
-          return_url: `${config?.urls.site}/${lng}/${Links.CHECKOUT}`,
+          return_url: `${config?.urls.site}/${lng}/${Links.CHECKOUT}?redirect_step=3`,
         },
       });
 
