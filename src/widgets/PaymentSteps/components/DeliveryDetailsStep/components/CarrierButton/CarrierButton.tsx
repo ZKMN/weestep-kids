@@ -1,7 +1,8 @@
 import React from 'react';
 import { Box, Grid, Typography } from '@mui/material';
 
-import { ICarrier, IDeliveryDetailsStepProps } from '@/widgets/PaymentSteps/types';
+import { setCarrierAction } from '@/widgets/PaymentSteps/lib/store';
+import { ICarrier } from '@/widgets/PaymentSteps/types';
 
 import { BaseImage } from '@/shared/components';
 import { getCurrency } from '@/shared/lib/helpers';
@@ -9,18 +10,16 @@ import { getCurrency } from '@/shared/lib/helpers';
 export const CarrierButton = ({
   active,
   carrier,
-  setCarrier,
 }: {
   active: boolean;
   carrier: ICarrier;
-  setCarrier: IDeliveryDetailsStepProps['setCarrier'];
 }) => (
   <Box
     component="button"
-    onClick={() => setCarrier(carrier)}
+    onClick={() => setCarrierAction(carrier)}
     sx={{ cursor: 'pointer', outline: active ? '2px solid #FF7C2A' : 'none' }}
     width="100%"
-    bgcolor="baseWhite.main"
+    bgcolor="background.paper"
     padding={0.5}
     border="1px solid"
     borderColor="border.main"

@@ -35,7 +35,7 @@ export const ChooseSize = ({ sizes }: { sizes: { id: string; value: string; sant
                     sx={{ cursor: 'pointer', outline: Number(sizeId) === Number(id) ? '2px solid #FF7C2A' : 'none' }}
                     onClick={() => setSizeId(id)}
                     width="100%"
-                    bgcolor="baseWhite.main"
+                    bgcolor="background.paper"
                     padding={0.5}
                     border="none"
                     borderRadius={1}

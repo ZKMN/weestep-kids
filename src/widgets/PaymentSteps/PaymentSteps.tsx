@@ -1,23 +1,24 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import {
   AddHome,
   Payment,
   ShoppingCartCheckout,
 } from '@mui/icons-material';
 import { Grid } from '@mui/material';
+import { useUnmount } from 'ahooks';
+import { useQueryState } from 'nuqs';
 
 import { BaseStepper } from '@/shared/components';
 
+import { paymentStore, resetPaymentStoreAction } from './lib/store';
 import {
   BasketDetailsStep,
   DeliveryDetails,
   PaymentStep,
   SuccessDetails,
 } from './components';
-import { CARRIERS, DELIVERY_INITIAL_VALUES } from './consts';
-import { ICarrier } from './types';
 
 const steps = [{
   icon: <ShoppingCartCheckout />,
@@ -31,40 +32,31 @@ const steps = [{
 }];
 
 export const PaymentSteps = () => {
-  const [carrier, setCarrier] = useState<ICarrier>(CARRIERS[0]);
-  const [activeStep, setActiveStep] = useState(0);
-  const [deliveryDetails, setDeliveryDetails] = useState(DELIVERY_INITIAL_VALUES);
+  const step = paymentStore((state) => state.step);
+  const [redirectStep] = useQueryState('redirect_step');
 
   useEffect(() => {
     window.scrollTo({ top: 0 });
-  }, [activeStep]);
+  }, [step]);
+
+  useUnmount(() => {
+    resetPaymentStoreAction();
+  });
 
   return (
     <Grid container>
       <Grid item xs={12}>
         <BaseStepper
           steps={steps}
-          activeStep={activeStep}
+          activeStep={step || Number(redirectStep)}
           stepNodes={{
-            0: <BasketDetailsStep
-              setActiveStep={setActiveStep}
-            />,
-            1: <DeliveryDetails
-              carrier={carrier}
-              setCarrier={setCarrier}
-              setActiveStep={setActiveStep}
-              deliveryDetails={deliveryDetails}
-              setDeliveryDetails={setDeliveryDetails}
-            />,
-            2: <PaymentStep
-              carrier={carrier}
-              deliveryDetails={deliveryDetails}
-              setActiveStep={setActiveStep}
-            />,
+            0: <BasketDetailsStep />,
+            1: <DeliveryDetails />,
+            2: <PaymentStep />,
           }}
         />
 
-        {activeStep === 3 && <SuccessDetails />}
+        <SuccessDetails />
       </Grid>
     </Grid>
   );

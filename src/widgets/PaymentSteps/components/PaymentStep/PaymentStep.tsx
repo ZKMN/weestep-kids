@@ -1,34 +1,27 @@
 'use client';
 
 import { Box, Grid, Link } from '@mui/material';
-import { Elements } from '@stripe/react-stripe-js';
-import { loadStripe } from '@stripe/stripe-js';
+import dynamic from 'next/dynamic';
 
 import { IntlTypography } from '@/shared/components';
-import { config } from '@/shared/lib/config';
 import { getProductsPrice, getProductsQuantity } from '@/shared/lib/helpers';
-import { useClientTranslation, useTypedParams } from '@/shared/lib/hooks';
+import { useClientTranslation } from '@/shared/lib/hooks';
 import { localBasketStore } from '@/shared/lib/store';
 
-import { OrderTotal, StripeForm } from './components';
+import { ChoosePaymentTabs, OrderTotal } from './components';
 
-import { IPaymentStepProps } from '../../types';
+import { paymentStore } from '../../lib/store';
 
-const stripePromise = loadStripe(String(config?.keys.stripePublish));
-
-export const PaymentStep = ({
-  carrier,
-  deliveryDetails,
-  setActiveStep,
-}: IPaymentStepProps) => {
+const PaymentStep = () => {
+  const carrier = paymentStore((state) => state.carrier);
   const products = localBasketStore((state) => state.products);
-
-  const { lng } = useTypedParams();
 
   const price = getProductsPrice(products);
   const quantity = getProductsQuantity(products);
 
   const [translate] = useClientTranslation('typography');
+
+  const amount = (price + (carrier?.price || 0)).toFixed(2);
 
   return (
     <Grid container justifyContent="center">
@@ -39,14 +32,13 @@ export const PaymentStep = ({
           textTransform="uppercase"
         />
 
-        <Box mb={3}>
+        <Box mb={2}>
           <IntlTypography
             intl={{ label: 'texts.paymentInfo' }}
             fontSize="0.8rem"
             component="span"
             color="text.grey"
           />
-
           <Link
             href="https://stripe.com/es/legal/privacy-center"
             target="_blank"
@@ -56,23 +48,15 @@ export const PaymentStep = ({
           </Link>
         </Box>
 
-        <Elements
-          stripe={stripePromise}
-          options={{ locale: lng }}
-        >
-          <StripeForm
-            amount={price + carrier.price}
-            setActiveStep={setActiveStep}
-            deliveryDetails={deliveryDetails}
-          />
-        </Elements>
+        <ChoosePaymentTabs amount={amount} />
 
         <OrderTotal
           price={price}
-          carrier={carrier}
           quantity={quantity}
         />
       </Grid>
     </Grid>
   );
 };
+
+export default dynamic(() => Promise.resolve(PaymentStep), { ssr: false });

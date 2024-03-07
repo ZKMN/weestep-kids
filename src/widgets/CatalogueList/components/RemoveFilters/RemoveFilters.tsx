@@ -70,7 +70,7 @@ export const RemoveFilters = () => (
       <div style={{ height: 200, width: '100%' }}>
         <Loading loading />
       </div>
-  )}
+    )}
   >
     <RemoveFiltersComponent />
   </Suspense>

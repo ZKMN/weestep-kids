@@ -116,7 +116,7 @@ export const BaseDialog = ({
         p={2}
         position="sticky"
         bottom={0}
-        bgcolor="baseWhite.main"
+        bgcolor="background.paper"
         borderTop="1px solid"
         borderColor="border.main"
       >

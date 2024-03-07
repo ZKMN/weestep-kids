@@ -32,10 +32,10 @@ const options = {
             background: palette.secondary.main,
           },
           '&.MuiButton-containedPrimary': {
-            color: palette.baseWhite.main,
+            color: palette.text.white,
           },
           '&.MuiButton-containedSecondary': {
-            color: palette.baseWhite.main,
+            color: palette.text.white,
           },
         },
         sizeLarge: {

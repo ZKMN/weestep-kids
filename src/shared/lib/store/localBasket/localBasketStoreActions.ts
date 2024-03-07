@@ -65,3 +65,7 @@ export const decreaseProductQuantityAction: ILocalBasketStoreActions['decreasePr
     return { products: [...products] };
   });
 };
+
+export const resetBasketProductsAction: ILocalBasketStoreActions['resetBasketProductsAction'] = () => {
+  localBasketStore.setState({ products: [] });
+};

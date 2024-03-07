@@ -17,76 +17,71 @@ import {
   DELIVERY_INITIAL_VALUES,
 } from '../../consts';
 import { CUSTOMER_FORM_SCHEMA } from '../../lib/helpers';
-import { IDeliveryDetailsStepProps } from '../../types';
+import { decrStepAction, paymentStore } from '../../lib/store';
 
-export const DeliveryDetails = ({
-  carrier,
-  deliveryDetails,
-  setCarrier,
-  setActiveStep,
-  setDeliveryDetails,
-}: IDeliveryDetailsStepProps) => (
-  <Grid container justifyContent="center">
-    <Grid item xs={12} md={8}>
-      <Form
-        fields={CUSTOMER_FIELDS}
-        initialValues={deliveryDetails || DELIVERY_INITIAL_VALUES}
-        validationSchema={CUSTOMER_FORM_SCHEMA}
-      >
-        <Grid container spacing={2}>
-          <Grid item xs={12}>
-            <AutocompleteInput />
-          </Grid>
+export const DeliveryDetails = () => {
+  const carrier = paymentStore((state) => state.carrier);
+  const deliveryDetails = paymentStore((state) => state.deliveryDetails);
 
-          {ADDRESS_FIELDS.map((field) => (
-            <Grid item xs={field.xs || 12} md={field.md} key={field.name}>
-              <FieldByType field={field} />
+  return (
+    <Grid container justifyContent="center">
+      <Grid item xs={12} md={8}>
+        <Form
+          fields={CUSTOMER_FIELDS}
+          initialValues={deliveryDetails || DELIVERY_INITIAL_VALUES}
+          validationSchema={CUSTOMER_FORM_SCHEMA}
+        >
+          <Grid container spacing={2}>
+            <Grid item xs={12}>
+              <AutocompleteInput />
             </Grid>
-          ))}
-        </Grid>
 
-        <Grid container mt={0.5} spacing={2}>
-          <Grid item xs={12}>
-            <IntlTypography
-              intl={{ label: 'titles.shippingMethod' }}
-              color="text.grey"
-              fontWeight={700}
-              textTransform="uppercase"
-            />
+            {ADDRESS_FIELDS.map((field) => (
+              <Grid item xs={field.xs || 12} md={field.md} key={field.name}>
+                <FieldByType field={field} />
+              </Grid>
+            ))}
           </Grid>
 
-          {CARRIERS.map((carr) => (
-            <Grid item key={carr.id} xs={6} md={4}>
-              <CarrierButton
-                active={carrier.id === carr.id}
-                carrier={carr}
-                setCarrier={setCarrier}
+          <Grid container mt={0.5} spacing={2}>
+            <Grid item xs={12}>
+              <IntlTypography
+                intl={{ label: 'titles.shippingMethod' }}
+                color="text.grey"
+                fontWeight={700}
+                textTransform="uppercase"
               />
             </Grid>
-          ))}
-        </Grid>
 
-        <Divider sx={{ margin: '24px 0' }} />
-
-        <Grid container spacing={2}>
-          <Grid item flex={1}>
-            <IntlButton
-              intl={{ label: 'back' }}
-              size="small"
-              color="secondary"
-              variant="outlined"
-              onClick={() => setActiveStep((step) => step - 1)}
-            />
+            {CARRIERS.map((carr) => (
+              <Grid item key={carr.id} xs={6} md={4}>
+                <CarrierButton
+                  active={carrier?.id === carr.id}
+                  carrier={carr}
+                />
+              </Grid>
+            ))}
           </Grid>
 
-          <Grid item flex={1}>
-            <SubmitFormButton
-              setActiveStep={setActiveStep}
-              setDeliveryDetails={setDeliveryDetails}
-            />
+          <Divider sx={{ margin: '24px 0' }} />
+
+          <Grid container spacing={2}>
+            <Grid item flex={1}>
+              <IntlButton
+                intl={{ label: 'back' }}
+                size="small"
+                color="secondary"
+                variant="outlined"
+                onClick={decrStepAction}
+              />
+            </Grid>
+
+            <Grid item flex={1}>
+              <SubmitFormButton />
+            </Grid>
           </Grid>
-        </Grid>
-      </Form>
+        </Form>
+      </Grid>
     </Grid>
-  </Grid>
-);
+  );
+};

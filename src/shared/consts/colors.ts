@@ -33,9 +33,6 @@ export const COLORS = {
   baseGrey: {
     main: '#7A7575',
   },
-  baseWhite: {
-    main: '#FFFFFF',
-  },
   baseDefault: {
     main: 'rgba(0, 0, 0, 0.38)',
   },

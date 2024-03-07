@@ -1,0 +1,182 @@
+/* eslint-disable react/jsx-props-no-spreading */
+import React from 'react';
+import { CreditCard } from '@mui/icons-material';
+import {
+  Box,
+  Grid,
+  Tab,
+  Tabs,
+} from '@mui/material';
+import { Elements } from '@stripe/react-stripe-js';
+import { loadStripe } from '@stripe/stripe-js';
+
+import { decrStepAction } from '@/widgets/PaymentSteps/lib/store';
+
+import { BaseImage, IntlButton, IntlTypography } from '@/shared/components';
+import { config } from '@/shared/lib/config';
+import { useTypedParams } from '@/shared/lib/hooks';
+
+import { StripeCreditCardForm } from './StripeCreditCardForm';
+import { StripeExpress } from './StripeExpress';
+
+const stripePromise = loadStripe(String(config?.keys.stripePublish));
+
+interface TabPanelProps {
+  children?: React.ReactNode;
+  index: number;
+  value: number;
+}
+
+const BaseTabPanel = (props: TabPanelProps) => {
+  const {
+    value,
+    index,
+    children,
+    ...other
+  } = props;
+
+  return (
+    <div
+      role="tabpanel"
+      hidden={value !== index}
+      id={`pay-tabpanel-${index}`}
+      aria-labelledby={`pay-tab-${index}`}
+      {...other}
+    >
+      <Box>
+        {children}
+      </Box>
+    </div>
+  );
+};
+
+const getA11yProps = (index: number) => ({
+  id: `pay-tab-${index}`,
+  'aria-controls': `pay-tabpanel-${index}`,
+});
+
+export const ChoosePaymentTabs = ({ amount }: { amount: string; }) => {
+  const [value, setValue] = React.useState(0);
+  const { lng } = useTypedParams();
+
+  const tabs = [{
+    title: 'titles.card',
+    icon: <CreditCard
+      color="baseGrey"
+      fontSize="small"
+    />,
+  }, {
+    title: 'titles.express',
+    icon: (
+      <Grid container spacing={0.2} alignItems="center">
+        <Grid item>
+          <BaseImage
+            width={30}
+            height={16}
+            alt="apple"
+            src="/images/google-pay.svg"
+          />
+        </Grid>
+        <Grid item>
+          <BaseImage
+            width={24}
+            height={24}
+            alt="apple"
+            src="/images/apple-pay.svg"
+          />
+        </Grid>
+        <Grid item>
+          <BaseImage
+            width={24}
+            height={20}
+            alt="apple"
+            src="/images/link-pay.svg"
+          />
+        </Grid>
+      </Grid>
+    ),
+  }];
+
+  return (
+    <>
+      <Box mb={3}>
+        <Tabs
+          value={value}
+          onChange={(e, newValue) => setValue(newValue)}
+          aria-label="pay-tabs"
+          sx={{
+            '.MuiTabs-indicator': {
+              display: 'none',
+            },
+            '.MuiTabs-flexContainer': {
+              padding: '2px',
+            },
+          }}
+        >
+          {tabs.map(({ title, icon }, index) => (
+            <Tab
+              key={title}
+              component="button"
+              {...getA11yProps(index)}
+              label={(
+                <Grid container flexDirection="column">
+                  {icon}
+
+                  <IntlTypography
+                    intl={{ label: title }}
+                    color="text.grey"
+                    textTransform="none"
+                    textAlign="left"
+                  />
+                </Grid>
+              )}
+              sx={{
+                width: 110,
+                p: 1,
+                ml: index !== 0 ? 1 : 0,
+                minHeight: 'auto',
+                bgcolor: 'background.default',
+                borderRadius: 2,
+                '&.Mui-selected': {
+                  outline: '2px solid green',
+                },
+              }}
+            />
+          ))}
+        </Tabs>
+      </Box>
+
+      <BaseTabPanel value={value} index={0}>
+        <Elements
+          stripe={stripePromise}
+          options={{ locale: lng }}
+        >
+          <StripeCreditCardForm amount={amount} />
+        </Elements>
+      </BaseTabPanel>
+
+      <BaseTabPanel value={value} index={1}>
+        <Elements
+          stripe={stripePromise}
+          options={{ locale: lng }}
+        >
+          <StripeExpress amount={amount} />
+
+          <Grid item id="express-checkout-element" xs={12} minHeight={50} />
+
+          <Grid container mt={2}>
+            <Grid item xs={6}>
+              <IntlButton
+                intl={{ label: 'back' }}
+                size="small"
+                color="secondary"
+                variant="outlined"
+                onClick={decrStepAction}
+              />
+            </Grid>
+          </Grid>
+        </Elements>
+      </BaseTabPanel>
+    </>
+  );
+};

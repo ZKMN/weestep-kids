@@ -44,7 +44,7 @@ export const ProductCard = ({ product }: any) => {
           height: '100%',
           cursor: 'pointer',
           border: 'none',
-          background: 'baseWhite.main',
+          bgcolor: 'background.paper',
         }}
       >
         <CardContent sx={{ height: '100%' }}>

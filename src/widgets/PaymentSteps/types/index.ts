@@ -1,1 +1,1 @@
-export * from './props.d';
+export * from './store';

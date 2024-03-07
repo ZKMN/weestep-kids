@@ -1,43 +1,34 @@
 import { useElements, useStripe } from '@stripe/react-stripe-js';
 import { useBoolean } from 'ahooks';
-import axios from 'axios';
 import { useQueryState } from 'nuqs';
 
 import { errorMessage } from '@/shared/lib/helpers';
-import { localBasketStore } from '@/shared/lib/store';
+import { localBasketStore, resetBasketProductsAction } from '@/shared/lib/store';
 
-import { DELIVERY_INITIAL_VALUES } from '../../consts';
-import { TActiveStep } from '../../types';
+import { getClientSecret } from '../api';
+import { incrStepAction, paymentStore } from '../store';
 
-export const useSubmitStripePayment = ({
-  amount,
-  deliveryDetails,
-  setActiveStep,
-}: {
-  amount: number;
-  deliveryDetails?: typeof DELIVERY_INITIAL_VALUES;
-} & TActiveStep): [() => void, { loading: boolean; }] => {
+export const useSubmitStripePayment = (amount: string): [() => void, { loading: boolean; }] => {
   const products = localBasketStore((state) => state.products);
+  const deliveryDetails = paymentStore((state) => state.deliveryDetails);
 
   const stripe = useStripe();
   const elements = useElements();
 
-  const [, setSuccessId] = useQueryState('successId');
+  const [, setSuccessPayIntent] = useQueryState('payment_intent');
   const [loading, { setTrue, setFalse }] = useBoolean(false);
 
+  const cardElement = elements?.getElement('cardNumber');
+
   const handleSubmit = async () => {
-    const cardElement = elements?.getElement('cardNumber');
+    setTrue();
 
     if (!stripe || !cardElement) {
       return;
     }
 
-    setTrue();
-
     try {
-      const { data: clientSecret } = await axios.post('/api/create-payment-intent', {
-        data: { amount: amount.toFixed(2) },
-      });
+      const clientSecret = await getClientSecret(amount);
 
       const metadata = products?.reduce((acc, item) => {
         acc[item.productId] = JSON.stringify(item);
@@ -50,8 +41,8 @@ export const useSubmitStripePayment = ({
           card: cardElement,
           metadata,
           billing_details: {
-            email: deliveryDetails?.email,
             name: `${deliveryDetails?.firstName} ${deliveryDetails?.lastName}`,
+            email: deliveryDetails?.email,
             phone: deliveryDetails?.phoneNumber,
           },
         },
@@ -63,8 +54,9 @@ export const useSubmitStripePayment = ({
         return;
       }
 
-      setSuccessId(String(result.paymentIntent?.id));
-      setActiveStep((step) => step + 1);
+      setSuccessPayIntent(String(result.paymentIntent?.id));
+      resetBasketProductsAction();
+      incrStepAction();
     } catch (error) {
       errorMessage(JSON.stringify(error), { style: { top: '100px', maxWidth: '450px' } });
     } finally {

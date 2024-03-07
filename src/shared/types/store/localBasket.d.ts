@@ -16,6 +16,7 @@ export interface ILocalBasketStore {
 }
 
 export interface ILocalBasketStoreActions {
+  resetBasketProductsAction: () => void;
   increaseProductQuantityAction: (id: string) => void;
   decreaseProductQuantityAction: (id: string) => void;
   addProductToLocalBasketAction: (data: IBasketProduct) => void;

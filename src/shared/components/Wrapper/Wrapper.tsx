@@ -11,7 +11,7 @@ export const Wrapper = ({ pt, children }: React.PropsWithChildren<Omit<BoxProps,
 
   return (
     <Box
-      bgcolor="baseWhite.main"
+      bgcolor="background.paper"
       borderRadius={isLessSm ? '8px' : '25px'}
       padding={isLessSm ? '10px' : `${pt || '40px'} 64px 40px 64px`}
     >

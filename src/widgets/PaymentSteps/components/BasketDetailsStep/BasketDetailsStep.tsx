@@ -17,9 +17,9 @@ import { useClickRedirect } from '@/shared/lib/hooks';
 import { localBasketStore } from '@/shared/lib/store';
 import { Links } from '@/shared/types';
 
-import { TActiveStep } from '../../types';
+import { incrStepAction } from '../../lib/store';
 
-const BasketDetailsStep = ({ setActiveStep }: TActiveStep) => {
+const BasketDetailsStep = () => {
   const products = localBasketStore((state) => state.products);
 
   const [handleRedirect] = useClickRedirect();
@@ -100,7 +100,7 @@ const BasketDetailsStep = ({ setActiveStep }: TActiveStep) => {
               intl={{ label: 'next' }}
               size="small"
               color="primary"
-              onClick={() => setActiveStep((step) => step + 1)}
+              onClick={incrStepAction}
               disabled={!products?.length}
             />
           </Grid>

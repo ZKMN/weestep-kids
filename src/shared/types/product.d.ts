@@ -20,7 +20,7 @@ interface IProductListItem {
   }[]; // Array of sizes
 }
 
-interface ProductDetails extends Omit<IProductListItem, 'img'> {
+interface IProductDetails extends Omit<IProductListItem, 'img'> {
   images: string[]; // Array of urls
   forGender: 'boy' | 'girl'; // or we can split in in boolean props forBoys: true; forGirls: true;
   available: number;

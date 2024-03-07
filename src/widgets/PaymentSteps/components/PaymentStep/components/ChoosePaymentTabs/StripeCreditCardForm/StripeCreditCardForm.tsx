@@ -5,24 +5,17 @@ import {
   CardCvcElement,
   CardExpiryElement,
   CardNumberElement,
-  useStripe,
 } from '@stripe/react-stripe-js';
 
-import { DELIVERY_INITIAL_VALUES } from '@/widgets/PaymentSteps/consts';
 import { useSubmitStripePayment, useValidateCreditCardInputs } from '@/widgets/PaymentSteps/lib/hooks';
-import { TActiveStep } from '@/widgets/PaymentSteps/types';
+import { decrStepAction } from '@/widgets/PaymentSteps/lib/store';
 
 import { IntlButton, LoadingIntlButton } from '@/shared/components';
 import { useClientTranslation } from '@/shared/lib/hooks';
 
-import { StripeInput } from '..';
+import { StripeInput } from './StripeInput';
 
-export const StripeForm = ({
-  amount,
-  deliveryDetails,
-  setActiveStep,
-}: TActiveStep & { amount: number; deliveryDetails?: typeof DELIVERY_INITIAL_VALUES; }) => {
-  const stripe = useStripe();
+export const StripeCreditCardForm = ({ amount }: { amount: string; }) => {
   const {
     completed,
     cardCvcError,
@@ -31,7 +24,7 @@ export const StripeForm = ({
   } = useValidateCreditCardInputs();
 
   const [translate] = useClientTranslation('form');
-  const [handleSubmit, { loading }] = useSubmitStripePayment({ amount, deliveryDetails, setActiveStep });
+  const [handleSubmit, { loading }] = useSubmitStripePayment(amount);
 
   return (
     <>
@@ -106,7 +99,7 @@ export const StripeForm = ({
             size="small"
             color="secondary"
             variant="outlined"
-            onClick={() => setActiveStep((step) => step - 1)}
+            onClick={decrStepAction}
           />
         </Grid>
 
@@ -116,7 +109,7 @@ export const StripeForm = ({
             size="small"
             onClick={handleSubmit}
             loading={loading}
-            disabled={!stripe || !completed}
+            disabled={!completed}
           />
         </Grid>
       </Grid>

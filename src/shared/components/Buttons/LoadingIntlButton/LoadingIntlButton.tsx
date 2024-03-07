@@ -28,7 +28,7 @@ export const LoadingIntlButton = ({
     >
       {loading && (
         <CircularProgress
-          sx={{ position: 'absolute', color: color === 'primary' ? 'baseWhite.main' : '' }}
+          sx={{ position: 'absolute', color: color === 'primary' ? 'text.white' : '' }}
           size={20}
         />
       )}

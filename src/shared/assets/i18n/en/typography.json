@@ -3,7 +3,7 @@
     "topSale": "Top Sale",
     "headerUnderLogo": "For children as for adults. even better.",
     "inStock": "in stock ({{ count }} available)",
-    "paymentInfo": "Payment is made using Stripe and protected with 3Dsecure. Here's all the information you need: ",
+    "paymentInfo": "Payment is made using Stripe. Privacy Center: ",
     "link": "link",
     "confirmDetailsOnMail": "You will receive confiramtion details on email!",
     "sm": "{{ value }} (sm)",
@@ -27,6 +27,8 @@
     "paymentMethod": "Payment Method",
     "orderConfirmed": "Order Confirmed",
     "leaveUsMsg": "Leave us a message",
-    "ourSocials": "Our Social Networks"
+    "ourSocials": "Our Social Networks",
+    "card": "Card",
+    "express": "Express"
   }
 }
