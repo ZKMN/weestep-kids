@@ -67,5 +67,7 @@ export const decreaseProductQuantityAction: ILocalBasketStoreActions['decreasePr
 };
 
 export const resetBasketProductsAction: ILocalBasketStoreActions['resetBasketProductsAction'] = () => {
+  handleOverrideStorage({ products: undefined });
+
   localBasketStore.setState({ products: [] });
 };
