@@ -9,6 +9,7 @@ export const PhoneNumber = () => (
         mr={1}
         href="https://wa.me/+34611822584"
         color="text.black"
+        target="_blank"
       >
         <WhatsApp />
       </Link>

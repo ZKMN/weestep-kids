@@ -25,7 +25,7 @@ export const ProductPrice = ({
       <Typography
         position="absolute"
         top={-15}
-        left={0}
+        right={0}
         fontSize={large ? 18 : 14}
         sx={{ textDecoration: 'line-through' }}
         color="text.grey"

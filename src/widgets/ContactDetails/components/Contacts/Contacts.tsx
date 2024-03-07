@@ -43,6 +43,7 @@ export const Contacts = () => (
       <Link
         href="https://wa.me/+34611822584"
         color="text.black"
+        target="_blank"
         underline="hover"
         display="flex"
         alignItems="center"
