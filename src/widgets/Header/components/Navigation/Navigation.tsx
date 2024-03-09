@@ -16,12 +16,11 @@ export const Navigation = () => {
   const [handleRedirect] = useClickRedirect();
   const pathname = usePathnameWithoutLng();
 
-  const [translate] = useClientTranslation('common');
+  const [translate] = useClientTranslation('common', { keyPrefix: 'menu' });
 
   return (
     <Grid
       container
-      justifyContent="flex-end"
       sx={{
         [breakpoints.down('md')]: {
           display: 'none',

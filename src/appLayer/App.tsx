@@ -7,7 +7,7 @@ import { Header } from '@/widgets/Header';
 
 import { NotifyContainer } from './components';
 
-import './styles/globals.scss';
+import '../shared/styles/globals.scss';
 
 export const App = ({ children }: React.PropsWithChildren) => (
   <AppRouterCacheProvider>

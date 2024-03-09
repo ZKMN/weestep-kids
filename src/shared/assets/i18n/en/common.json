@@ -1,9 +1,11 @@
 {
   "menu": {
     "newCollection": "new collection",
-    "catalogue": "catálogo",
+    "catalogue": "catalogue",
     "bestOffers": "best offers",
     "contacts": "contacts",
-    "findYorFit": "find your fit"
+    "findYorFit": "find your fit",
+    "forBoys": "for boys",
+    "forGirls": "for girls"
   }
 }

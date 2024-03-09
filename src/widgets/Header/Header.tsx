@@ -1,6 +1,7 @@
 'use client';
 
 import {
+  AppBar,
   Box,
   Grid,
   Theme,
@@ -31,7 +32,10 @@ export const Header = () => {
     <>
       <Box className={styles.headerStub} />
 
-      <Box
+      <AppBar
+        sx={{ boxShadow: 'none' }}
+        color="default"
+        position="fixed"
         component="header"
         className={styles.header}
       >
@@ -58,18 +62,15 @@ export const Header = () => {
                   objectFit="contain"
                 />
 
-                <Box
+                <IntlTypography
+                  intl={{ label: 'texts.headerUnderLogo' }}
+                  fontSize="1rem"
                   sx={{
                     [breakpoints.down('md')]: {
                       display: 'none',
                     },
                   }}
-                >
-                  <IntlTypography
-                    intl={{ label: 'texts.headerUnderLogo' }}
-                    fontSize="17px"
-                  />
-                </Box>
+                />
               </Grid>
 
               <Grid
@@ -80,19 +81,15 @@ export const Header = () => {
                 justifyContent="space-between"
               >
                 <Grid container justifyContent="flex-end">
-                  <Grid item flex={1} sm={10} md={7} lg={6}>
+                  <Grid item flex={1} sm={10} md={8} lg={6}>
                     <Grid
                       container
-                      spacing={{ xs: 1 }}
+                      spacing={{ xs: 1, lg: 3 }}
                       alignItems="center"
-                      sx={{
-                        justifyContent: 'space-between',
-                        [breakpoints.down('sm')]: {
-                          justifyContent: 'flex-end',
-                        },
-                      }}
+                      justifyContent="flex-end"
                     >
-                      <Box
+                      <Grid
+                        item
                         sx={{
                           [breakpoints.down('sm')]: {
                             display: 'none',
@@ -100,13 +97,14 @@ export const Header = () => {
                         }}
                       >
                         <PhoneNumber />
-                      </Box>
+                      </Grid>
 
                       <Cart />
 
                       <DrawerMenu />
 
-                      <Box
+                      <Grid
+                        item
                         sx={{
                           [breakpoints.down('md')]: {
                             display: 'none',
@@ -114,7 +112,7 @@ export const Header = () => {
                         }}
                       >
                         <LanguageSelector />
-                      </Box>
+                      </Grid>
                     </Grid>
                   </Grid>
                 </Grid>
@@ -124,7 +122,7 @@ export const Header = () => {
             </Grid>
           </Box>
         </BaseContainer>
-      </Box>
+      </AppBar>
     </>
   );
 };

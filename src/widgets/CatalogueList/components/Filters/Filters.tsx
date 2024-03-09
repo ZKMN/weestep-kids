@@ -15,14 +15,14 @@ import { useChangeFilter } from '../../lib/hooks';
 
 const filters = [{
   title: 'Gender',
-  category: 'gender',
+  category: 'género',
   values: [{
-    name: 'Male',
-    value: 'male',
+    name: 'Boys',
+    value: 'niños',
     count: 1,
   }, {
-    name: 'Woman',
-    value: 'woman',
+    name: 'Girls',
+    value: 'niñas',
     count: 1,
   }],
 }, {

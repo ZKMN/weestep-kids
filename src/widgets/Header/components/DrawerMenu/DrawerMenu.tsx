@@ -24,7 +24,7 @@ import { LanguageSelector, PhoneNumber } from '..';
 export const DrawerMenu = () => {
   const [handlePush] = useLngRouter();
   const pathname = usePathnameWithoutLng();
-  const [translate] = useClientTranslation('common');
+  const [translate] = useClientTranslation('common', { keyPrefix: 'menu' });
 
   const [isOpen, { setTrue, setFalse }] = useBoolean();
 
@@ -66,7 +66,7 @@ export const DrawerMenu = () => {
         </Grid>
 
         <MenuList>
-          {getMenuItems.map(({ label, link, color }, index) => (
+          {getMenuItems.map(({ label, link }, index) => (
             <MenuItem
               divider
               key={label}
@@ -84,7 +84,7 @@ export const DrawerMenu = () => {
                   ml={3}
                   width={7}
                   height={7}
-                  bgcolor={color}
+                  bgcolor="background.primary"
                   component="span"
                   borderRadius={100}
                 />
