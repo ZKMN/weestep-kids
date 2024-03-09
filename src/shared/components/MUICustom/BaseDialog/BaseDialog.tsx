@@ -31,16 +31,16 @@ export const BaseDialog = ({
   closable,
   maxWidth,
   titleIntl,
+  fullWidth,
   titleExtraNode,
   onClose,
   onSubmit,
 }: React.PropsWithChildren<IBaseDialogProps>) => {
   const { isLessSm } = useMediaSizes();
 
-  const footerNode = footer || (
+  const footerNode = footer || footer === null ? footer : (
     <Grid
       container
-      mt={2}
       spacing={2}
       justifyContent="flex-end"
     >
@@ -67,10 +67,10 @@ export const BaseDialog = ({
 
   return (
     <Dialog
-      fullWidth
       open={isOpen}
       onClose={onClose}
       maxWidth={maxWidth}
+      fullWidth={fullWidth}
       fullScreen={isLessSm}
       TransitionComponent={Transition}
     >
@@ -97,7 +97,7 @@ export const BaseDialog = ({
             {closable && (
               <Grid item>
                 <IconButton
-                  color="baseBlack"
+                  sx={{ color: 'text.white' }}
                   onClick={onClose}
                 >
                   <Close />
@@ -112,16 +112,18 @@ export const BaseDialog = ({
         {children}
       </DialogContent>
 
-      <Box
-        p={2}
-        position="sticky"
-        bottom={0}
-        bgcolor="background.paper"
-        borderTop="1px solid"
-        borderColor="border.main"
-      >
-        {footerNode}
-      </Box>
+      {footerNode && (
+        <Box
+          p={2}
+          position="sticky"
+          bottom={0}
+          bgcolor="background.paper"
+          borderTop="1px solid"
+          borderColor="border.main"
+        >
+          {footerNode}
+        </Box>
+      )}
     </Dialog>
   );
 };

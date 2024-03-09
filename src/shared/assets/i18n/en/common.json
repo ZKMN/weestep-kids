@@ -1,8 +1,8 @@
 {
   "menu": {
-    "aboutUs": "about us",
-    "catalogue": "catalogue",
-    "brandOfTheYear": "brand of the year",
+    "newCollection": "new collection",
+    "catalogue": "catálogo",
+    "bestOffers": "best offers",
     "contacts": "contacts",
     "findYorFit": "find your fit"
   }

@@ -77,7 +77,7 @@ export const Contacts = () => (
       <BaseImage
         fullWidth
         src="/images/map-screen.png"
-        alt="Weestep Kids location"
+        alt="Weestep Kids Alicante"
       />
     </Link>
   </Grid>

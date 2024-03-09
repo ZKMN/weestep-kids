@@ -1,6 +1,6 @@
 'use client';
 
-import React, { Suspense, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import {
   AddHome,
   Payment,
@@ -9,7 +9,7 @@ import {
 import { Grid } from '@mui/material';
 import { useUnmount } from 'ahooks';
 
-import { BaseStepper, Loading } from '@/shared/components';
+import { BaseStepper } from '@/shared/components';
 
 import { paymentStore, resetPaymentStoreAction } from './lib/store';
 import {
@@ -30,7 +30,7 @@ const steps = [{
   intl: { label: 'titles.payment' },
 }];
 
-const PaymentComponent = () => {
+export const PaymentSteps = () => {
   const step = paymentStore((state) => state.step);
 
   useEffect(() => {
@@ -59,15 +59,3 @@ const PaymentComponent = () => {
     </Grid>
   );
 };
-
-export const PaymentSteps = () => (
-  <Suspense
-    fallback={(
-      <div style={{ height: 200, width: '100%' }}>
-        <Loading loading />
-      </div>
-    )}
-  >
-    <PaymentComponent />
-  </Suspense>
-);

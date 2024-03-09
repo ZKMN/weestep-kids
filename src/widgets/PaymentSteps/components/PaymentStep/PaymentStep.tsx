@@ -1,11 +1,10 @@
 'use client';
 
-import { Box, Grid, Link } from '@mui/material';
+import { Box, Grid } from '@mui/material';
 import dynamic from 'next/dynamic';
 
-import { IntlTypography } from '@/shared/components';
+import { IntlLink, IntlTypography } from '@/shared/components';
 import { getProductsPrice, getProductsQuantity } from '@/shared/lib/helpers';
-import { useClientTranslation } from '@/shared/lib/hooks';
 import { localBasketStore } from '@/shared/lib/store';
 
 import { ChoosePaymentTabs, OrderTotal } from './components';
@@ -18,8 +17,6 @@ const PaymentStep = () => {
 
   const price = getProductsPrice(products);
   const quantity = getProductsQuantity(products);
-
-  const [translate] = useClientTranslation('typography');
 
   const amount = (price + (carrier?.price || 0)).toFixed(2);
 
@@ -39,13 +36,12 @@ const PaymentStep = () => {
             component="span"
             color="text.grey"
           />
-          <Link
+
+          <IntlLink
+            intl={{ label: 'link' }}
             href="https://stripe.com/es/legal/privacy-center"
-            target="_blank"
             fontSize="0.8rem"
-          >
-            {translate('link')}
-          </Link>
+          />
         </Box>
 
         <ChoosePaymentTabs amount={amount} />

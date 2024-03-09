@@ -5,12 +5,12 @@ export default function robots(): MetadataRoute.Robots {
     rules: [
       {
         userAgent: 'Googlebot',
-        allow: ['/catalogue', '/about-us', '/brand-of-the-year', '/contacts'],
+        allow: ['/catalogo', '/contactos', '/encuentra-tu-ajuste'],
         disallow: ['/checkout'],
       },
       {
         userAgent: ['Applebot', 'Bingbot'],
-        allow: ['/catalogue', '/about-us', '/brand-of-the-year', '/contacts'],
+        allow: ['/catalogo', '/contactos', '/encuentra-tu-ajuste'],
         disallow: ['/checkout'],
       },
     ],

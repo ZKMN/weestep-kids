@@ -10,10 +10,10 @@ import { useClientTranslation } from '@/shared/lib/hooks';
 
 export const SortBy = () => {
   const sorters = [{
-    name: 'relevance',
+    name: 'Relevance',
     value: 'relevance',
   }, {
-    name: 'newest',
+    name: 'Newest',
     value: 'newest',
   }];
 
@@ -27,7 +27,7 @@ export const SortBy = () => {
 
       <Select
         size="small"
-        // value=""
+        value="newest"
         // onChange={handleChange}
         label={translate('labels.sortBy')}
       >

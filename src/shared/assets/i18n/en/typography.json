@@ -4,10 +4,10 @@
     "headerUnderLogo": "For children as for adults. even better.",
     "inStock": "in stock ({{ count }} available)",
     "paymentInfo": "Payment is made using Stripe. Privacy Center: ",
-    "link": "link",
     "confirmDetailsOnMail": "You will receive confiramtion details on email!",
     "sm": "{{ value }} (sm)",
-    "taxIncluded": "Tax included"
+    "taxIncluded": "Tax included",
+    "inAlicante": "in Alicante"
   },
   "titles": {
     "color": "Color",
@@ -17,10 +17,11 @@
     "quantity": "Quantity",
     "orderSummary": "Order Summary",
     "checkout": "Checkout",
-    "pairs": "pairs ({{ quantity }})",
+    "pairs": "Pairs ({{ quantity }})",
     "total": "Total",
     "totalQty": "Total ({{ quantity }})",
-    "delivery": "delivery",
+    "pickup": "Pickup",
+    "delivery": "Delivery",
     "deliveryInformation": "Delivery Information",
     "payment": "Payment",
     "shippingMethod": "Shipping Method",
@@ -29,6 +30,10 @@
     "leaveUsMsg": "Leave us a message",
     "ourSocials": "Our Social Networks",
     "card": "Card",
-    "express": "Express"
+    "express": "Express",
+    "pickupAddress": "Pickup Address"
+  },
+  "links": {
+    "link": "link"
   }
 }

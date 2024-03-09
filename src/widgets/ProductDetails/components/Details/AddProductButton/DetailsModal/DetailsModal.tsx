@@ -9,14 +9,14 @@ import { useClickRedirect } from '@/shared/lib/hooks';
 import { localBasketStore } from '@/shared/lib/store';
 import { IBaseDialogProps, Links } from '@/shared/types';
 
-export const DetailsModal = ({ isOpen, setFalse }: Pick<IBaseDialogProps, 'isOpen'> & { setFalse: () => void; }) => {
+export const DetailsModal = ({ isOpen, onClose }: Pick<IBaseDialogProps, 'isOpen' | 'onClose'>) => {
   const products = localBasketStore((state) => state.products);
 
   const [handleRedirect] = useClickRedirect();
 
   useEffect(() => {
     if (!products?.length) {
-      setFalse();
+      onClose?.();
     }
   }, [products]);
 
@@ -25,9 +25,9 @@ export const DetailsModal = ({ isOpen, setFalse }: Pick<IBaseDialogProps, 'isOpe
 
   return (
     <BaseDialog
+      fullWidth
       isOpen={isOpen}
       maxWidth="xs"
-      closable={false}
       titleIntl={{ label: 'titles.orderSummary' }}
       titleExtraNode={(
         <Typography
@@ -65,7 +65,7 @@ export const DetailsModal = ({ isOpen, setFalse }: Pick<IBaseDialogProps, 'isOpe
           <Grid item key={product.productId} xs={12}>
             <ProductBasketDetails
               product={product}
-              onEdit={setFalse}
+              onEdit={onClose}
             />
           </Grid>
         ))}

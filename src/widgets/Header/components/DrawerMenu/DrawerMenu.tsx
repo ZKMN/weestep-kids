@@ -75,7 +75,7 @@ export const DrawerMenu = () => {
                 handlePush(link);
               }}
             >
-              <Typography>
+              <Typography fontSize="1rem">
                 {translate(label)}
               </Typography>
 

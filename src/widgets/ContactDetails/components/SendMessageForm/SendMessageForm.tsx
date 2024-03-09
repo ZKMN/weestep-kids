@@ -29,7 +29,7 @@ export const SendMessageForm = () => (
         message: '',
       }}
       onSubmit={({ subject, message }) => {
-        window.location.href = `mailto:weestepkids@gmail.com?subject=${subject}&body=${message}`;
+        window.location.href = `mailto:kidsweestep@gmail.com?subject=${subject}&body=${message}`;
       }}
     />
   </>

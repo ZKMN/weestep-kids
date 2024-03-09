@@ -4,10 +4,10 @@
     "headerUnderLogo": "Tanto para niños como para adultos. Aun mejor.",
     "inStock": "en stock ({{ count }} disponible)",
     "paymentInfo": "El pago se realiza mediante Stripe. Centro de Privacidad: ",
-    "link": "enlace",
     "confirmDetailsOnMail": "Recibirá los detalles de la confirmación por correo electrónico!",
     "sm": "{{ value }} (cm)",
-    "taxIncluded": "IVA incluido"
+    "taxIncluded": "IVA incluido",
+    "inAlicante": "en Alicante"
   },
   "titles": {
     "color": "Colore",
@@ -17,10 +17,11 @@
     "quantity": "Cantidad",
     "orderSummary": "Resumen del pedido",
     "checkout": "Pedido",
-    "pairs": "pares ({{ quantity }})",
+    "pairs": "Pares ({{ quantity }})",
     "total": "Total",
     "totalQty": "Total ({{ quantity }})",
-    "delivery": "entrega",
+    "pickup": "Recogida",
+    "delivery": "Entrega",
     "deliveryInformation": "Información de entrega",
     "payment": "Pago",
     "shippingMethod": "Forma de Envío",
@@ -29,6 +30,10 @@
     "leaveUsMsg": "Déjanos un mensaje",
     "ourSocials": "Nuestras Redes Sociales",
     "card": "Tarjeta",
-    "express": "Express"
+    "express": "Express",
+    "pickupAddress": "Dirección de Recogida"
+  },
+  "links": {
+    "link": "enlace"
   }
 }

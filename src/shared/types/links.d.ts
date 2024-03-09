@@ -1,8 +1,8 @@
 export enum Links {
-  CATALOGUE = '/catalogue',
-  ABOUT_US = '/about-us',
-  BRAND_OF_YEAR = '/brand-of-the-year',
-  CONTACTS = '/contacts',
-  FIND_FIT = '/find-your-fit',
+  CATALOGUE = '/catalogo',
+  BEST_OFFERS = '/mejores-ofertas',
+  NEW_COLLECTION = '/nueva-coleccion',
+  CONTACTS = '/contactos',
+  FIND_FIT = '/encuentra-tu-ajuste',
   CHECKOUT = '/checkout'
 }

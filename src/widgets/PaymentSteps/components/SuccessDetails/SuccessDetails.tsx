@@ -1,16 +1,16 @@
-import React, { useEffect } from 'react';
+import React, { Suspense, useEffect } from 'react';
 import { CheckCircleTwoTone } from '@mui/icons-material';
 import { Grid } from '@mui/material';
 import { useQueryState } from 'nuqs';
 
-import { IntlButton, IntlTypography } from '@/shared/components';
+import { IntlButton, IntlTypography, Loading } from '@/shared/components';
 import { useClickRedirect } from '@/shared/lib/hooks';
 import { resetBasketProductsAction } from '@/shared/lib/store';
 import { Links } from '@/shared/types';
 
 import { paymentStore } from '../../lib/store';
 
-export const SuccessDetails = () => {
+const SuccessDetailsComponent = () => {
   const step = paymentStore((state) => state.step);
   const clientSecret = paymentStore((state) => state.clientSecret);
 
@@ -59,3 +59,15 @@ export const SuccessDetails = () => {
     </Grid>
   );
 };
+
+export const SuccessDetails = () => (
+  <Suspense
+    fallback={(
+      <div style={{ height: 200, width: '100%' }}>
+        <Loading loading />
+      </div>
+    )}
+  >
+    <SuccessDetailsComponent />
+  </Suspense>
+);

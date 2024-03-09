@@ -11,6 +11,8 @@ import { paymentStore } from '@/widgets/PaymentSteps/lib/store';
 import { IntlTypography } from '@/shared/components';
 import { getCurrency } from '@/shared/lib/helpers';
 
+import { AddressButton } from '../../../DeliveryDetailsStep/components';
+
 export const OrderTotal = ({
   price,
   quantity,
@@ -37,27 +39,6 @@ export const OrderTotal = ({
 
           <Divider sx={{ margin: '8px 0' }} />
 
-          {carrier && (
-            <Grid
-              container
-              alignItems="center"
-              justifyContent="space-between"
-            >
-              <IntlTypography
-                intl={{ label: 'titles.delivery' }}
-                color="text.grey"
-                fontWeight={700}
-              />
-
-              <Typography
-                color="text.grey"
-                fontWeight={700}
-              >
-                {getCurrency(carrier.price)}
-              </Typography>
-            </Grid>
-          )}
-
           <Grid
             container
             alignItems="center"
@@ -76,6 +57,50 @@ export const OrderTotal = ({
               {getCurrency(price)}
             </Typography>
           </Grid>
+
+          {!carrier && (
+            <Grid
+              container
+              mb={0.5}
+              wrap="nowrap"
+              alignItems="center"
+              justifyContent="space-between"
+            >
+              <Grid item>
+                <IntlTypography
+                  intl={{ label: 'titles.pickup' }}
+                  color="text.grey"
+                  fontWeight={700}
+                />
+              </Grid>
+
+              <Grid item pr={1}>
+                <AddressButton />
+              </Grid>
+            </Grid>
+          )}
+
+          {carrier && (
+            <Grid
+              container
+              mb={0.5}
+              alignItems="center"
+              justifyContent="space-between"
+            >
+              <IntlTypography
+                intl={{ label: 'titles.delivery' }}
+                color="text.grey"
+                fontWeight={700}
+              />
+
+              <Typography
+                color="text.grey"
+                fontWeight={700}
+              >
+                {getCurrency(carrier.price)}
+              </Typography>
+            </Grid>
+          )}
 
           <Grid
             mt={2}

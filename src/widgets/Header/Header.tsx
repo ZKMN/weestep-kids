@@ -72,9 +72,15 @@ export const Header = () => {
                 </Box>
               </Grid>
 
-              <Grid item flex={1}>
+              <Grid
+                item
+                flex={1}
+                display="flex"
+                flexDirection="column"
+                justifyContent="space-between"
+              >
                 <Grid container justifyContent="flex-end">
-                  <Grid item flex={1} sm={9} md={7} lg={6}>
+                  <Grid item flex={1} sm={10} md={7} lg={6}>
                     <Grid
                       container
                       spacing={{ xs: 1 }}

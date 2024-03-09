@@ -8,7 +8,13 @@ import {
   IntlTypography,
 } from '@/shared/components';
 
-import { AutocompleteInput, CarrierButton, SubmitFormButton } from './components';
+import {
+  AddressButton,
+  AutocompleteInput,
+  CarrierButton,
+  PickupButton,
+  SubmitFormButton,
+} from './components';
 
 import {
   ADDRESS_FIELDS,
@@ -43,24 +49,35 @@ export const DeliveryDetails = () => {
             ))}
           </Grid>
 
-          <Grid container mt={0.5} spacing={2}>
+          <Grid container mt={0.5} spacing={1}>
             <Grid item xs={12}>
-              <IntlTypography
-                intl={{ label: 'titles.shippingMethod' }}
-                color="text.grey"
-                fontWeight={700}
-                textTransform="uppercase"
-              />
+              <Grid container>
+                <Grid item>
+                  <IntlTypography
+                    intl={{ label: 'titles.shippingMethod' }}
+                    color="text.grey"
+                    fontWeight={700}
+                    textTransform="uppercase"
+                  />
+                </Grid>
+
+                <Grid item>
+                  <AddressButton />
+                </Grid>
+              </Grid>
             </Grid>
 
             {CARRIERS.map((carr) => (
-              <Grid item key={carr.id} xs={6} md={4}>
+              <Grid item key={carr.id} xs={6} sm={3}>
                 <CarrierButton
                   active={carrier?.id === carr.id}
                   carrier={carr}
                 />
               </Grid>
             ))}
+            <Grid item xs={6} sm={3}>
+              <PickupButton carrier={carrier} />
+            </Grid>
           </Grid>
 
           <Divider sx={{ margin: '24px 0' }} />

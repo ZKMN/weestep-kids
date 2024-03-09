@@ -55,7 +55,7 @@ export const AddProductButton = ({
     >
       <DetailsModal
         isOpen={isOpen}
-        setFalse={setFalse}
+        onClose={setFalse}
       />
 
       <IntlButton

@@ -17,7 +17,7 @@ export interface IPaymentStore {
 export interface IPaymentStoreActions {
   incrStepAction: () => void;
   decrStepAction: () => void;
-  setCarrierAction: (carrier: ICarrier) => void;
+  setCarrierAction: (carrier?: ICarrier) => void;
   setClientSecretAction: (clientSecret: string) => void;
   resetPaymentStoreAction: () => void;
   setDeliveryDetailsAction: (details: typeof DELIVERY_INITIAL_VALUES) => void;

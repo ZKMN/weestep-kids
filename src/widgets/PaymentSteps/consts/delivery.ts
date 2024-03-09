@@ -76,11 +76,11 @@ export const DELIVERY_INITIAL_VALUES = {
 export const CARRIERS: ICarrier[] = [{
   id: 1,
   name: 'Correos',
-  price: 3.50,
+  price: 5,
   image: '/images/correos-logo.jpeg',
 }, {
   id: 2,
   name: 'MRW',
-  price: 4.50,
+  price: 5,
   image: '/images/mrw-logo.png',
 }];
