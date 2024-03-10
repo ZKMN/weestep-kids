@@ -1,7 +1,6 @@
 'use client';
 
 import { Box, Grid } from '@mui/material';
-import dynamic from 'next/dynamic';
 
 import { IntlLink, IntlTypography } from '@/shared/components';
 import { getProductsPrice, getProductsQuantity } from '@/shared/lib/helpers';
@@ -11,7 +10,7 @@ import { ChoosePaymentTabs, OrderTotal } from './components';
 
 import { paymentStore } from '../../lib/store';
 
-const PaymentStep = () => {
+export const PaymentStep = () => {
   const carrier = paymentStore((state) => state.carrier);
   const products = localBasketStore((state) => state.products);
 
@@ -54,5 +53,3 @@ const PaymentStep = () => {
     </Grid>
   );
 };
-
-export default dynamic(() => Promise.resolve(PaymentStep), { ssr: false });

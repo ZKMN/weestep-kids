@@ -80,40 +80,36 @@ export const Header = () => {
                 flexDirection="column"
                 justifyContent="space-between"
               >
-                <Grid container justifyContent="flex-end">
-                  <Grid item flex={1} sm={10} md={8} lg={6}>
-                    <Grid
-                      container
-                      spacing={{ xs: 1, lg: 3 }}
-                      alignItems="center"
-                      justifyContent="flex-end"
-                    >
-                      <Grid
-                        item
-                        sx={{
-                          [breakpoints.down('sm')]: {
-                            display: 'none',
-                          },
-                        }}
-                      >
-                        <PhoneNumber />
-                      </Grid>
+                <Grid
+                  container
+                  spacing={{ xs: 1, lg: 3 }}
+                  alignItems="center"
+                  justifyContent="flex-end"
+                >
+                  <Grid
+                    item
+                    sx={{
+                      [breakpoints.down('sm')]: {
+                        display: 'none',
+                      },
+                    }}
+                  >
+                    <PhoneNumber />
+                  </Grid>
 
-                      <Cart />
+                  <Cart />
 
-                      <DrawerMenu />
+                  <DrawerMenu />
 
-                      <Grid
-                        item
-                        sx={{
-                          [breakpoints.down('md')]: {
-                            display: 'none',
-                          },
-                        }}
-                      >
-                        <LanguageSelector />
-                      </Grid>
-                    </Grid>
+                  <Grid
+                    item
+                    sx={{
+                      [breakpoints.down('md')]: {
+                        display: 'none',
+                      },
+                    }}
+                  >
+                    <LanguageSelector />
                   </Grid>
                 </Grid>
 

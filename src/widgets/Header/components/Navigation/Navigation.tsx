@@ -1,7 +1,6 @@
 import React from 'react';
-import { Box, Grid } from '@mui/material';
+import { Box } from '@mui/material';
 
-import { breakpoints } from '@/shared/assets';
 import {
   useClickRedirect,
   useClientTranslation,
@@ -19,40 +18,32 @@ export const Navigation = () => {
   const [translate] = useClientTranslation('common', { keyPrefix: 'menu' });
 
   return (
-    <Grid
-      container
-      sx={{
-        [breakpoints.down('md')]: {
-          display: 'none',
-        },
-      }}
-    >
-      <Box component="menu" className={styles.menu}>
-        <ul className={styles.menuUl}>
-          {getMenuItems.map(({ label, link, color }, index) => (
-            <li
-              key={label}
-              className={styles.menuItem}
+    <Box component="menu" className={styles.menu}>
+      <Box component="ul" className={styles.menuUl}>
+        {getMenuItems.map(({ label, link, color }, index) => (
+          <Box
+            key={label}
+            component="li"
+            className={styles.menuItem}
+          >
+            <Box
+              style={{ color }}
+              onClick={handleRedirect(link)}
+              component="button"
+              className={styles.menuItemButton}
             >
-              <button
-                type="button"
-                style={{ color }}
-                onClick={handleRedirect(link)}
-                className={styles.menuItemButton}
-              >
-                {translate(label)}
+              {translate(label)}
 
-                {(pathname.includes(link) || (!pathname && index === 0)) && (
-                  <span
-                    className={styles.activeMenuItem}
-                    style={{ background: color }}
-                  />
-                )}
-              </button>
-            </li>
-          ))}
-        </ul>
+              {(pathname.includes(link) || (!pathname && index === 0)) && (
+                <Box
+                  style={{ background: color }}
+                  className={styles.activeMenuItem}
+                />
+              )}
+            </Box>
+          </Box>
+        ))}
       </Box>
-    </Grid>
+    </Box>
   );
 };

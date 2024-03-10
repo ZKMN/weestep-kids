@@ -5,6 +5,10 @@
   margin-top: 20px;
   padding-left: 20px;
 
+  @include md {
+    display: none;
+  }
+
   @include lg {
     margin-top: 10px;
   }
