@@ -33,10 +33,10 @@ export const Header = () => {
       <Box className={styles.headerStub} />
 
       <AppBar
-        sx={{ boxShadow: 'none' }}
         color="default"
         position="fixed"
         component="header"
+        elevation={1}
         className={styles.header}
       >
         <BaseContainer>
