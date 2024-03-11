@@ -98,7 +98,7 @@ export const StripeExpress = ({ amount }: { amount: string; }) => {
         errorMessage(error.message, { style: { top: '100px', maxWidth: '450px' } });
       }
     } catch (error) {
-      errorMessage(JSON.stringify(error), { style: { top: '100px', maxWidth: '450px' } });
+      errorMessage('Express payment confirm error.');
     }
   });
 

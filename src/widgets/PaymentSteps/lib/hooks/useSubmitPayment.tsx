@@ -20,12 +20,12 @@ export const useSubmitStripePayment = (amount: string): [() => void, { loading: 
 
   const cardElement = elements?.getElement('cardNumber');
 
+  if (!stripe || !cardElement) {
+    return [() => null, { loading: false }];
+  }
+
   const handleSubmit = async () => {
     setTrue();
-
-    if (!stripe || !cardElement) {
-      return;
-    }
 
     try {
       const clientSecret = await getClientSecret(amount);
@@ -58,7 +58,7 @@ export const useSubmitStripePayment = (amount: string): [() => void, { loading: 
       setSuccessPayIntent(String(result.paymentIntent?.id));
       resetBasketProductsAction();
     } catch (error) {
-      errorMessage(JSON.stringify(error), { style: { top: '100px', maxWidth: '450px' } });
+      errorMessage('Submit payment error');
     } finally {
       setFalse();
     }

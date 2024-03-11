@@ -14,12 +14,22 @@ import { decrStepAction } from '@/widgets/PaymentSteps/lib/store';
 
 import { BaseImage, IntlButton, IntlTypography } from '@/shared/components';
 import { config } from '@/shared/lib/config';
+import { errorMessage } from '@/shared/lib/helpers';
 import { useTypedParams } from '@/shared/lib/hooks';
 
 import { StripeCreditCardForm } from './StripeCreditCardForm';
 import { StripeExpress } from './StripeExpress';
 
-const stripePromise = loadStripe(String(config?.keys.stripePublish));
+const getStripe = async () => {
+  try {
+    const stripePromise = await loadStripe(String(config?.keys.stripePublish));
+
+    return stripePromise;
+  } catch (error) {
+    errorMessage('Payment methods not loaded.');
+    return null;
+  }
+};
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -148,7 +158,7 @@ export const ChoosePaymentTabs = ({ amount }: { amount: string; }) => {
 
       <BaseTabPanel value={value} index={0}>
         <Elements
-          stripe={stripePromise}
+          stripe={getStripe()}
           options={{ locale: lng }}
         >
           <StripeCreditCardForm amount={amount} />
@@ -157,7 +167,7 @@ export const ChoosePaymentTabs = ({ amount }: { amount: string; }) => {
 
       <BaseTabPanel value={value} index={1}>
         <Elements
-          stripe={stripePromise}
+          stripe={getStripe()}
           options={{ locale: lng }}
         >
           <StripeExpress amount={amount} />

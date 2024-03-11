@@ -65,6 +65,7 @@ export const AutocompleteInput = () => {
           startAdornment: <SearchOutlined color="disabled" sx={{ mr: 1 }} />,
           endAdornment: (
             <IconButton
+              disabled={!inputValue}
               onClick={() => {
                 setInputValue('');
                 resetField('city');

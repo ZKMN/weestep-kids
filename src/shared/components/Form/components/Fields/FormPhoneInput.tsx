@@ -40,6 +40,7 @@ export const FormPhoneInput = ({
           placeholder={placeholder}
           helperText={fieldState.error?.message && translate(fieldState.error.message)}
           defaultCountry="ES"
+          onlyCountries={['ES']}
           InputProps={{ endAdornment: fieldState.error && <Warning color="error" /> }}
         />
       )}

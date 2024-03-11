@@ -10,7 +10,7 @@ export const getClientSecret = async (amount: string): Promise<string> => {
 
     return data;
   } catch (error) {
-    errorMessage(JSON.stringify(error), { style: { top: '100px', maxWidth: '450px' } });
+    errorMessage('Client secret error.');
 
     return '';
   }
