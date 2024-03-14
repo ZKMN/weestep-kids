@@ -1,5 +1,3 @@
-import { DELIVERY_INITIAL_VALUES } from '../consts';
-
 interface ICarrier {
   id: number;
   name: string;
@@ -7,18 +5,30 @@ interface ICarrier {
   image: string;
 }
 
+export interface IShippingDetails {
+  firstName: string;
+  lastName: string;
+  email: string;
+  phoneNumber: string;
+  additional?: string;
+  postalCode?: string;
+  city?: string;
+  street?: string;
+  streetNumber?: string;
+}
+
 export interface IPaymentStore {
   step: number;
-  carrier?: ICarrier;
+  carrier: ICarrier | null;
   clientSecret: string;
-  deliveryDetails: typeof DELIVERY_INITIAL_VALUES;
+  shippingDetails: IShippingDetails | null;
 }
 
 export interface IPaymentStoreActions {
   incrStepAction: () => void;
   decrStepAction: () => void;
-  setCarrierAction: (carrier?: ICarrier) => void;
+  setCarrierAction: (carrier: ICarrier | null) => void;
   setClientSecretAction: (clientSecret: string) => void;
   resetPaymentStoreAction: () => void;
-  setDeliveryDetailsAction: (details: typeof DELIVERY_INITIAL_VALUES) => void;
+  setShippingDetailsAction: (details: IShippingDetails) => void;
 }

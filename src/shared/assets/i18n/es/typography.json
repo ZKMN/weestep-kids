@@ -22,7 +22,7 @@
     "totalQty": "Total ({{ quantity }})",
     "pickup": "Recogida",
     "delivery": "Entrega",
-    "deliveryInformation": "Información de entrega",
+    "shippingInformation": "Información de envío",
     "payment": "Pago",
     "shippingMethod": "Forma de Envío",
     "paymentMethod": "Forma de Pago",

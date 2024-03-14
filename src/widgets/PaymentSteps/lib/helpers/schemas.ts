@@ -3,7 +3,7 @@ import * as Yup from 'yup';
 
 import { validateSpainPostalCode } from './validateSpainPostalCode';
 
-export const CUSTOMER_FORM_SCHEMA = Yup.object().shape({
+const pickupFormValidation = {
   firstName: Yup.string()
     .required('errors.firstNameRequired')
     .max(50, 'errors.firstNameMax'),
@@ -28,6 +28,12 @@ export const CUSTOMER_FORM_SCHEMA = Yup.object().shape({
         return false;
       },
     ),
+};
+
+export const PICKUP_FORM_SCHEMA = Yup.object().shape(pickupFormValidation);
+
+export const DELIVERY_FORM_SCHEMA = Yup.object().shape({
+  ...pickupFormValidation,
   postalCode: Yup.string()
     .trim()
     .required('errors.postalCodeRequired')
@@ -48,4 +54,5 @@ export const CUSTOMER_FORM_SCHEMA = Yup.object().shape({
     .required('errors.streetRequired'),
   streetNumber: Yup.string()
     .required('errors.streetNumberRequired'),
+  additional: Yup.string(),
 });

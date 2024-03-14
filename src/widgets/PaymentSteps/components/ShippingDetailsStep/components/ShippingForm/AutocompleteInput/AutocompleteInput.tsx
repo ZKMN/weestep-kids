@@ -63,9 +63,8 @@ export const AutocompleteInput = () => {
         helperText={translate('texts.useSearchAddress')}
         InputProps={{
           startAdornment: <SearchOutlined color="disabled" sx={{ mr: 1 }} />,
-          endAdornment: (
+          endAdornment: inputValue && (
             <IconButton
-              disabled={!inputValue}
               onClick={() => {
                 setInputValue('');
                 resetField('city');

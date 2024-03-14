@@ -22,7 +22,7 @@
     "totalQty": "Total ({{ quantity }})",
     "pickup": "Pickup",
     "delivery": "Delivery",
-    "deliveryInformation": "Delivery Information",
+    "shippingInformation": "Shipping Information",
     "payment": "Payment",
     "shippingMethod": "Shipping Method",
     "paymentMethod": "Payment Method",

@@ -16,7 +16,7 @@ export const PickupButton = ({ carrier }: { carrier: IPaymentStore['carrier']; }
     }}
     width="100%"
     component="button"
-    onClick={() => setCarrierAction(undefined)}
+    onClick={() => setCarrierAction(null)}
     bgcolor="background.paper"
     padding={0.5}
     border="1px solid"

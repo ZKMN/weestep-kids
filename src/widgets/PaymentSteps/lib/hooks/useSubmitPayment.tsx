@@ -10,7 +10,7 @@ import { incrStepAction, paymentStore } from '../store';
 
 export const useSubmitStripePayment = (amount: string): [() => void, { loading: boolean; }] => {
   const products = localBasketStore((state) => state.products);
-  const deliveryDetails = paymentStore((state) => state.deliveryDetails);
+  const shippingDetails = paymentStore((state) => state.shippingDetails);
 
   const stripe = useStripe();
   const elements = useElements();
@@ -41,9 +41,9 @@ export const useSubmitStripePayment = (amount: string): [() => void, { loading: 
           card: cardElement,
           metadata,
           billing_details: {
-            name: `${deliveryDetails?.firstName} ${deliveryDetails?.lastName}`,
-            email: deliveryDetails?.email,
-            phone: deliveryDetails?.phoneNumber,
+            name: `${shippingDetails?.firstName} ${shippingDetails?.lastName}`,
+            email: shippingDetails?.email,
+            phone: shippingDetails?.phoneNumber,
           },
         },
       });

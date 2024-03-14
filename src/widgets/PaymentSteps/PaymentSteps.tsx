@@ -14,8 +14,8 @@ import { BaseStepper } from '@/shared/components';
 import { paymentStore, resetPaymentStoreAction } from './lib/store';
 import {
   BasketDetailsStep,
-  DeliveryDetails,
   PaymentStep,
+  ShippingDetailsStep,
   SuccessDetails,
 } from './components';
 
@@ -24,7 +24,7 @@ const steps = [{
   intl: { label: 'titles.orderSummary' },
 }, {
   icon: <AddHome />,
-  intl: { label: 'titles.deliveryInformation' },
+  intl: { label: 'titles.shippingInformation' },
 }, {
   icon: <Payment />,
   intl: { label: 'titles.payment' },
@@ -49,7 +49,7 @@ export const PaymentSteps = () => {
           activeStep={step}
           stepNodes={{
             0: <BasketDetailsStep />,
-            1: <DeliveryDetails />,
+            1: <ShippingDetailsStep />,
             2: <PaymentStep />,
           }}
         />

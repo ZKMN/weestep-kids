@@ -4,12 +4,12 @@ interface IProductListItem {
   price: number;
   discount: number; // percent or amount
   isNew: boolean;
-  topSales: boolean;
-  type: 'kids-shoes' | 'sandals' | 'boots' |'etc....'; // language depends on site
+  isTopSale: boolean;
+  shoesType: 'niños-zapatos' | 'sandalias' | 'etc..'; // static value on spain
   productId: string;
   colorsAvailable: {
     id: string | number;
-    value: string; // image of product
+    image: string;
     color: string; // hex like #FFFFFF
     productId?: string;
   }[]; // Arrays of colors
@@ -26,13 +26,13 @@ interface IProductDetails extends Omit<IProductListItem, 'img'> {
   available: number;
   color: {
     id: string | number;
-    value?: string; // image of product
+    image?: string;
     color: string; // hex like #FFFFFF
     productId: string;
   };
   youMayLike: {
     id: string | number;
-    value: string; // image of product
+    image: string;
   }[]; // Array of likes
   details: {
     title: string;
@@ -42,10 +42,10 @@ interface IProductDetails extends Omit<IProductListItem, 'img'> {
 
 interface IFilter {
   title: string; // Gender, title depends on language
-  category: string; // gender, static value on eng
+  category: string; // static value on spain
   values: {
     name: string; // Male, name depends on language
-    value: string; // male, value which I gonna send on back
+    value: string; // static value on spain
     count: number;
   }[]; // Array of category options
 }

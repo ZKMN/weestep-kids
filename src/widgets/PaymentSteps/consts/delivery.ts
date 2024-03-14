@@ -2,6 +2,15 @@ import { IFieldProps } from '@/shared/types';
 
 import { ICarrier } from '../types';
 
+export const ADDITIONAL_FIELD: IFieldProps = {
+  type: IFieldProps.type.TEXT,
+  name: 'additional',
+  size: 'small',
+  intl: { label: 'labels.additionalInformation' },
+  multiline: true,
+  maxRows: 3,
+};
+
 export const CUSTOMER_FIELDS: IFieldProps[] = [{
   type: IFieldProps.type.TEXT,
   name: 'firstName',
@@ -52,25 +61,22 @@ export const ADDRESS_FIELDS: IFieldProps[] = [{
   required: true,
   xs: 3,
   md: 4,
-}, {
-  type: IFieldProps.type.TEXT,
-  name: 'additional',
-  size: 'small',
-  intl: { label: 'labels.additionalInformation' },
-  multiline: true,
-  maxRows: 3,
 }];
 
-export const DELIVERY_INITIAL_VALUES = {
+export const PICKUP_INITIAL_VALUES = {
   firstName: '',
   lastName: '',
   email: '',
   phoneNumber: '',
+  additional: '',
+};
+
+export const DELIVERY_INITIAL_VALUES = {
+  ...PICKUP_INITIAL_VALUES,
   postalCode: '',
   city: '',
   street: '',
   streetNumber: '',
-  additional: '',
 };
 
 export const CARRIERS: ICarrier[] = [{

@@ -11,7 +11,7 @@ import { paymentStore } from '@/widgets/PaymentSteps/lib/store';
 import { IntlTypography } from '@/shared/components';
 import { getCurrency } from '@/shared/lib/helpers';
 
-import { AddressButton } from '../../../DeliveryDetailsStep/components';
+import { AddressButton } from '../../../ShippingDetailsStep/components';
 
 export const OrderTotal = ({
   price,
