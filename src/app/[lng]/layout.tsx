@@ -1,4 +1,5 @@
 /* eslint-disable max-len */
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import { dir } from 'i18next';
 import { Metadata } from 'next';
 import Script from 'next/script';
@@ -115,6 +116,8 @@ const RootLayout = ({ children, params: { lng } }: React.PropsWithChildren<{ par
 
       <App>
         {children}
+
+        <SpeedInsights />
       </App>
 
       {/* Clickjacking attack def */}
