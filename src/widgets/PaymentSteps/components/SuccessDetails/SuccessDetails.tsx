@@ -12,7 +12,6 @@ import { paymentStore } from '../../lib/store';
 
 const SuccessDetailsComponent = () => {
   const step = paymentStore((state) => state.step);
-  const clientSecret = paymentStore((state) => state.clientSecret);
 
   const [handleRedirect] = useClickRedirect();
 
@@ -21,11 +20,11 @@ const SuccessDetailsComponent = () => {
   const [paymentIntentClientSecret] = useQueryState('payment_intent_client_secret');
 
   useEffect(() => {
-    if (clientSecret === paymentIntentClientSecret && paymentIntent && redirectStatus === 'succeeded') {
+    if (paymentIntentClientSecret && paymentIntent && redirectStatus === 'succeeded') {
       paymentStore.setState({ step: 3 });
       resetBasketProductsAction();
     }
-  }, [redirectStatus, paymentIntent, clientSecret, paymentIntentClientSecret]);
+  }, [redirectStatus, paymentIntent, paymentIntentClientSecret]);
 
   if (step !== 3) {
     return null;

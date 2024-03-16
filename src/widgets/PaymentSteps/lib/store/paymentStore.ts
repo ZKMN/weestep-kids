@@ -6,7 +6,6 @@ import { IPaymentStore } from '../../types';
 export const paymentStoreValues: Readonly<IPaymentStore> = {
   step: 0,
   carrier: CARRIERS[0],
-  clientSecret: '',
   shippingDetails: null,
 };
 

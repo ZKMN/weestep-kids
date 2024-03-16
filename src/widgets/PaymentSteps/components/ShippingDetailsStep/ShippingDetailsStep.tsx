@@ -21,7 +21,7 @@ export const ShippingDetailsStep = () => {
       <Grid item xs={12} md={8}>
         <Grid container spacing={1}>
           <Grid item xs={12}>
-            <Grid container>
+            <Grid container alignItems="center">
               <Grid item>
                 <IntlTypography
                   intl={{ label: 'titles.shippingMethod' }}

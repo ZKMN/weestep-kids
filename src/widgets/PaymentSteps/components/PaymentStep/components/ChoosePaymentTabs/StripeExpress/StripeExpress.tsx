@@ -1,9 +1,8 @@
-import { useEffect } from 'react';
 import { useStripe } from '@stripe/react-stripe-js';
 import { StripeExpressCheckoutElementOptions } from '@stripe/stripe-js';
 
 import { getClientSecret } from '@/widgets/PaymentSteps/lib/api';
-import { paymentStore, setClientSecretAction } from '@/widgets/PaymentSteps/lib/store';
+import { paymentStore } from '@/widgets/PaymentSteps/lib/store';
 
 import { config } from '@/shared/lib/config';
 import { errorMessage } from '@/shared/lib/helpers';
@@ -13,22 +12,12 @@ import { Links } from '@/shared/types';
 
 export const StripeExpress = ({ amount }: { amount: string; }) => {
   const products = localBasketStore((state) => state.products);
+  const shippingDetails = paymentStore((state) => state.shippingDetails);
 
   const carrier = paymentStore((state) => state.carrier);
-  const clientSecret = paymentStore((state) => state.clientSecret);
 
   const stripe = useStripe();
   const { lng } = useTypedParams();
-
-  useEffect(() => {
-    if (products?.length) {
-      (async () => {
-        const secret = await getClientSecret(amount);
-
-        setClientSecretAction(secret);
-      })();
-    }
-  }, [products]);
 
   if (!stripe) {
     return null;
@@ -48,8 +37,8 @@ export const StripeExpress = ({ amount }: { amount: string; }) => {
       googlePay: 'buy',
     },
     wallets: {
-      applePay: 'always',
-      googlePay: 'always',
+      applePay: 'auto',
+      googlePay: 'auto',
     },
     layout: {
       maxRows: 3,
@@ -65,14 +54,14 @@ export const StripeExpress = ({ amount }: { amount: string; }) => {
   expressCheckoutElement.on('click', async ({ resolve }) => {
     const lineItems = products?.map(({ name, quantity, price }) => ({
       name: `${name} (${quantity})`,
-      // need cents
+      // stripe working with cents
       amount: Number((quantity * price) * 100),
     }));
 
     if (carrier) {
       lineItems?.push({
         name: carrier.name,
-        // need cents
+        // stripe working with cents
         amount: carrier.price * 100,
       });
     }
@@ -85,12 +74,21 @@ export const StripeExpress = ({ amount }: { amount: string; }) => {
 
   expressCheckoutElement.on('confirm', async () => {
     try {
+      const clientSecret = await getClientSecret(amount);
+
       const { error } = await stripe.confirmPayment({
         elements,
         clientSecret,
         confirmParams: {
-          // return_url: 'https://3a99-91-242-149-25.ngrok-free.app/en/checkout?redirect_step=3',
-          return_url: `${config?.urls.site}/${lng}/${Links.CHECKOUT}?redirect_step=3`,
+          // return_url: 'https://3da0-91-242-149-25.ngrok-free.app/en/checkout',
+          return_url: `${config?.urls.site}/${lng}/${Links.CHECKOUT}`,
+          payment_method_data: {
+            billing_details: {
+              name: `${shippingDetails?.firstName} ${shippingDetails?.lastName}`,
+              email: shippingDetails?.email,
+              phone: shippingDetails?.phoneNumber,
+            },
+          },
         },
       });
 

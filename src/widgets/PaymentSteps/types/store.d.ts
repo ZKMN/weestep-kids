@@ -20,7 +20,6 @@ export interface IShippingDetails {
 export interface IPaymentStore {
   step: number;
   carrier: ICarrier | null;
-  clientSecret: string;
   shippingDetails: IShippingDetails | null;
 }
 
@@ -28,7 +27,6 @@ export interface IPaymentStoreActions {
   incrStepAction: () => void;
   decrStepAction: () => void;
   setCarrierAction: (carrier: ICarrier | null) => void;
-  setClientSecretAction: (clientSecret: string) => void;
   resetPaymentStoreAction: () => void;
   setShippingDetailsAction: (details: IShippingDetails) => void;
 }

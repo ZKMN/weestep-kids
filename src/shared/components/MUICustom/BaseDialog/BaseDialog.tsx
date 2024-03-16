@@ -76,7 +76,7 @@ export const BaseDialog = ({
     >
       <AppBar position="sticky">
         <DialogTitle>
-          <Grid container>
+          <Grid container alignItems="center">
             <Grid item flex={1}>
               <Grid
                 container

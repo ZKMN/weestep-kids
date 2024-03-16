@@ -3,10 +3,10 @@ import { paymentStore, paymentStoreValues } from './paymentStore';
 import { IPaymentStoreActions } from '../../types';
 
 export const setCarrierAction: IPaymentStoreActions['setCarrierAction'] = (carrier) => {
-  paymentStore.setState({
+  paymentStore.setState((state) => ({
     carrier,
-    shippingDetails: null,
-  });
+    shippingDetails: !carrier ? null : state.shippingDetails,
+  }));
 };
 
 export const setShippingDetailsAction: IPaymentStoreActions['setShippingDetailsAction'] = (shippingDetails) => {
@@ -17,9 +17,6 @@ export const incrStepAction: IPaymentStoreActions['incrStepAction'] = () => {
 };
 export const decrStepAction: IPaymentStoreActions['decrStepAction'] = () => {
   paymentStore.setState(({ step }) => ({ step: step - 1 }));
-};
-export const setClientSecretAction: IPaymentStoreActions['setClientSecretAction'] = (clientSecret) => {
-  paymentStore.setState({ clientSecret });
 };
 export const resetPaymentStoreAction: IPaymentStoreActions['resetPaymentStoreAction'] = () => {
   paymentStore.setState(paymentStoreValues);

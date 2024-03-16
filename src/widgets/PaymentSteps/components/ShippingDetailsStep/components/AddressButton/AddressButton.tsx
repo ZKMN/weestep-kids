@@ -27,7 +27,6 @@ export const AddressButton = () => {
         sx={{ fontSize: '0.8rem', padding: 0, ml: 1 }}
         intl={{ label: 'address' }}
         onClick={setTrue}
-        variant="text"
       />
     </>
   );
