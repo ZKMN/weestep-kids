@@ -4,7 +4,7 @@
     "email": "Correo Electrónico",
     "message": "Mensaje",
     "sortBy": "Ordenar Por",
-    "creditCardNumber": "Número de Tarjeta de Crédito",
+    "cardNumber": "Número de Tarjeta",
     "expiredDate": "Fechador Caducado",
     "cvc": "CVC",
     "firstName": "Nombre",
@@ -22,8 +22,8 @@
     "emailInvalid": "El correo electrónico no es válido",
     "emailRequired": "Correo electrónico obligatorio",
     "messageRequired": "El mensaje es obligatorio",
-    "cardNumberInvalid": "El número de tarjeta de crédito no es válido",
-    "cardNumberIncomplete": "El número de tarjeta de crédito está incompleto",
+    "cardNumberInvalid": "El número de tarjeta no es válido",
+    "cardNumberIncomplete": "El número de tarjeta está incompleto",
     "cardExpiryInvalid": "La fecha de caducidad no es válida",
     "cardExpiryIncomplete": "La caducidad de la tarjeta está incompleta",
     "cardCVCIncomplete": "CVC incompleta",
@@ -33,11 +33,11 @@
     "lastNameRequired": "Apellido obligatorio",
     "phoneNumberRequired": "Número de teléfono obligatorio",
     "phoneNumberInvalid": "El número de teléfono no es válido. Debería tener el formato de España",
-    "postalCodeRequired": "Código postal requerido",
-    "postalCodeInvalid": "Código postal no válido",
-    "cityRequired": "Ciudad requerida",
-    "streetRequired": "Calle requerida",
-    "streetNumberRequired": "Número de calle requerido"
+    "postalCodeRequired": "Código postal es requerido",
+    "postalCodeInvalid": "Código postal no es válido",
+    "cityRequired": "Ciudad es requerida",
+    "streetRequired": "Calle es requerida",
+    "streetNumberRequired": "Número de calle es requerido"
   },
   "texts": {
     "useSearchAddress": "Utilice la búsqueda para simplificar la entrada de su dirección"

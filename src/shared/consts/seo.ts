@@ -42,8 +42,8 @@ export const ES_MAIN_METADATA: Metadata = {
   alternates: {
     canonical: String(config?.urls.site),
     languages: {
-      es: `${config?.urls.site}/es`,
-      en: `${config?.urls.site}/en`,
+      es: `${config?.urls.site}es`,
+      en: `${config?.urls.site}en`,
     },
   },
   keywords: [
@@ -140,8 +140,8 @@ export const EN_MAIN_METADATA: Metadata = {
   alternates: {
     canonical: String(config?.urls.site),
     languages: {
-      es: `${config?.urls.site}/es`,
-      en: `${config?.urls.site}/en`,
+      es: `${config?.urls.site}es`,
+      en: `${config?.urls.site}en`,
     },
   },
   keywords: [
@@ -182,8 +182,8 @@ export const EN_MAIN_METADATA: Metadata = {
   ],
   icons: ICONS,
   robots: {
-    index: false,
-    follow: false,
+    index: true,
+    follow: true,
     nosnippet: false,
     notranslate: false,
     noimageindex: false,
@@ -192,8 +192,8 @@ export const EN_MAIN_METADATA: Metadata = {
     'max-image-preview': 'standard',
     'max-video-preview': -1,
     googleBot: {
-      index: false,
-      follow: false,
+      index: true,
+      follow: true,
       nosnippet: false,
       notranslate: false,
       noimageindex: false,

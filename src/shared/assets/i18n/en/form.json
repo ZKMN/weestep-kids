@@ -4,8 +4,8 @@
     "email": "Email",
     "message": "Message",
     "sortBy": "Sort By",
-    "creditCardNumber": "Credit Card Number",
-    "expiredDate": "Expired Dater",
+    "cardNumber": "Card Number",
+    "expiredDate": "Expired Date",
     "cvc": "CVC",
     "firstName": "First Name",
     "lastName": "Last Name",
@@ -22,8 +22,8 @@
     "emailInvalid": "Email is invalid",
     "emailRequired": "Email is required",
     "messageRequired": "Message is required",
-    "cardNumberInvalid": "Credit card number is invalid",
-    "cardNumberIncomplete": "Credit card number is incomplete",
+    "cardNumberInvalid": "Card number is invalid",
+    "cardNumberIncomplete": "Card number is incomplete",
     "cardExpiryInvalid": "Expiration date is invalid",
     "cardExpiryIncomplete": "Card expiry is incomplete",
     "cardCVCIncomplete": "CVC is incomplete",
@@ -33,11 +33,11 @@
     "lastNameRequired": "Last name is required",
     "phoneNumberRequired": "Phone number is required",
     "phoneNumberInvalid": "Phone number is invalid! Should be ES format",
-    "postalCodeRequired": "Postal code required",
-    "postalCodeInvalid": "Postal code invalid",
-    "cityRequired": "City required",
-    "streetRequired": "Street required",
-    "streetNumberRequired": "Street number required"
+    "postalCodeRequired": "Postal code is required",
+    "postalCodeInvalid": "Postal code is invalid",
+    "cityRequired": "City is required",
+    "streetRequired": "Street is required",
+    "streetNumberRequired": "Street is number required"
   },
   "texts": {
     "useSearchAddress": "Use the search to simplify your address entry"

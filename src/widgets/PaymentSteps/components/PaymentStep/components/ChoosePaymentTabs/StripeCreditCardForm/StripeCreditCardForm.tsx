@@ -34,7 +34,7 @@ export const StripeCreditCardForm = ({ amount }: { amount: string; }) => {
             required
             fullWidth
             name="cardNumber"
-            label={translate('labels.creditCardNumber')}
+            label={translate('labels.cardNumber')}
             variant="outlined"
             error={!!cardNumberError}
             helperText={cardNumberError && translate(cardNumberError)}
