@@ -39,10 +39,10 @@ const RootLayout = ({ children, params: { lng } }: React.PropsWithChildren<{ par
         type="Zapatería infantil"
         slogan="Weestep, ser más grande!"
         logo="https://img.ankorstore.com/brands/rounded/16969-47df8e2d48b214.jpg?auto=compress&fm=pjpg&h=158&dpr=2"
-        aggregateRating={{
-          ratingValue: '5',
-          ratingCount: '600',
-        }}
+        // aggregateRating={{
+        //   ratingValue: '5',
+        //   ratingCount: '600',
+        // }}
       />
 
       <LocalBusinessJsonLd
@@ -86,10 +86,10 @@ const RootLayout = ({ children, params: { lng } }: React.PropsWithChildren<{ par
             validFrom: '2024-02-01',
           },
         ]}
-        rating={{
-          ratingValue: '5',
-          ratingCount: '600',
-        }}
+        // rating={{
+        //   ratingValue: '5',
+        //   ratingCount: '600',
+        // }}
         makesOffer={[
           {
             priceSpecification: {

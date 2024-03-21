@@ -75,10 +75,10 @@ const ContactsPage = () => (
           validFrom: '2024-02-01',
         },
       ]}
-      rating={{
-        ratingValue: '5',
-        ratingCount: '600',
-      }}
+      // rating={{
+      //   ratingValue: '5',
+      //   ratingCount: '600',
+      // }}
       makesOffer={[
         {
           priceSpecification: {
