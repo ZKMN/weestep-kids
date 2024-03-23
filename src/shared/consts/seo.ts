@@ -40,7 +40,7 @@ export const ES_MAIN_METADATA: Metadata = {
   category: 'Zapatos',
   applicationName: 'Weestep kids',
   alternates: {
-    canonical: String(config?.urls.site),
+    canonical: 'https://weestep.es/',
     languages: {
       es: `${config?.urls.site}es`,
       en: `${config?.urls.site}en`,
@@ -138,7 +138,7 @@ export const EN_MAIN_METADATA: Metadata = {
   category: 'Shoes',
   applicationName: 'Weestep kids',
   alternates: {
-    canonical: String(config?.urls.site),
+    canonical: 'https://weestep.es/',
     languages: {
       es: `${config?.urls.site}es`,
       en: `${config?.urls.site}en`,
