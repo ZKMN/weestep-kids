@@ -11,22 +11,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1,
     },
     {
-      url: `${config?.urls.site}/catalogue`,
+      url: `${config?.urls.site}/catalogo`,
       lastModified: new Date(),
       changeFrequency: 'yearly',
       priority: 1,
     },
     {
-      url: `${config?.urls.site}/contacts`,
+      url: `${config?.urls.site}/contactos`,
       lastModified: new Date(),
       changeFrequency: 'yearly',
       priority: 0.9,
-    },
-    {
-      url: `${config?.urls.site}/find-your-fit`,
-      lastModified: new Date(),
-      changeFrequency: 'yearly',
-      priority: 0.8,
     },
   ];
 }

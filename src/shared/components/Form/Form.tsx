@@ -53,7 +53,12 @@ export const Form = <T extends FieldValues>({
     <FormProvider {...form}>
       <Grid container spacing={2}>
         {fields.map((field) => (
-          <Grid item xs={field.xs || 12} md={field.md} key={field.name}>
+          <Grid
+            item
+            xs={field.xs || 12}
+            md={field.md}
+            key={field.name}
+          >
             <FieldByType field={field} />
           </Grid>
         ))}
@@ -65,10 +70,10 @@ export const Form = <T extends FieldValues>({
         <Grid container mt={3}>
           <LoadingIntlButton
             intl={buttonProps.intl}
-            size={buttonProps?.size || 'large'}
+            size={buttonProps.size || 'large'}
             loading={loading}
             onClick={form.handleSubmit(onSubmit)}
-            disabled={loading || !isValid || !isDirty || buttonProps?.disabled}
+            disabled={loading || !isValid || !isDirty || buttonProps.disabled}
           />
         </Grid>
       )}

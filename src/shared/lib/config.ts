@@ -17,7 +17,7 @@ export const config = {
     ...commonVars,
     urls: {
       API: '', // process.env.APP_ENV,
-      site: 'https://weestep-kids.es/',
+      site: 'https://www.weestep-kids.es/',
       imgCDN: '',
     },
   },
