@@ -23,7 +23,7 @@ export const ProductColor = ({
     component={onClick ? 'button' : undefined}
     borderColor={`border.${active ? 'black' : 'main'}`}
     borderRadius={1}
-    aria-label="choose-color"
+    aria-label="Elija color"
   >
     <Box
       key={color}

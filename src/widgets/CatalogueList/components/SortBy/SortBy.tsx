@@ -21,14 +21,15 @@ export const SortBy = () => {
 
   return (
     <FormControl fullWidth>
-      <InputLabel size="small">
+      <InputLabel id="sort-by-label" size="small">
         {translate('labels.sortBy')}
       </InputLabel>
 
       <Select
-        id="sort-by"
         size="small"
         value="newest"
+        labelId="sort-by-label"
+        aria-labelledby="sort-by-label"
         // onChange={handleChange}
         label={translate('labels.sortBy')}
       >
@@ -36,7 +37,6 @@ export const SortBy = () => {
           <MenuItem
             key={name}
             value={value}
-            aria-labelledby="sort-by"
             sx={{
               padding: '5px',
               fontSize: '14px',

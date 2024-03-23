@@ -27,7 +27,6 @@ export const Navigation = () => {
             className={styles.menuItem}
           >
             <Box
-              style={{ color }}
               onClick={handleRedirect(link)}
               component="button"
               className={styles.menuItemButton}

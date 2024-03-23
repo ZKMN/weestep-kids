@@ -11,7 +11,7 @@ export const Title = () => {
 
   return (
     <Typography
-      mb={3}
+      mb={5}
       color="primary"
       variant="h1"
       component="h1"

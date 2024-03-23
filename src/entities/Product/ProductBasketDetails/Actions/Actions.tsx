@@ -27,7 +27,7 @@ export const Actions = ({
             intl={{ label: 'edit' }}
             variant="text"
             startIcon={<Edit />}
-            aria-label="add-product"
+            aria-label="Añadir producto"
             onClick={() => {
               onEdit?.();
               handleRedirect(
@@ -53,7 +53,7 @@ export const Actions = ({
             variant="text"
             startIcon={<Delete />}
             onClick={() => removeProductFromLocalBasketAction(productId)}
-            aria-label="remove-product"
+            aria-label="Eliminar producto"
           />
         </Grid>
       </Grid>

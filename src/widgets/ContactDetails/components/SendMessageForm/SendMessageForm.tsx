@@ -13,8 +13,7 @@ export const SendMessageForm = () => (
       mb={2}
       intl={{ label: 'titles.leaveUsMsg' }}
       color="text.grey"
-      variant="h3"
-      component="h3"
+      variant="h2"
       fontSize="1.4rem"
       fontWeight={700}
       textTransform="uppercase"

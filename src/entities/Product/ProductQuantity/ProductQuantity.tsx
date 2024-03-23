@@ -28,7 +28,7 @@ export const ProductQuantity = ({
             size={isLessSm ? 'small' : 'medium'}
             onClick={onMinus}
             disabled={disableMinus}
-            aria-label="quantity-minus"
+            aria-label="Cantidad menos"
           >
             <Remove />
           </IconButton>
@@ -56,7 +56,7 @@ export const ProductQuantity = ({
             size={isLessSm ? 'small' : 'medium'}
             onClick={onPlus}
             disabled={disablePlus}
-            aria-label="quantity-add"
+            aria-label="Cantidad añadir"
           >
             <Add />
           </IconButton>

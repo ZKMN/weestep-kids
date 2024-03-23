@@ -10,6 +10,7 @@ export const PhoneNumber = () => (
         href="https://wa.me/+34611822584"
         color="text.black"
         target="_blank"
+        aria-label="Abrir chat de WhatsApp"
       >
         <WhatsApp />
       </Link>
@@ -20,6 +21,7 @@ export const PhoneNumber = () => (
         underline="hover"
         display="flex"
         alignItems="center"
+        aria-label="Llame al +34 611-82-25-84"
       >
         <PhoneIphone />
 

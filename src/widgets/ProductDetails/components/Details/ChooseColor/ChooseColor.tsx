@@ -22,8 +22,6 @@ export const ChooseColor = ({ color, colors }: { color: TColor; colors: TColor[]
             <IntlTypography
               intl={{ label: 'titles.color' }}
               color="text.grey"
-              variant="h3"
-              component="h3"
               fontSize="1.4rem"
               fontWeight={700}
             />

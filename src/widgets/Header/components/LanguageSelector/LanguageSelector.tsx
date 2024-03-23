@@ -29,11 +29,14 @@ export const LanguageSelector = () => {
 
   return (
     <Grid item>
-      <FormControl fullWidth>
+      <FormControl id="select-language" fullWidth>
         <Select
           size="small"
           value={lng}
           onChange={handleChange}
+          aria-label="Seleccionar idioma"
+          labelId="select-language"
+          aria-labelledby="select-language"
           sx={{
             '.MuiSelect-select': {
               padding: '5px',
@@ -44,6 +47,7 @@ export const LanguageSelector = () => {
             <MenuItem
               key={lang}
               value={lang}
+              aria-label={`${lang} idioma`}
               sx={{
                 padding: '5px',
                 fontSize: '14px',
