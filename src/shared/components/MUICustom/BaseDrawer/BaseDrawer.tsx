@@ -62,6 +62,7 @@ export const BaseDrawer = ({
                     <IntlTypography
                       ml={2}
                       variant="h6"
+                      component="h6"
                       fontWeight={700}
                       fontSize={isLessSm ? 20 : 28}
                       intl={titleIntl}

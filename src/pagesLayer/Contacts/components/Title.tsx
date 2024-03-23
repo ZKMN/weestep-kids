@@ -14,6 +14,7 @@ export const Title = () => {
       mb={3}
       color="primary"
       variant="h1"
+      component="h1"
       fontWeight={600}
       textAlign="center"
       sx={{

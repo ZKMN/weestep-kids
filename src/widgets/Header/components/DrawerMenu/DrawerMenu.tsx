@@ -37,7 +37,10 @@ export const DrawerMenu = () => {
         },
       }}
     >
-      <IconButton onClick={setTrue}>
+      <IconButton
+        onClick={setTrue}
+        aria-label="Menu"
+      >
         <Menu />
       </IconButton>
 

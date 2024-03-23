@@ -92,6 +92,7 @@ export const Details = ({ product }: any) => {
             <Grid container mb={5}>
               <Typography
                 variant="h1"
+                component="h1"
                 fontWeight={700}
                 sx={{
                   fontSize: '3rem',

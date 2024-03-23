@@ -86,6 +86,7 @@ export const BaseDialog = ({
                 <IntlTypography
                   intl={titleIntl}
                   variant="h5"
+                  component="h5"
                   fontWeight={700}
                   color="text.white"
                 />

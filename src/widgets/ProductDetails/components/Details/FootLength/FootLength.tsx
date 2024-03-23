@@ -18,6 +18,7 @@ export const FootLength = ({ sizes }: { sizes: { id: string; value: string; sant
               intl={{ label: 'titles.foot' }}
               color="text.grey"
               variant="h3"
+              component="h3"
               fontSize="1.4rem"
               fontWeight={700}
             />

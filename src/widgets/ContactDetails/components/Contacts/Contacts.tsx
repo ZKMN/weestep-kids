@@ -62,6 +62,7 @@ export const Contacts = () => (
         variant="h4"
         fontSize="1rem"
         fontWeight={700}
+        component="h4"
         textTransform="uppercase"
       />
 

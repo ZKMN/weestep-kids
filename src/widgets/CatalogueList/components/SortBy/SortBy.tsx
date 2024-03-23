@@ -26,6 +26,7 @@ export const SortBy = () => {
       </InputLabel>
 
       <Select
+        id="sort-by"
         size="small"
         value="newest"
         // onChange={handleChange}
@@ -35,6 +36,7 @@ export const SortBy = () => {
           <MenuItem
             key={name}
             value={value}
+            aria-labelledby="sort-by"
             sx={{
               padding: '5px',
               fontSize: '14px',

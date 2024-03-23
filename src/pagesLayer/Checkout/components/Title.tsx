@@ -10,6 +10,7 @@ export const Title = () => (
     intl={{ label: 'titles.checkout' }}
     color="primary"
     variant="h1"
+    component="h1"
     fontWeight={600}
     textAlign="center"
     sx={{

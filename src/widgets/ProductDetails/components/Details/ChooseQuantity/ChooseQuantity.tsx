@@ -28,6 +28,7 @@ export const ChooseQuantity = ({ available }: { available: number; }) => {
               intl={{ label: 'titles.quantity' }}
               color="text.grey"
               variant="h3"
+              component="h3"
               fontSize="1.4rem"
               fontWeight={700}
             />

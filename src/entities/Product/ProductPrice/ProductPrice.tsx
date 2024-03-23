@@ -23,12 +23,12 @@ export const ProductPrice = ({
 
     {!!discount && (
       <Typography
+        sx={{ textDecoration: 'line-through' }}
         position="absolute"
         top={-15}
         right={0}
-        fontSize={large ? 18 : 14}
-        sx={{ textDecoration: 'line-through' }}
         color="text.grey"
+        fontSize={large ? 18 : 14}
       >
         {getCurrency(discount)}
       </Typography>

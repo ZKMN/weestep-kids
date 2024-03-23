@@ -22,6 +22,7 @@ export const ChooseSize = ({ sizes }: { sizes: { id: string; value: string; sant
               intl={{ label: 'titles.size' }}
               color="text.grey"
               variant="h3"
+              component="h3"
               fontSize="1.4rem"
               fontWeight={700}
             />

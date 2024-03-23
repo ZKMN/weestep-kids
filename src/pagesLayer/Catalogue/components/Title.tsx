@@ -13,6 +13,7 @@ export const Title = () => {
     <Typography
       color="primary"
       variant="h1"
+      component="h1"
       fontWeight={600}
       sx={{
         fontSize: '4rem',
