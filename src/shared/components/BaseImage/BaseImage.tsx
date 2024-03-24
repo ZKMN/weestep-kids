@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import { Box } from '@mui/material';
 import Image, { ImageLoaderProps, ImageProps } from 'next/image';
 
 import { getBase64 } from '@/shared/lib/helpers';
@@ -53,7 +54,6 @@ export const BaseImage = ({
         loader={imageLoader}
         onClick={onClick}
         priority={priority}
-        className={className}
         style={{
           objectFit: objectFit || 'cover',
           cursor: pointer ? 'pointer' : '',
@@ -64,8 +64,32 @@ export const BaseImage = ({
     );
   }
 
+  if (className) {
+    return (
+      <Box className={className}>
+        <Image
+          width={0}
+          height={0}
+          alt={alt}
+          src={src}
+          onClick={onClick}
+          style={{
+            objectFit: 'contain',
+            cursor: pointer ? 'pointer' : '',
+            width: '100%',
+            height: 'auto',
+          }}
+        />
+      </Box>
+    );
+  }
+
   return (
-    <div style={{ position: 'relative', width, height }}>
+    <Box
+      width={width}
+      height={height}
+      position="relative"
+    >
       <Image
         fill
         src={src}
@@ -75,10 +99,9 @@ export const BaseImage = ({
         loader={imageLoader}
         onClick={onClick}
         priority={priority}
-        className={className}
         placeholder="blur"
         blurDataURL={`data:image/svg+xml;base64,${getBase64(shimmer(width, height))}`}
       />
-    </div>
+    </Box>
   );
 };

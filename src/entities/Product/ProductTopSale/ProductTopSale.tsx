@@ -20,7 +20,7 @@ export const ProductTopSale = ({
   return (
     <Chip
       size={size}
-      label={translate('texts.topSale')}
+      label={translate('labels.topSale')}
       color="error"
       icon={<Whatshot />}
     />

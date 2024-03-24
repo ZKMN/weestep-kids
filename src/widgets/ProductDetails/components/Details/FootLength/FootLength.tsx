@@ -26,7 +26,7 @@ export const FootLength = ({ sizes }: { sizes: { id: string; value: string; sant
             <IntlTypography
               fontSize="1.4rem"
               fontWeight={700}
-              intl={{ label: 'texts.sm', values: { value: santimeters } }}
+              intl={{ label: 'labels.sm', values: { value: santimeters } }}
             />
           </Grid>
         </Grid>

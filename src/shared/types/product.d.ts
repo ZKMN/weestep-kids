@@ -22,7 +22,7 @@ interface IProductListItem {
 
 interface IProductDetails extends Omit<IProductListItem, 'img'> {
   images: string[]; // Array of urls
-  forGender: 'boy' | 'girl'; // or we can split in in boolean props forBoys: true; forGirls: true;
+  gender: 'boy' | 'girl'; // or we can split in in boolean props boys: true; girls: true;
   available: number;
   color: {
     id: string | number;

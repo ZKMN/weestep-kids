@@ -3,19 +3,15 @@ import { Links } from '@/shared/types';
 export const getMenuItems = [{
   label: 'catalogue',
   link: Links.CATALOGUE,
-  color: '#115e67',
 }, {
-  label: 'forBoys',
+  label: 'boys',
   link: `${Links.CATALOGUE}/?género=niños`,
-  color: '#d9b89a',
 }, {
-  label: 'forGirls',
+  label: 'girls',
   link: `${Links.CATALOGUE}/?género=niñas`,
-  color: '#9d2b2e',
 }, {
   label: 'contacts',
   link: Links.CONTACTS,
-  color: '#ff7c2a',
 },
 // {
 //   label: 'findYorFit',

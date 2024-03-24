@@ -1,19 +1,6 @@
 @import 'src/shared/styles/colors';
 @import 'src/shared/styles/mixins';
 
-.menu {
-  margin-top: 20px;
-  padding-left: 20px;
-
-  @include md {
-    display: none;
-  }
-
-  @include lg {
-    margin-top: 10px;
-  }
-}
-
 .menuUl {
   gap: 40px;
   display: inline-flex;
@@ -27,7 +14,8 @@
 .menuItemButton {
   color: $secondary-main;
   position: relative;
-  font-size: 20px;
+  font-size: 18px;
+  font-weight: 700;
   text-decoration: none;
   cursor: pointer;
   border: none;
@@ -46,7 +34,7 @@
 
 .activeMenuItem {
   position: absolute;
-  bottom: -13px;
+  bottom: -10px;
   left: 50%;
   transform: translateX(-50%);
   width: 5px;

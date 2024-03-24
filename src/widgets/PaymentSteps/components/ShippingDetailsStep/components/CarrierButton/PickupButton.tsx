@@ -33,7 +33,7 @@ export const PickupButton = ({ carrier }: { carrier: IPaymentStore['carrier']; }
         />
 
         <IntlTypography
-          intl={{ label: 'texts.inAlicante' }}
+          intl={{ label: 'labels.inAlicante' }}
           fontSize="0.8rem"
           textAlign="left"
         />

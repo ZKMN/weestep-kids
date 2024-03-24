@@ -1,6 +1,7 @@
 import React from 'react';
 import { Box } from '@mui/material';
 
+import { theme } from '@/shared/assets';
 import {
   useClickRedirect,
   useClientTranslation,
@@ -18,9 +19,9 @@ export const Navigation = () => {
   const [translate] = useClientTranslation('common', { keyPrefix: 'menu' });
 
   return (
-    <Box component="menu" className={styles.menu}>
+    <Box component="menu">
       <Box component="ul" className={styles.menuUl}>
-        {getMenuItems.map(({ label, link, color }, index) => (
+        {getMenuItems.map(({ label, link }, index) => (
           <Box
             key={label}
             component="li"
@@ -30,12 +31,13 @@ export const Navigation = () => {
               onClick={handleRedirect(link)}
               component="button"
               className={styles.menuItemButton}
+              fontFamily={theme.typography.fontFamily}
             >
               {translate(label)}
 
               {(pathname.includes(link) || (!pathname && index === 0)) && (
                 <Box
-                  style={{ background: color }}
+                  bgcolor="background.primary"
                   className={styles.activeMenuItem}
                 />
               )}

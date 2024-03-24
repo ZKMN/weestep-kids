@@ -1,10 +1,12 @@
 {
   "texts": {
-    "topSale": "Venta Superior",
     "headerUnderLogo": "Tanto para niños como para adultos. Aun mejor.",
     "inStock": "en stock ({{ count }} disponible)",
     "paymentInfo": "El pago se realiza mediante Stripe. Centro de Privacidad: ",
-    "confirmDetailsOnMail": "Recibirá los detalles de la confirmación por correo electrónico!",
+    "confirmDetailsOnMail": "Recibirá los detalles de la confirmación por correo electrónico!"
+  },
+  "labels": {
+    "topSale": "Venta Superior",
     "sm": "{{ value }} (cm)",
     "taxIncluded": "IVA incluido",
     "inAlicante": "en Alicante"

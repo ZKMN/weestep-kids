@@ -4,8 +4,6 @@ import {
   AppBar,
   Box,
   Grid,
-  Theme,
-  useMediaQuery,
 } from '@mui/material';
 
 import { breakpoints } from '@/shared/assets';
@@ -26,46 +24,46 @@ import styles from './Header.module.scss';
 export const Header = () => {
   const [handleRedirect] = useClickRedirect();
 
-  const isLessLg = useMediaQuery<Theme>((theme) => theme.breakpoints.down('lg'), { defaultMatches: true });
-
   return (
     <>
       <Box className={styles.headerStub} />
 
       <AppBar
-        color="default"
+        color="inherit"
         position="fixed"
         component="header"
         elevation={1}
         className={styles.header}
       >
         <BaseContainer>
-          <Box
+          <Grid
+            container
             height="100%"
-            display="flex"
-            alignItems="center"
             component="section"
+            flexDirection="column"
           >
             <Grid
               container
+              flex={1}
+              alignItems="center"
               justifyContent="space-between"
             >
-              <Grid item>
+              <Grid item position="relative">
                 <BaseImage
                   pointer
-                  priority
-                  src={isLessLg ? '/images/logo-short.svg' : '/images/logo.svg'}
+                  src="/images/logo-short.svg"
                   alt="Weestep Kids"
-                  width={isLessLg ? 150 : 425}
-                  height={40}
                   onClick={handleRedirect(Links.CATALOGUE)}
-                  objectFit="contain"
+                  className={styles.logo}
                 />
 
                 <IntlTypography
                   intl={{ label: 'texts.headerUnderLogo' }}
                   fontSize="1rem"
                   sx={{
+                    position: 'absolute',
+                    left: 10,
+                    bottom: -10,
                     [breakpoints.down('md')]: {
                       display: 'none',
                     },
@@ -113,10 +111,23 @@ export const Header = () => {
                   </Grid>
                 </Grid>
 
-                <Navigation />
               </Grid>
             </Grid>
-          </Box>
+
+            <Grid
+              container
+              mt={1}
+              justifyContent="center"
+              sx={{
+                pb: '15px',
+                [breakpoints.down('md')]: {
+                  display: 'none',
+                },
+              }}
+            >
+              <Navigation />
+            </Grid>
+          </Grid>
         </BaseContainer>
       </AppBar>
     </>

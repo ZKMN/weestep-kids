@@ -5,7 +5,7 @@ import { Container, ContainerProps } from '@mui/material';
 
 import { breakpoints } from '@/shared/assets';
 
-type BaseContainerProps = Omit<ContainerProps, 'sx' | 'maxWidth'> & { pt?: number; maxWidth?: number; };
+type BaseContainerProps = Omit<ContainerProps, 'maxWidth'> & { pt?: number; maxWidth?: number; };
 
 export const BaseContainer = ({
   pt,

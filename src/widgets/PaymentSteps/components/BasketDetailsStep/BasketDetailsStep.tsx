@@ -110,4 +110,4 @@ const BasketDetailsStep = () => {
   );
 };
 
-export default dynamic(() => Promise.resolve(BasketDetailsStep), { ssr: false });
+export default dynamic(() => Promise.resolve(BasketDetailsStep));

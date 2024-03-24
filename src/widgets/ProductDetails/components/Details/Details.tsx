@@ -46,13 +46,17 @@ export const Details = ({ product }: any) => {
         position="relative"
         component="section"
         sx={{
-          mb: 0,
           [breakpoints.down('md')]: {
             mb: 3,
           },
         }}
       >
-        <Box position="absolute" right={0} top={10} zIndex={2}>
+        <Box
+          position="absolute"
+          top={10}
+          right={0}
+          zIndex={2}
+        >
           <ProductTopSale
             size="medium"
             topSales={topSales}
@@ -69,9 +73,8 @@ export const Details = ({ product }: any) => {
         lg={5}
         component="section"
         sx={{
-          ml: 8,
-          [breakpoints.down('md')]: {
-            ml: 0,
+          [breakpoints.up('md')]: {
+            ml: 8,
           },
         }}
       >
@@ -92,7 +95,6 @@ export const Details = ({ product }: any) => {
             <Grid container mb={5}>
               <Typography
                 variant="h1"
-                component="h1"
                 fontWeight={700}
                 sx={{
                   fontSize: '3rem',
@@ -128,7 +130,7 @@ export const Details = ({ product }: any) => {
                 alignItems="end"
               >
                 <IntlTypography
-                  intl={{ label: 'texts.taxIncluded' }}
+                  intl={{ label: 'labels.taxIncluded' }}
                   color="text.grey"
                 />
               </Grid>

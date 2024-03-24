@@ -1,10 +1,12 @@
 {
   "texts": {
-    "topSale": "Top Sale",
     "headerUnderLogo": "For children as for adults. even better.",
     "inStock": "in stock ({{ count }} available)",
     "paymentInfo": "Payment is made using Stripe. Privacy Center: ",
-    "confirmDetailsOnMail": "You will receive confiramtion details on email!",
+    "confirmDetailsOnMail": "You will receive confiramtion details on email!"
+  },
+  "labels": {
+    "topSale": "Top Sale",
     "sm": "{{ value }} (sm)",
     "taxIncluded": "Tax included",
     "inAlicante": "in Alicante"
