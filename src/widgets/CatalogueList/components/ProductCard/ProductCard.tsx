@@ -12,22 +12,21 @@ import { ProductColor, ProductPrice, ProductTopSale } from '@/entities/Product';
 import { BaseImage, IntlTypography } from '@/shared/components';
 import { useClickRedirect } from '@/shared/lib/hooks';
 import { Links } from '@/shared/types';
+import { IProductShort } from '@/shared/types/product';
 
-export const ProductCard = ({ product }: any) => {
+export const ProductCard = ({ product }: { product: IProductShort; }) => {
   const {
     img,
-    name,
+    title,
     price,
-    type,
-    discount,
-    topSales,
+    sizes,
+    shoesType,
     productId,
+    colorsAvailable,
+    discount_1c: discount,
   } = product;
 
   const [handleRedirect] = useClickRedirect();
-
-  const sizes = product.sizes as { id: string; value: string; }[];
-  const colorsAvailable = product.colorsAvailable as { id: string; value: string; }[];
 
   return (
     <Box
@@ -37,7 +36,7 @@ export const ProductCard = ({ product }: any) => {
     >
       <Card
         component="button"
-        onClick={handleRedirect(`${Links.CATALOGUE}/${type}/${productId}`)}
+        onClick={handleRedirect(`${Links.CATALOGUE}/${shoesType}/${productId}`)}
         elevation={1}
         sx={{
           width: '100%',
@@ -56,30 +55,25 @@ export const ProductCard = ({ product }: any) => {
                   discount={discount}
                 />
 
-                <ProductTopSale topSales={topSales} />
+                <ProductTopSale topSales={false} />
               </Grid>
 
               <Grid container mb={2}>
                 <BaseImage
+                  priority
                   fullWidth
                   src={img}
-                  alt={name}
+                  alt={title}
                 />
               </Grid>
 
-              <Grid
-                container
+              <Typography
                 mb={1}
-                justifyContent="space-between"
+                fontWeight={700}
+                textAlign="left"
               >
-                <Typography fontWeight={700}>
-                  {name}
-                </Typography>
-
-                <Typography color="text.grey">
-                  {productId}
-                </Typography>
-              </Grid>
+                {title}
+              </Typography>
 
               <Grid container>
                 <Grid item xs={6}>
@@ -112,12 +106,12 @@ export const ProductCard = ({ product }: any) => {
                   />
 
                   <Grid container spacing={1} justifyContent="flex-end">
-                    {colorsAvailable.map(({ id, value }) => (
+                    {colorsAvailable.map(({ id, color }) => (
                       <Grid item key={id}>
                         <ProductColor
                           noBorders
                           key={id}
-                          color={value}
+                          color={color}
                         />
                       </Grid>
                     ))}

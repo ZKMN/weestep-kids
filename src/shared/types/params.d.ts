@@ -9,3 +9,8 @@ export interface IRoutePathParams {
   [key: string]: string;
   lng: TLanguages;
 }
+
+export interface INextPageParams<S = undefined> {
+  params: IRoutePathParams;
+  searchParams?: S;
+}

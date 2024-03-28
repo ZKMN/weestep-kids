@@ -17,7 +17,6 @@ export const Loading = ({ children, loading }: React.PropsWithChildren<{ loading
             height: '100%',
             position: 'absolute',
             display: 'flex',
-            alignItems: 'center',
             justifyContent: 'center',
             backdropFilter: 'blur(10px)',
             zIndex: 2,

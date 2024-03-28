@@ -21,14 +21,14 @@ export const Navigation = () => {
   return (
     <Box component="menu">
       <Box component="ul" className={styles.menuUl}>
-        {getMenuItems.map(({ label, link }, index) => (
+        {getMenuItems.map(({ label, link, query }, index) => (
           <Box
             key={label}
             component="li"
             className={styles.menuItem}
           >
             <Box
-              onClick={handleRedirect(link)}
+              onClick={handleRedirect(`${link}${query || ''}`)}
               component="button"
               className={styles.menuItemButton}
               fontFamily={theme.typography.fontFamily}

@@ -5,7 +5,7 @@ const commonVars = {
     stripePublish: process.env.NEXT_PUBLIC_STRIPE_PUBLISH_KEY,
   },
   urls: {
-    API: '', // process.env.APP_ENV,
+    API: 'https://api-kids.weestep.es', // process.env.APP_ENV,
     site: 'https://weestep-kids.vercel.app',
     imgCDN: '',
   },
@@ -16,8 +16,8 @@ export const config = {
   production: {
     ...commonVars,
     urls: {
-      API: '', // process.env.APP_ENV,
-      site: 'https://www.weestep-kids.es/',
+      API: 'https://api-kids.weestep.es', // process.env.APP_ENV,
+      site: 'https://www.weestep-kids.es',
       imgCDN: '',
     },
   },

@@ -42,8 +42,8 @@ export const ES_MAIN_METADATA: Metadata = {
   alternates: {
     canonical: 'https://weestep.es/',
     languages: {
-      es: `${config?.urls.site}es`,
-      en: `${config?.urls.site}en`,
+      es: `${config?.urls.site}/es`,
+      en: `${config?.urls.site}/en`,
     },
   },
   keywords: [
@@ -140,8 +140,8 @@ export const EN_MAIN_METADATA: Metadata = {
   alternates: {
     canonical: 'https://weestep.es/',
     languages: {
-      es: `${config?.urls.site}es`,
-      en: `${config?.urls.site}en`,
+      es: `${config?.urls.site}/es`,
+      en: `${config?.urls.site}/en`,
     },
   },
   keywords: [

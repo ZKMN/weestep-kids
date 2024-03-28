@@ -4,8 +4,8 @@ const mapsGoogleapis = 'https://maps.googleapis.com';
 const fontsGoogleapis = 'https://fonts.googleapis.com';
 const mapsGStatic = 'https://maps.gstatic.com';
 const fontsGStatic = ' https://fonts.gstatic.com';
-const appFTP = 'https://weestep-kids.es/';
-const appAPI = '';
+const appFTP = 'https://api-kids.weestep.es';
+const appAPI = 'https://api-kids.weestep.es';
 
 const cspHeader = `
   default-src 'self';

@@ -1,5 +1,9 @@
 // import { TLanguages } from '@/shared/types';
 
+import { apiGet } from '@/shared/api/instance';
+import { TLanguages } from '@/shared/types';
+import { IProductShort } from '@/shared/types/product';
+
 export const dynamicParams = true;
 
 // export async function generateMetadata({
@@ -74,6 +78,26 @@ export const dynamicParams = true;
 // <meta property="product:category" content="0" />
 // <meta property="product:sale_price:amount" content="15" />
 // <meta property="product:sale_price:currency" content="EUR" /> */}
+
+const getProducts = async (lng: TLanguages) => {
+  try {
+    const { data } = await apiGet<{ items: IProductShort[]; total: number; }>({
+      url: `/${lng}/v1/products/list?page=1&paginate_by=182`,
+    });
+
+    return data.items;
+  } catch (error) {
+    console.warn(error);
+
+    return [];
+  }
+};
+
+export async function generateStaticParams({ params: { lng } }: { params: { lng: TLanguages; }; }) {
+  const products = await getProducts(lng);
+
+  return products.map(({ productId }) => productId) || [];
+}
 
 const Layout = ({ children }: React.PropsWithChildren) => children;
 

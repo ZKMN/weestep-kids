@@ -1,15 +1,22 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 
 import { CatalogueList } from '@/widgets/CatalogueList';
 
 import { BaseContainer } from '@/shared/components';
+import { IProductShort } from '@/shared/types/product';
 
-import { Title } from './components';
+import { Pagination, Title } from './components';
 
-export const Catalogue = () => (
+export const Catalogue = ({ total, products }: { total: number; products: IProductShort[]; }) => (
   <BaseContainer pt={2}>
     <Title />
 
-    <CatalogueList />
+    <Suspense>
+      <CatalogueList products={products} />
+    </Suspense>
+
+    <Suspense>
+      <Pagination total={total} />
+    </Suspense>
   </BaseContainer>
 );

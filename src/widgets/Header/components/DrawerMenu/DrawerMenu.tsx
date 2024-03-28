@@ -69,13 +69,13 @@ export const DrawerMenu = () => {
         </Grid>
 
         <MenuList>
-          {getMenuItems.map(({ label, link }, index) => (
+          {getMenuItems.map(({ label, link, query }, index) => (
             <MenuItem
               divider
               key={label}
               onClick={() => {
                 setFalse();
-                handlePush(link);
+                handlePush(`${link}${query || ''}`);
               }}
             >
               <Typography fontSize="1rem">

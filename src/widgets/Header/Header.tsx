@@ -44,6 +44,7 @@ export const Header = () => {
           >
             <Grid
               container
+              pt={1}
               flex={1}
               alignItems="center"
               justifyContent="space-between"

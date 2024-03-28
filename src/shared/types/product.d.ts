@@ -1,26 +1,47 @@
-interface IProductListItem {
+export interface IProductShort {
   img: string;
-  name: string;
-  price: number;
-  discount: number; // percent or amount
-  isNew: boolean;
-  isTopSale: boolean;
-  shoesType: 'niños-zapatos' | 'sandalias' | 'etc..'; // static value on spain
+  title: string;
   productId: string;
+  'price_initial_1c': number;
+  'discount_1c': 0;
+  price: number;
+  currency: 'EUR';
+  shoesType: string;
   colorsAvailable: {
-    id: string | number;
+    id: number;
     image: string;
-    color: string; // hex like #FFFFFF
-    productId?: string;
-  }[]; // Arrays of colors
+    color: string;
+    productId: string;
+  }[];
   sizes: {
-    id: string | number;
-    value: number;
+    id: number;
+    value: string;
     santimeters?: number;
-  }[]; // Array of sizes
+  }[];
 }
+// export interface IProductShort {
+//   img: string;
+//   name: string;
+//   price: number;
+//   discount: number; // percent or amount
+//   isNew: boolean;
+//   isTopSale: boolean;
+//   shoesType: 'niños-zapatos' | 'sandalias' | 'etc..'; // static value on spain
+//   productId: string;
+//   colorsAvailable: {
+//     id: string | number;
+//     image: string;
+//     color: string; // hex like #FFFFFF
+//     productId?: string;
+//   }[]; // Arrays of colors
+//   sizes: {
+//     id: string | number;
+//     value: number;
+//     santimeters?: number;
+//   }[]; // Array of sizes
+// }
 
-interface IProductDetails extends Omit<IProductListItem, 'img'> {
+interface IProductShortDetails extends Omit<IProductShort, 'img'> {
   images: string[]; // Array of urls
   gender: 'boy' | 'girl'; // or we can split in in boolean props boys: true; girls: true;
   available: number;

@@ -1,3 +1,4 @@
+export * from './api.d';
 export * from './store';
 export * from './form.d';
 export * from './props.d';

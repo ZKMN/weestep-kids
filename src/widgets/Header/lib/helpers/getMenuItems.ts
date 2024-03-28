@@ -3,12 +3,15 @@ import { Links } from '@/shared/types';
 export const getMenuItems = [{
   label: 'catalogue',
   link: Links.CATALOGUE,
+  query: '/?pagina=1',
 }, {
   label: 'boys',
-  link: `${Links.CATALOGUE}/?género=niños`,
+  link: Links.CATALOGUE,
+  query: '/?genero=niños&pagina=1',
 }, {
   label: 'girls',
-  link: `${Links.CATALOGUE}/?género=niñas`,
+  link: Links.CATALOGUE,
+  query: '/?genero=niñas&pagina=1',
 }, {
   label: 'contacts',
   link: Links.CONTACTS,

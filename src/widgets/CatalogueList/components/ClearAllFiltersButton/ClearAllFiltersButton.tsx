@@ -11,12 +11,14 @@ export const ClearAllFiltersButton = () => {
 
   const [handlePush] = useClickRedirect();
 
+  const page = searchParams.get('pagina');
+
   return (
     <Grid item>
       <IntlButton
         intl={{ label: 'clearFilters' }}
         color="secondary"
-        onClick={handlePush(Links.CATALOGUE)}
+        onClick={handlePush(`${Links.CATALOGUE}?pagina=${page}`)}
         disabled={!searchParams.toString()}
       />
     </Grid>

@@ -23,7 +23,7 @@
     "@vercel/speed-insights": "^1.0.10",
     "accept-language": "^3.0.18",
     "ahooks": "^3.7.8",
-    "axios": "^1.6.7",
+    "axios": "^1.6.8",
     "clsx": "^2.1.0",
     "dayjs": "^1.11.10",
     "i18next": "^23.7.18",
@@ -44,6 +44,7 @@
     "sass": "^1.69.5",
     "slick-carousel": "^1.8.1",
     "stripe": "^14.18.0",
+    "swr": "^2.2.5",
     "zustand": "^4.4.7"
   },
   "devDependencies": {

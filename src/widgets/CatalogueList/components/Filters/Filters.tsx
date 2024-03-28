@@ -1,6 +1,6 @@
 'use client';
 
-import React, { Suspense } from 'react';
+import React from 'react';
 import {
   Checkbox,
   FormControlLabel,
@@ -9,7 +9,7 @@ import {
 } from '@mui/material';
 import { useSearchParams } from 'next/navigation';
 
-import { BaseCollapse, Loading } from '@/shared/components';
+import { BaseCollapse } from '@/shared/components';
 
 import { useChangeFilter } from '../../lib/hooks';
 
@@ -63,7 +63,7 @@ const filters = [{
   }],
 }];
 
-const FiltersComponent = () => {
+export const Filters = () => {
   const searchParams = useSearchParams();
 
   const handleChangeCategory = useChangeFilter();
@@ -100,15 +100,3 @@ const FiltersComponent = () => {
     </Grid>
   ));
 };
-
-export const Filters = () => (
-  <Suspense
-    fallback={(
-      <div style={{ height: 200, width: '100%' }}>
-        <Loading loading />
-      </div>
-    )}
-  >
-    <FiltersComponent />
-  </Suspense>
-);
