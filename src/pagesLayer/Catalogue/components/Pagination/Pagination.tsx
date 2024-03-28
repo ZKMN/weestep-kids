@@ -8,13 +8,20 @@ import { useMediaSizes, useURLQueryState } from '@/shared/lib/hooks';
 
 export const Pagination = ({ total }: { total: number; }) => {
   const { isLessSm } = useMediaSizes();
-  const [handlePushQueryURL, queryParams] = useURLQueryState();
-  const p = queryParams.get('pagina');
+  const [page, setPage] = useState(1);
 
-  const [page, setPage] = useState(() => (p ? Number(p) : 1));
+  const [handlePushQueryURL, queryParams] = useURLQueryState();
+
+  const queryPage = queryParams.get('pagina');
 
   useEffect(() => {
-    if (!p) {
+    if (queryPage) {
+      setPage(Number(queryPage));
+    }
+  }, [queryPage]);
+
+  useEffect(() => {
+    if (!queryPage) {
       queryParams.set('pagina', '1');
     }
 
@@ -30,7 +37,6 @@ export const Pagination = ({ total }: { total: number; }) => {
       shape="rounded"
       count={Math.trunc(Number(total) / PRODUCTS_COUNT)}
       onChange={(_, p) => {
-        setPage(p);
         queryParams.set('pagina', String(p));
 
         handlePushQueryURL();
