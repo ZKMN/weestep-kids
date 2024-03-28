@@ -6,6 +6,7 @@ import { useSearchParams } from 'next/navigation';
 
 import { useGetSWR } from '@/shared/api/hooks';
 import { breakpoints } from '@/shared/assets';
+import { Loading } from '@/shared/components';
 import { PRODUCTS_COUNT } from '@/shared/consts';
 import { IProductShort } from '@/shared/types/product';
 
@@ -22,7 +23,7 @@ export const CatalogueList = ({ products }: { products: IProductShort[]; }) => {
 
   const page = queryParams.get('pagina');
 
-  const { data } = useGetSWR<{ items: IProductShort[]; total: number; }>({
+  const { data, isLoading } = useGetSWR<{ items: IProductShort[]; total: number; }>({
     url: '/products/list',
     queryParams: {
       page: page || 1,
@@ -96,20 +97,22 @@ export const CatalogueList = ({ products }: { products: IProductShort[]; }) => {
         </Grid>
 
         <Grid item flex={1} component="section">
-          <Grid container spacing={2}>
-            {data?.items.map((product) => (
-              <Grid
-                item
-                key={product.productId}
-                xs={12}
-                sm={6}
-                md={4}
-                lg={3}
-              >
-                <ProductCard product={product} />
-              </Grid>
-            ))}
-          </Grid>
+          <Loading loading={isLoading}>
+            <Grid container spacing={2}>
+              {data?.items.map((product) => (
+                <Grid
+                  item
+                  key={product.productId}
+                  xs={12}
+                  sm={6}
+                  md={4}
+                  lg={3}
+                >
+                  <ProductCard product={product} />
+                </Grid>
+              ))}
+            </Grid>
+          </Loading>
         </Grid>
       </Grid>
     </Box>
