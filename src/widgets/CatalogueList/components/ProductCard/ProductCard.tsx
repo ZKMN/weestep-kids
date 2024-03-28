@@ -60,7 +60,6 @@ export const ProductCard = ({ product }: { product: IProductShort; }) => {
 
               <Grid container mb={2}>
                 <BaseImage
-                  priority
                   fullWidth
                   src={img}
                   alt={title}

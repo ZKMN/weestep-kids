@@ -31,6 +31,7 @@ export const LanguageSelector = () => {
     <Grid item>
       <FormControl id="select-language" fullWidth>
         <Select
+          name="language"
           size="small"
           value={lng}
           onChange={handleChange}

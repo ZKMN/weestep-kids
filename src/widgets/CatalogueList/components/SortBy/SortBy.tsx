@@ -26,6 +26,7 @@ export const SortBy = () => {
       </InputLabel>
 
       <Select
+        name="sortBy"
         size="small"
         value="newest"
         labelId="sort-by-label"

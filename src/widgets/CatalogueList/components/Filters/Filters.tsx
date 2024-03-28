@@ -74,6 +74,7 @@ export const Filters = () => {
         {values.map(({ name, value, count }) => (
           <Grid container key={name}>
             <FormControlLabel
+              name={name}
               label={(
                 <Grid container alignItems="center">
                   <Typography mr={1}>
